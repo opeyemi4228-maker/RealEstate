@@ -21,13 +21,6 @@ const HERO_IMAGE =
 const TYPES = ["Any type", "House", "Apartment", "Condo", "Townhouse", "Loft", "Villa", "Commercial"];
 const STATUSES = ["Any", "For Sale", "For Rent"];
 
-const STATS = [
-  { value: "1,200+", label: "Properties Listed" },
-  { value: "20+", label: "Expert Agents" },
-  { value: "12", label: "Districts Covered" },
-  { value: "98%", label: "Client Satisfaction" },
-];
-
 const Hero = () => {
   const router = useRouter();
   const [location, setLocation] = useState("");
@@ -172,20 +165,6 @@ const Hero = () => {
                 Meet Our Agents
                 <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </Link>
-            </div>
-
-            {/* Stats */}
-            <div className="mt-14 md:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-10 max-w-3xl border-t border-white/15 pt-8 opacity-0 animate-[heroReveal_900ms_cubic-bezier(0.22,1,0.36,1)_1100ms_forwards]">
-              {STATS.map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-[24px] md:text-[32px] font-extrabold text-[#FFC72C] leading-none mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-[10px] md:text-[10.5px] font-semibold tracking-[0.16em] uppercase text-white/60">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
