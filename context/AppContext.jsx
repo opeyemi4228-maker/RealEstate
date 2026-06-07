@@ -2,17 +2,22 @@
 
 import React, { createContext, useContext, useState } from "react";
 import { useRouter } from "next/navigation";
-import { productsDummyData } from "@/assets/assets";
+import { productsDummyData, agentsData, getAgentById } from "@/assets/realEstateData";
 
 const AppContext = createContext(null);
 
 export const AppContextProvider = ({ children }) => {
   const router = useRouter();
 
-  const currency = process.env.NEXT_PUBLIC_CURRENCY || "$";
+  const currency = process.env.NEXT_PUBLIC_CURRENCY || "₦";
 
   const [products] = useState(productsDummyData);
+  const [agents] = useState(agentsData);
   const [cartItems, setCartItems] = useState({});
+
+  // Format a property price, e.g. 925000 -> "$925,000"
+  const formatPrice = (amount) =>
+    `${currency}${Number(amount || 0).toLocaleString()}`;
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({
@@ -46,7 +51,10 @@ export const AppContextProvider = ({ children }) => {
   const value = {
     router,
     currency,
+    formatPrice,
     products,
+    agents,
+    getAgentById,
     cartItems,
     addToCart,
     updateCartQuantity,

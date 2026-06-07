@@ -11,38 +11,39 @@ import {
 import { FiArrowUpRight, FiMapPin, FiMail, FiPhone } from "react-icons/fi";
 
 /**
- * Footer — GCSA Consulting UK LTD
+ * Footer — Real Estate
  *
- * Content (per gcsaconsulting.co.uk):
- * - Brand: GCSA Consulting · Business Consultants
+ * Content (extracted):
+ * - Brand: Real Estate · Property Marketplace
  * - Address: 71-75 Shelton Street, Covent Garden, London WC2H 9JQ
- * - Email: info@gcsaconsulting.co.uk
- * - Tel: 123-456-7890 (placeholder from original site)
- * - Newsletter: "Stay Connected. Learn from Our Experts. Subscribe."
- * - Socials: Twitter, LinkedIn, Email (per original)
- * - Footer nav: About · Industries · Careers · Contact
- * - Copyright: © 2024 by GCSA Consulting UK LTD
+ * - Email: info@realestate.com
+ * - Tel: 123-456-7890 (placeholder)
+ * - Newsletter: "Stay Connected. Listings & Insights"
+ * - Socials: Twitter, LinkedIn, Email
+ * - Footer nav: About · Services · Contact
  *
  * Brand: navy + gold + Montserrat
  */
 
 const PRIMARY_LINKS = [
+  { label: "All Properties", href: "/all-products" },
+  { label: "Our Agents", href: "/agents" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/#services" },
-  { label: "Plans & Pricing", href: "/plans-pricing" },
   { label: "Contact", href: "/contact" },
 ];
 
 const SERVICES_LINKS = [
-  { label: "Corporate Governance", href: "/services#corporate-governance" },
-  { label: "Infrastructure Consulting", href: "/services#infrastructure-consulting" },
-  { label: "Enterprise Architecture", href: "/services#enterprise-architecture" },
-  { label: "Strategy Management", href: "/services#strategy-management" },
-  { label: "Technology Advisory", href: "/services#technology-advisory" },
+  { label: "Buy a Home", href: "/services#buy" },
+  { label: "Sell a Property", href: "/services#sell" },
+  { label: "Rent & Lettings", href: "/services#rent" },
+  { label: "Property Management", href: "/services#manage" },
+  { label: "Valuations & Advice", href: "/services#valuation" },
 ];
 
 const TRAINING_LINKS = [
-  { label: "All Programmes", href: "/training" },
+  { label: "For Sale", href: "/all-products?status=For Sale" },
+  { label: "For Rent", href: "/all-products?status=For Rent" },
+  { label: "Meet Our Agents", href: "/agents" },
 ];
 
 const LEGAL_LINKS = [
@@ -54,7 +55,7 @@ const LEGAL_LINKS = [
 const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/", Icon: FaLinkedinIn },
   { label: "X (Twitter)", href: "https://x.com/", Icon: FaXTwitter },
-  { label: "Email", href: "mailto:info@gcsaconsulting.co.uk", Icon: FaEnvelope },
+  { label: "Email", href: "mailto:info@realestate.com", Icon: FaEnvelope },
 ];
 
 const Footer = () => {
@@ -100,7 +101,7 @@ const Footer = () => {
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
-        GCSA Consulting — site footer
+        Real Estate — site footer
       </h2>
 
       {/* Ambient glow */}
@@ -143,7 +144,7 @@ const Footer = () => {
               <Link
                 href="/"
                 className="inline-flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40 rounded-sm mb-10 md:mb-14"
-                aria-label="GCSA Consulting — home"
+                aria-label="Real Estate — home"
               >
                 <svg
                   width="36"
@@ -169,15 +170,15 @@ const Footer = () => {
                     fontFamily="Montserrat, sans-serif"
                     letterSpacing="0.5"
                   >
-                    GCSA
+                    RE
                   </text>
                 </svg>
                 <div className="flex flex-col leading-none">
                   <span className="text-[16px] md:text-[17px] font-extrabold tracking-[0.04em] text-white">
-                    GCSA <span className="font-light">CONSULTING</span>
+                    Real Estate
                   </span>
                   <span className="text-[9px] font-bold tracking-[0.28em] uppercase mt-1 text-[#FFC72C]">
-                    Business Consultants
+                    Property Marketplace
                   </span>
                 </div>
               </Link>
@@ -187,21 +188,19 @@ const Footer = () => {
                   className="inline-block w-10 h-px"
                   style={{ backgroundColor: "#FFC72C" }}
                 />
-                Strategic excellence meets innovation
+                Local expertise, every step
               </p>
 
               <p className="font-light leading-[1.15] tracking-[-0.01em] text-white text-[28px] md:text-[36px] lg:text-[42px] max-w-2xl">
-                Helping organisations{" "}
+                Helping people find, sell, and manage properties with
                 <span className="italic font-normal" style={{ color: "#FFC72C" }}>
-                  adapt, grow, and thrive
-                </span>{" "}
-                across Africa, Europe, and Asia.
+                  expert local service
+                </span>.
               </p>
 
               <p className="mt-6 md:mt-8 text-[14px] md:text-[15px] leading-[1.75] text-white/65 max-w-lg">
-                Trusted partner for strategic excellence and business
-                transformation — from corporate governance and enterprise
-                architecture to performance improvement and technology advisory.
+                Trusted property marketplace with listings, valuations, and
+                agent services to support buyers, sellers, and landlords.
               </p>
             </div>
 
@@ -216,8 +215,8 @@ const Footer = () => {
               </p>
 
               <p className="text-[15px] md:text-[16px] leading-[1.7] text-white/75 mb-8 max-w-md">
-                Stay connected. Learn from our experts. Subscribe to receive
-                strategic insights, training updates, and industry briefings.
+                Be first to see new listings. Subscribe for fresh properties,
+                price drops, and local market insights — straight to your inbox.
               </p>
 
               <form onSubmit={onSubscribe} className="space-y-3">
@@ -271,12 +270,12 @@ const Footer = () => {
                 <FooterMetaLine
                   Icon={FiMapPin}
                   label="Address"
-                  value="71-75 Shelton Street, Covent Garden, London WC2H 9JQ"
+                  value="Plot 123, Adetokunbo Ademola Crescent, Wuse 2, Abuja, Nigeria"
                 />
                 <FooterContactLink
                   Icon={FiMail}
                   label="Email"
-                  value="info@gcsaconsulting.co.uk"
+                  value="info@realestate.com"
                   href="/contact"
                 />
                 <FooterContactLink
@@ -329,14 +328,14 @@ const Footer = () => {
               </ul>
             </nav>
 
-            {/* Training */}
-            <nav aria-label="Footer training" className="md:col-span-3">
+            {/* Quick links */}
+            <nav aria-label="Footer quick links" className="md:col-span-3">
               <h3 className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#FFC72C] mb-6">
                 <span
                   className="inline-block w-7 h-px"
                   style={{ backgroundColor: "#FFC72C" }}
                 />
-                Training
+                Browse
               </h3>
               <ul className="space-y-3.5">
                 {TRAINING_LINKS.map((link) => (
@@ -346,10 +345,10 @@ const Footer = () => {
                 ))}
               </ul>
               <Link
-                href="/training"
+                href="/contact"
                 className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFC72C]/[0.12] border border-[#FFC72C]/30 text-[10.5px] font-bold tracking-[0.18em] uppercase text-[#FFC72C] hover:bg-[#FFC72C] hover:text-[#0A1A36] transition-colors"
               >
-                Apply Now
+                List Your Property
                 <FiArrowUpRight className="w-3 h-3" aria-hidden="true" />
               </Link>
             </nav>
@@ -379,7 +378,7 @@ const Footer = () => {
                 ))}
               </ul>
               <p className="mt-6 text-[11.5px] leading-[1.6] text-white/50">
-                Insights from our consultants — delivered weekly.
+                New listings & market updates — delivered weekly.
               </p>
             </div>
           </div>
@@ -396,7 +395,7 @@ const Footer = () => {
           </ul>
 
           <p className="text-[11.5px] text-white/45 md:text-right">
-            © {currentYear} GCSA Consulting UK LTD.{" "}
+            © {currentYear} Real Estate.{" "}
             <span className="hidden md:inline" aria-hidden="true">
               ·{" "}
             </span>

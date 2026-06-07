@@ -1,171 +1,92 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FiArrowRight } from "react-icons/fi";
+import { useRouter } from "next/navigation";
+import { FiArrowRight, FiSearch, FiMapPin } from "react-icons/fi";
 
 /**
- * Hero — GCSA Consulting | Homepage Hero
+ * Hero — Real Estate homepage
  *
- * Content (per gcsaconsulting.co.uk):
- * - Headline: "Taking Your Business to the Next Level"
- * - Sub: "We deploy our wealth of creative ideas in helping Businesses
- *   identify, acquire and deploy key capabilities required to adapt, grow,
- *   gain competitive advantage, defend a strategic position and/or exit
- *   a Crisis situation."
- * - Reach: Africa · Europe · Asia
- * - Primary CTA: Start Now (→ /contact)
- * - Secondary CTA: Explore Services
+ * Full-bleed property image with a navy gradient, a prominent search bar
+ * (location · type · status), trust stats, and dual CTAs.
  *
- * Brand:
- * - Navy:  #0A1A36
- * - Gold:  #FFC72C
- * - Font:  Montserrat
- *
- * SEO/A11y/Perf:
- * - Single semantic <h1>
- * - next/image with priority + fetchPriority="high" (LCP element)
- * - sizes="100vw" responsive srcset
- * - Gradient overlay ensures WCAG AAA contrast
- * - prefers-reduced-motion disables animations
+ * Brand: Navy #0A1A36 · Gold #FFC72C · Montserrat
  */
 
-const SCOPE_STATEMENTS = [
-  "Strategic excellence meets innovative solutions in management consulting",
-  "Helping organisations adapt, grow, and gain a competitive advantage",
-  "From the boardroom to the global stage — Africa · Europe · Asia",
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2400&q=80";
+
+const TYPES = ["Any type", "House", "Apartment", "Condo", "Townhouse", "Loft", "Villa", "Commercial"];
+const STATUSES = ["Any", "For Sale", "For Rent"];
+
+const STATS = [
+  { value: "1,200+", label: "Properties Listed" },
+  { value: "20+", label: "Expert Agents" },
+  { value: "12", label: "Districts Covered" },
+  { value: "98%", label: "Client Satisfaction" },
 ];
 
-// Hero image — replace with your own asset in /public when available
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2400&q=85";
-
-const HERO_IMAGE_ALT =
-  "Business leaders in strategic discussion — the context in which GCSA Consulting partners with organisations to drive transformation";
-
 const Hero = () => {
-  const [statementIndex, setStatementIndex] = useState(0);
+  const router = useRouter();
+  const [location, setLocation] = useState("");
+  const [type, setType] = useState(TYPES[0]);
+  const [status, setStatus] = useState(STATUSES[0]);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReduced || SCOPE_STATEMENTS.length <= 1) return;
-
-    const id = setInterval(() => {
-      setStatementIndex((i) => (i + 1) % SCOPE_STATEMENTS.length);
-    }, 5000);
-    return () => clearInterval(id);
-  }, []);
+  const onSearch = (e) => {
+    e.preventDefault();
+    const params = new URLSearchParams();
+    if (location.trim()) params.set("q", location.trim());
+    if (type !== TYPES[0]) params.set("category", type);
+    if (status !== STATUSES[0]) params.set("status", status);
+    router.push(`/all-products${params.toString() ? `?${params}` : ""}`);
+  };
 
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative w-full min-h-[92vh] md:min-h-screen overflow-hidden bg-[#06122A]"
+      className="relative w-full min-h-[94vh] md:min-h-screen overflow-hidden bg-[#06122A]"
       style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
     >
-      {/* ── Background image ───────────────────────────────────── */}
+      {/* Background */}
       <div className="absolute inset-0">
         <Image
           src={HERO_IMAGE}
-          alt={HERO_IMAGE_ALT}
+          alt="A beautiful modern home at dusk"
           fill
           priority
           fetchPriority="high"
           sizes="100vw"
-          quality={85}
+          quality={80}
           className="object-cover object-center"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
         />
-
-        {/* Navy gradient overlay — matches flyer aesthetic */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(115deg, rgba(6,18,42,0.96) 0%, rgba(10,26,54,0.88) 35%, rgba(10,26,54,0.65) 65%, rgba(6,18,42,0.55) 100%)",
+              "linear-gradient(115deg, rgba(6,18,42,0.95) 0%, rgba(10,26,54,0.85) 38%, rgba(10,26,54,0.6) 68%, rgba(6,18,42,0.5) 100%)",
           }}
           aria-hidden="true"
         />
-
-        {/* Bottom fade for nav contrast */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to bottom, transparent 0%, rgba(6,18,42,0.5) 100%)",
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Subtle noise texture */}
-        <div
-          className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Decorative gold grid */}
-        <svg
-          className="absolute right-0 top-0 h-full w-1/2 opacity-[0.07] pointer-events-none hidden md:block"
-          viewBox="0 0 600 800"
-          fill="none"
-          aria-hidden="true"
-        >
-          <defs>
-            <pattern id="goldgrid" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#FFC72C" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="600" height="800" fill="url(#goldgrid)" />
-        </svg>
       </div>
 
-      {/* ── Content ─────────────────────────────────────────────── */}
-      <div className="relative z-10 min-h-[92vh] md:min-h-screen flex items-center">
-        <div className="w-full px-6 md:px-10 lg:px-16 xl:px-20 pt-28 md:pt-32 pb-12 md:pb-16 max-w-[1600px] mx-auto">
-          <div className="max-w-5xl">
-            {/* Scope statement / rotating tagline */}
-            <div
-              className="mb-6 md:mb-12 opacity-0 animate-[heroReveal_800ms_cubic-bezier(0.22,1,0.36,1)_200ms_forwards]"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              <div className="flex items-start gap-4 max-w-2xl">
-                <span
-                  className="shrink-0 inline-block w-10 h-px mt-3"
-                  style={{ backgroundColor: "#FFC72C" }}
-                  aria-hidden="true"
-                />
-                <p className="text-[14px] md:text-[15px] lg:text-[16px] leading-[1.55] text-white/85 font-light">
-                  {SCOPE_STATEMENTS[statementIndex]}
-                </p>
-              </div>
-            </div>
-
-            {/* Eyebrow */}
-            <p className="text-[10.5px] md:text-[11px] font-bold tracking-[0.4em] uppercase text-[#FFC72C] mb-5 opacity-0 animate-[heroReveal_800ms_cubic-bezier(0.22,1,0.36,1)_350ms_forwards]">
-              GCSA Consulting · Business Consultants
+      {/* Content */}
+      <div className="relative z-10 min-h-[94vh] md:min-h-screen flex items-center">
+        <div className="w-full px-6 md:px-10 lg:px-16 xl:px-20 pt-32 md:pt-36 pb-16 max-w-[1600px] mx-auto">
+          <div className="max-w-4xl">
+            <p className="text-[10.5px] md:text-[11px] font-bold tracking-[0.4em] uppercase text-[#FFC72C] mb-5 opacity-0 animate-[heroReveal_800ms_cubic-bezier(0.22,1,0.36,1)_200ms_forwards]">
+              <span className="inline-block w-8 h-px bg-[#FFC72C] align-middle mr-3" />
+              Find · Buy · Rent · Manage
             </p>
 
-            {/* H1 — Taking Your Business to the Next Level */}
             <h1
               id="hero-heading"
-              className="text-white font-extrabold leading-[0.98] tracking-[-0.02em] text-[42px] sm:text-[58px] md:text-[76px] lg:text-[92px] xl:text-[104px] opacity-0 animate-[heroReveal_900ms_cubic-bezier(0.22,1,0.36,1)_500ms_forwards]"
+              className="text-white font-extrabold leading-[0.98] tracking-[-0.02em] text-[44px] sm:text-[60px] md:text-[78px] lg:text-[92px] opacity-0 animate-[heroReveal_900ms_cubic-bezier(0.22,1,0.36,1)_350ms_forwards]"
             >
-              Taking Your Business
-              <br className="hidden sm:block" /> to the{" "}
-              <span
-                className="relative inline-block"
-                style={{ color: "#FFC72C" }}
-              >
-                Next Level
+              Find a place you&apos;ll{" "}
+              <span className="relative inline-block" style={{ color: "#FFC72C" }}>
+                love
                 <svg
                   className="absolute left-0 -bottom-2 md:-bottom-3 w-full h-3 md:h-4"
                   viewBox="0 0 300 16"
@@ -173,82 +94,100 @@ const Hero = () => {
                   preserveAspectRatio="none"
                   aria-hidden="true"
                 >
-                  <path
-                    d="M2 10 Q 75 2, 150 8 T 298 6"
-                    stroke="#FFC72C"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    fill="none"
-                  />
+                  <path d="M2 10 Q 75 2, 150 8 T 298 6" stroke="#FFC72C" strokeWidth="3" strokeLinecap="round" fill="none" />
                 </svg>
-              </span>
-              .
+              </span>{" "}
+              to call home.
             </h1>
 
-            {/* Sub-headline */}
-            <p className="mt-10 md:mt-14 max-w-2xl text-[15px] md:text-[17px] lg:text-[18px] leading-[1.7] text-white/80 font-light opacity-0 animate-[heroReveal_900ms_cubic-bezier(0.22,1,0.36,1)_700ms_forwards]">
-              We deploy our wealth of creative ideas to help businesses
-              identify, acquire and deploy the key capabilities required to{" "}
-              <span className="text-white font-medium">adapt, grow, gain competitive advantage,</span>{" "}
-              defend a strategic position, or exit a crisis situation.
+            <p className="mt-9 md:mt-11 max-w-2xl text-[15px] md:text-[18px] leading-[1.7] text-white/80 font-light opacity-0 animate-[heroReveal_900ms_cubic-bezier(0.22,1,0.36,1)_550ms_forwards]">
+              Browse thousands of homes for sale and rent, connect with trusted
+              local agents, and let our team handle everything from valuation to
+              keys in hand.
             </p>
 
-            {/* CTAs */}
-            <div className="mt-10 md:mt-12 flex flex-wrap items-center gap-3 opacity-0 animate-[heroReveal_900ms_cubic-bezier(0.22,1,0.36,1)_900ms_forwards]">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 px-7 md:px-9 py-4 md:py-[18px] rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[11.5px] md:text-[12px] font-bold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] hover:shadow-[0_14px_36px_-8px_rgba(255,199,44,0.75)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06122A] focus-visible:ring-[#FFC72C] transition-all duration-300"
-              >
-                Start Now
-                <FiArrowRight
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
+            {/* Search bar */}
+            <form
+              onSubmit={onSearch}
+              className="mt-10 md:mt-12 bg-white/95 backdrop-blur rounded-sm shadow-[0_24px_60px_-20px_rgba(6,18,42,0.7)] p-3 md:p-4 opacity-0 animate-[heroReveal_900ms_cubic-bezier(0.22,1,0.36,1)_700ms_forwards]"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_auto] gap-3">
+                <label className="flex items-center gap-2.5 px-4 py-3 rounded-sm bg-[#0A1A36]/[0.04] border border-transparent focus-within:border-[#FFC72C]">
+                  <FiMapPin className="w-4 h-4 text-[#FFC72C] shrink-0" aria-hidden="true" />
+                  <span className="sr-only">Location</span>
+                  <input
+                    type="text"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    placeholder="District, area, or address (e.g. Maitama)"
+                    className="w-full bg-transparent text-[14px] text-[#0A1A36] placeholder:text-[#0A1A36]/45 focus:outline-none"
+                  />
+                </label>
 
+                <select
+                  value={type}
+                  onChange={(e) => setType(e.target.value)}
+                  aria-label="Property type"
+                  className="px-4 py-3 rounded-sm bg-[#0A1A36]/[0.04] text-[14px] font-medium text-[#0A1A36] focus:outline-none focus:border-[#FFC72C] border border-transparent cursor-pointer"
+                >
+                  {TYPES.map((t) => (
+                    <option key={t}>{t}</option>
+                  ))}
+                </select>
+
+                <select
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                  aria-label="Buy or rent"
+                  className="px-4 py-3 rounded-sm bg-[#0A1A36]/[0.04] text-[14px] font-medium text-[#0A1A36] focus:outline-none focus:border-[#FFC72C] border border-transparent cursor-pointer"
+                >
+                  {STATUSES.map((s) => (
+                    <option key={s}>{s}</option>
+                  ))}
+                </select>
+
+                <button
+                  type="submit"
+                  className="group inline-flex items-center justify-center gap-2 px-7 py-3 rounded-sm bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.16em] uppercase transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A1A36]"
+                >
+                  <FiSearch className="w-4 h-4" aria-hidden="true" />
+                  Search
+                </button>
+              </div>
+            </form>
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap items-center gap-3 opacity-0 animate-[heroReveal_900ms_cubic-bezier(0.22,1,0.36,1)_900ms_forwards]">
               <Link
-                href="/#services"
-                className="group inline-flex items-center gap-2 px-7 md:px-9 py-4 md:py-[18px] rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/30 hover:border-[#FFC72C] text-[11.5px] md:text-[12px] font-bold tracking-[0.18em] uppercase backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06122A] focus-visible:ring-white/50 transition-all duration-300"
+                href="/all-products"
+                className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/30 hover:border-[#FFC72C] text-[11.5px] font-bold tracking-[0.18em] uppercase backdrop-blur-sm transition-all duration-300"
               >
-                Explore Services
+                Browse All Listings
+                <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/agents"
+                className="group inline-flex items-center gap-2 px-7 py-4 rounded-full text-white/80 hover:text-[#FFC72C] text-[11.5px] font-bold tracking-[0.18em] uppercase transition-colors"
+              >
+                Meet Our Agents
+                <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </Link>
             </div>
 
-            {/* Stat strip — global reach signal */}
-            <div className="mt-14 md:mt-20 grid grid-cols-3 gap-4 md:gap-12 max-w-2xl border-t border-white/15 pt-8 opacity-0 animate-[heroReveal_900ms_cubic-bezier(0.22,1,0.36,1)_1100ms_forwards]">
-              {[
-                { value: "3", label: "Continents Served" },
-                { value: "Public + Private", label: "Sectors" },
-                { value: "Global", label: "Expertise" },
-              ].map((stat) => (
+            {/* Stats */}
+            <div className="mt-14 md:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-10 max-w-3xl border-t border-white/15 pt-8 opacity-0 animate-[heroReveal_900ms_cubic-bezier(0.22,1,0.36,1)_1100ms_forwards]">
+              {STATS.map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-[22px] md:text-[28px] lg:text-[32px] font-extrabold text-[#FFC72C] leading-none mb-2">
+                  <div className="text-[24px] md:text-[32px] font-extrabold text-[#FFC72C] leading-none mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] md:text-[10.5px] font-semibold tracking-[0.18em] uppercase text-white/60">
+                  <div className="text-[10px] md:text-[10.5px] font-semibold tracking-[0.16em] uppercase text-white/60">
                     {stat.label}
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-
-        {/* ── Scroll cue ──────────────────────────────────────── */}
-        <div
-          className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3 text-white/50 opacity-0 animate-[heroReveal_800ms_ease-out_1300ms_forwards]"
-          aria-hidden="true"
-        >
-          <span className="text-[10px] tracking-[0.32em] uppercase font-semibold">Scroll</span>
-          <span className="relative block w-px h-10 bg-white/30 overflow-hidden">
-            <span
-              className="absolute inset-x-0 top-0 h-4"
-              style={{
-                backgroundColor: "#FFC72C",
-                animation: "scrollCue 2.2s cubic-bezier(0.4,0,0.2,1) infinite",
-              }}
-            />
-          </span>
         </div>
       </div>
 
@@ -261,17 +200,6 @@ const Hero = () => {
           to {
             opacity: 1;
             transform: translateY(0);
-          }
-        }
-        @keyframes scrollCue {
-          0% {
-            transform: translateY(-100%);
-          }
-          60% {
-            transform: translateY(260%);
-          }
-          100% {
-            transform: translateY(260%);
           }
         }
         @media (prefers-reduced-motion: reduce) {

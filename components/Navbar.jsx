@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 
 /**
- * Navbar — GCSA Consulting UK LTD
+ * Navbar — Real Estate
  *
  * Brand identity (per training flyer):
  * - Navy:  #0A1A36   (primary dark)
@@ -31,25 +31,34 @@ const BRAND = {
   goldHover: "#E6B324",
 };
 
-// Service pillars link to anchor sections on the services page
+// Primary navigation for the property marketplace
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  {
+    label: "Properties",
+    href: "/all-products",
+    children: [
+      { label: "All Properties", href: "/all-products" },
+      { label: "For Sale", href: "/all-products?status=For Sale" },
+      { label: "For Rent", href: "/all-products?status=For Rent" },
+      { label: "Houses", href: "/all-products?category=House" },
+      { label: "Apartments", href: "/all-products?category=Apartment" },
+      { label: "Commercial", href: "/all-products?category=Commercial" },
+    ],
+  },
   {
     label: "Services",
     href: "/services",
     children: [
-      { label: "Corporate Governance", href: "/services#corporate-governance" },
-      { label: "Infrastructure Consulting", href: "/services#infrastructure-consulting" },
-      { label: "Enterprise Architecture", href: "/services#enterprise-architecture" },
-      { label: "Strategy Management", href: "/services#strategy-management" },
-      { label: "Technology Advisory", href: "/services#technology-advisory" },
+      { label: "Buy a Home", href: "/services#buy" },
+      { label: "Sell a Property", href: "/services#sell" },
+      { label: "Rent & Lettings", href: "/services#rent" },
+      { label: "Property Management", href: "/services#manage" },
+      { label: "Valuations & Advice", href: "/services#valuation" },
     ],
   },
-  {
-    label: "Training",
-    href: "/training",
-  },
+  { label: "Agents", href: "/agents" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -103,14 +112,14 @@ const Navbar = () => {
           <div
             className={[
               "flex items-center justify-between transition-all duration-300",
-              scrolled ? "h-[98px]" : "h-[114px]",
+              scrolled ? "h-[86px]" : "h-[98px]",
             ].join(" ")}
           >
             {/* Wordmark */}
             <Link
               href="/"
               className="flex items-center gap-3 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/60 rounded-sm group"
-              aria-label="GCSA Consulting — home"
+              aria-label="Real Estate — home"
               onClick={() => setMobileOpen(false)}
             >
               {/* Shield monogram */}
@@ -136,9 +145,9 @@ const Navbar = () => {
                   fontWeight="800"
                   fill={scrolled ? BRAND.gold : BRAND.navy}
                   fontFamily="Montserrat, sans-serif"
-                  letterSpacing="0.5"
+                  letterSpacing="0.25"
                 >
-                  GCSA
+                  RE
                 </text>
               </svg>
 
@@ -147,13 +156,13 @@ const Navbar = () => {
                   className={[
                     "font-extrabold tracking-[0.04em] whitespace-nowrap transition-colors duration-300",
                     scrolled ? "text-[#0A1A36]" : "text-white",
-                    "text-[30px] sm:text-[20px] md:text-[21px] lg:text-[22px] xl:text-[35px]",
+                    "text-[22px] sm:text-[18px] md:text-[19px] lg:text-[20px] xl:text-[26px]",
                   ].join(" ")}
                 >
-                  GCSA
+                  Real Estate
                   <span className="hidden sm:inline font-light">
                     {" "}
-                    CONSULTING
+                    PROPERTY
                   </span>
                 </span>
                 <span
@@ -162,7 +171,7 @@ const Navbar = () => {
                     scrolled ? "text-[#FFC72C]" : "text-[#FFC72C]",
                   ].join(" ")}
                 >
-                  Business Consultants
+                  Property Listings
                 </span>
               </div>
             </Link>
@@ -183,7 +192,7 @@ const Navbar = () => {
                     <Link
                       href={item.href}
                       className={[
-                        "group relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] xl:text-[20px] font-semibold tracking-[0.02em] rounded-sm transition-colors duration-200",
+                        "group relative inline-flex items-center gap-1 px-2.5 py-2 text-[14px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[17px] font-semibold tracking-[0.02em] rounded-sm transition-colors duration-200",
                         textColor,
                         "hover:text-[#FFC72C] focus:text-[#FFC72C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40",
                       ].join(" ")}
@@ -239,14 +248,14 @@ const Navbar = () => {
               <Link
                 href="/contact"
                 className={[
-                  "group inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[15px] md:text-[16px] lg:text-[17px] font-bold tracking-[0.14em] uppercase transition-all duration-300",
+                  "group inline-flex items-center gap-2 px-4 py-2 rounded-full text-[14px] md:text-[15px] lg:text-[15px] font-bold tracking-[0.14em] uppercase transition-all duration-300",
                   "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C]",
                   scrolled
                     ? "bg-[#0A1A36] hover:bg-[#06122A] text-white shadow-sm hover:shadow-md focus-visible:ring-offset-white"
                     : "bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] shadow-[0_8px_24px_-8px_rgba(255,199,44,0.6)] focus-visible:ring-offset-transparent",
                 ].join(" ")}
               >
-                Start Now
+                Contact Us
                 <ArrowRight
                   className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
                   strokeWidth={2.5}
@@ -294,16 +303,16 @@ const Navbar = () => {
         />
         <div
           className={[
-            "absolute top-0 right-0 bottom-0 w-full sm:w-[420px] md:w-[480px] lg:w-[420px] bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-out",
+            "absolute top-0 right-0 bottom-0 w-full sm:w-[360px] md:w-[400px] lg:w-[360px] bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-out",
             mobileOpen ? "translate-x-0" : "translate-x-full",
           ].join(" ")}
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
         >
-            <div className="flex items-center justify-between px-6 h-[68px] border-b border-[#0A1A36]/10">
-            <span className="text-[16px] md:text-[18px] font-extrabold tracking-[0.04em] text-[#0A1A36]">
-              GCSA <span className="font-light">CONSULTING</span>
+            <div className="flex items-center justify-between px-6 h-[64px] border-b border-[#0A1A36]/10">
+            <span className="text-[15px] md:text-[16px] font-extrabold tracking-[0.04em] text-[#0A1A36]">
+              Real Estate <span className="font-light">PROPERTY</span>
             </span>
             <button
               type="button"
@@ -315,7 +324,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          <nav className="flex-1 overflow-y-auto px-6 py-6" aria-label="Mobile primary">
+          <nav className="flex-1 overflow-y-auto px-6 py-5" aria-label="Mobile primary">
             <ul className="space-y-1">
               {NAV_ITEMS.map((item) => (
                 <MobileNavItem key={item.label} item={item} onNavigate={() => setMobileOpen(false)} />
@@ -329,15 +338,15 @@ const Navbar = () => {
               onClick={() => setMobileOpen(false)}
               className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[14px] md:text-[15px] font-bold tracking-[0.14em] uppercase transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C]"
             >
-              Start Now
+              List Your Property
               <ArrowRight className="w-4 h-4" strokeWidth={2.5} aria-hidden="true" />
             </Link>
             <Link
-              href="/contact"
+              href="/all-products"
               onClick={() => setMobileOpen(false)}
               className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-[#0A1A36] text-[#0A1A36] text-[14px] md:text-[15px] font-bold tracking-[0.14em] uppercase transition-colors hover:bg-[#0A1A36] hover:text-white"
             >
-              Apply Now
+              Browse Listings
             </Link>
           </div>
         </div>
@@ -356,7 +365,7 @@ const MobileNavItem = ({ item, onNavigate }) => {
         <Link
           href={item.href}
           onClick={onNavigate}
-          className="flex items-center justify-between py-3.5 text-[17px] md:text-[18px] font-semibold text-[#0A1A36] hover:text-[#FFC72C] transition-colors border-b border-[#0A1A36]/10"
+          className="flex items-center justify-between py-3.5 text-[15px] md:text-[16px] font-semibold text-[#0A1A36] hover:text-[#FFC72C] transition-colors border-b border-[#0A1A36]/10"
         >
           {item.label}
         </Link>

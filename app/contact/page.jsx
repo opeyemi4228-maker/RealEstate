@@ -34,46 +34,47 @@ import Footer from "@/components/Footer";
 
 const SUBJECTS = [
   "General Enquiry",
-  "Consulting Engagement",
-  "Training Programme",
-  "Career / Application",
-  "Partnership",
-  "Press / Media",
+  "Buying a Property",
+  "Selling a Property",
+  "Renting / Lettings",
+  "Property Management",
+  "Request a Valuation",
+  "Careers",
 ];
 
 const FAQS = [
   {
-    q: "How does an engagement begin?",
-    a: "Every engagement starts with a discovery call to understand your goals, context, and constraints. From there we propose a Phase 1 (Diagnose) scope — typically 2–4 weeks — that produces a written assessment and recommended next steps. There's no obligation beyond Phase 1.",
+    q: "How do I book a viewing?",
+    a: "Open any listing and tap “Schedule a Viewing,” or send us a message with the property in mind. Your dedicated agent will confirm a time that works for you — in person or virtually.",
   },
   {
-    q: "Do you serve clients outside the UK?",
-    a: "Yes. While GCSA is headquartered in London, we serve clients across Africa, Europe, and Asia. We work both on-site and virtually, and we routinely deliver multi-country programmes.",
+    q: "How much does it cost to list my property?",
+    a: "We offer a free, no-obligation valuation and transparent fee options. Once we understand your property and goals, we'll recommend the right marketing package — with no hidden costs.",
   },
   {
-    q: "What sectors do you work with?",
-    a: "Both public and private institutions across financial services, telecommunications, energy, healthcare, government, manufacturing, retail, education, and non-profit. Our frameworks are sector-agnostic; the application is sector-specific.",
+    q: "Do you handle rentals and property management?",
+    a: "Yes. We help tenants find quality rentals and support landlords with tenant screening, rent collection, maintenance, and full compliance through our managed service.",
   },
   {
-    q: "How are your training programmes structured?",
-    a: "Programmes like Transition to Architecture in 6 Weeks combine live sessions with practical workshops, run on a small-cohort basis, and conclude with a Certificate of Completion. We can also design custom in-house programmes for corporate clients.",
+    q: "Which areas do you cover?",
+    a: "Our agents operate across Abuja and the wider FCT — Maitama, Asokoro, Wuse, Gwarinpa, Jabi, Guzape, Lokogoma, Lugbe and more — covering houses, apartments, and commercial property. Tell us your area and we'll connect you with a local specialist.",
   },
   {
     q: "How quickly will you respond to my enquiry?",
-    a: "Within one UK business day. For urgent matters, please call our London office directly.",
+    a: "Within one business day. For time-sensitive viewings or offers, call us and we'll prioritise your request.",
   },
 ];
 
 const CONTACT_LD = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "@id": "https://www.gcsaconsulting.co.uk/contact/#webpage",
-  url: "https://www.gcsaconsulting.co.uk/contact",
-  name: "Contact GCSA Consulting",
+  "@id": "https://www.realestate.com/contact/#webpage",
+  url: "https://www.realestate.com/contact",
+  name: "Contact Real Estate",
   description:
-    "Get in touch with GCSA Consulting UK LTD. Call, email, or schedule a consultation. London headquarters serving Africa, Europe, and Asia.",
-  isPartOf: { "@id": "https://www.gcsaconsulting.co.uk/#website" },
-  about: { "@id": "https://www.gcsaconsulting.co.uk/#organization" },
+    "Get in touch with Real Estate. Call, email, or schedule a viewing with a local agent. Buy, sell, rent, and manage property.",
+  isPartOf: { "@id": "https://www.realestate.com/#website" },
+  about: { "@id": "https://www.realestate.com/#organization" },
   inLanguage: "en-GB",
 };
 
@@ -154,9 +155,9 @@ const PageHero = () => {
         </h1>
 
         <p className="mt-8 md:mt-10 max-w-2xl text-[16px] md:text-[18px] leading-[1.7] text-white/75 font-light">
-          Whether you're planning a transformation, exploring a new market, or
-          ready to apply for a training cohort — tell us where you want to go,
-          and we'll show you how we can help.
+          Whether you&apos;re buying your first home, selling a property, renting,
+          or looking for management — tell us what you need, and a local agent
+          will be in touch.
         </p>
       </div>
     </section>
@@ -254,31 +255,31 @@ const FormAndDetails = () => {
               <ContactMethod
                 Icon={FiMail}
                 label="Email"
-                value="info@gcsaconsulting.co.uk"
-                href="mailto:info@gcsaconsulting.co.uk"
+                value="info@realestate.com"
+                href="mailto:info@realestate.com"
               />
               <ContactMethod
                 Icon={FiPhone}
                 label="Call"
-                value="123-456-7890"
-                href="tel:+441234567890"
+                value="+234 803 000 0100"
+                href="tel:+2348030000100"
               />
               <ContactMethod
                 Icon={FiMapPin}
                 label="Visit"
-                value="71-75 Shelton Street, London WC2H 9JQ"
+                value="Plot 123, Adetokunbo Ademola Cres, Wuse 2, Abuja"
                 href="#hq"
               />
               <ContactMethod
                 Icon={FiClock}
                 label="Hours"
-                value="Mon–Fri · 9:00–18:00 GMT"
+                value="Mon–Sat · 9:00–18:00"
               />
             </div>
 
             <div className="mt-10 pt-8 border-t border-[#0A1A36]/10">
               <p className="text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#0A1A36]/60 mb-4">
-                Follow GCSA
+                Follow us
               </p>
               <ul className="flex items-center gap-2.5">
                 <li>
@@ -516,8 +517,8 @@ const HQAddress = () => {
           <div className="lg:col-span-7 relative aspect-[4/3] lg:aspect-auto bg-[#0A1A36] rounded-sm overflow-hidden">
             {/* Replace this with a Google Maps / Mapbox embed when available */}
             <iframe
-              title="GCSA Consulting London Headquarters"
-              src="https://www.google.com/maps?q=71-75+Shelton+Street,+Covent+Garden,+London+WC2H+9JQ&output=embed"
+              title="Real Estate Head Office"
+              src="https://www.google.com/maps?q=Adetokunbo+Ademola+Crescent,+Wuse+2,+Abuja&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "420px" }}
@@ -544,7 +545,7 @@ const HQAddress = () => {
 
             <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
               <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
-              London Headquarters
+              Head Office
             </p>
 
             <h2
@@ -553,7 +554,7 @@ const HQAddress = () => {
             >
               Visit us in{" "}
               <span className="font-light italic" style={{ color: "#FFC72C" }}>
-                Covent Garden
+                Wuse 2
               </span>
               .
             </h2>
@@ -566,9 +567,9 @@ const HQAddress = () => {
                     Address
                   </div>
                   <div className="text-[14.5px] text-white">
-                    71-75 Shelton Street,<br />
-                    Covent Garden, London<br />
-                    WC2H 9JQ, United Kingdom
+                    Plot 123, Adetokunbo Ademola Crescent,<br />
+                    Wuse 2, Abuja<br />
+                    Federal Capital Territory, Nigeria
                   </div>
                 </div>
               </div>
@@ -579,8 +580,8 @@ const HQAddress = () => {
                     Hours
                   </div>
                   <div className="text-[14.5px] text-white">
-                    Monday – Friday<br />
-                    09:00 – 18:00 GMT
+                    Monday – Saturday<br />
+                    09:00 – 18:00
                   </div>
                 </div>
               </div>
@@ -588,11 +589,11 @@ const HQAddress = () => {
 
             <div className="mt-10 pt-8 border-t border-white/10">
               <p className="text-[14px] text-white/70 leading-[1.7] mb-6">
-                Visiting from outside the UK? Let us know in advance — we'll
-                make sure the right consultants are available to meet with you.
+                Prefer to talk in person? Pop into our office or book ahead and
+                we&apos;ll have the right agent ready to meet you.
               </p>
               <Link
-                href="mailto:info@gcsaconsulting.co.uk?subject=Office%20Visit"
+                href="mailto:info@realestate.com?subject=Office%20Visit"
                 className="group inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.18em] uppercase text-[#FFC72C] hover:text-white transition-colors"
               >
                 <span className="relative">
@@ -644,7 +645,7 @@ const FAQ = () => {
             <p className="mt-6 text-[15px] leading-[1.75] text-[#0A1A36]/70 max-w-md">
               Don't see what you're looking for?{" "}
               <a
-                href="mailto:info@gcsaconsulting.co.uk"
+                href="mailto:info@realestate.com"
                 className="font-bold text-[#0A1A36] hover:text-[#FFC72C] underline underline-offset-4 transition-colors"
               >
                 Email us

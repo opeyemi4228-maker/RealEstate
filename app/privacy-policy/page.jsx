@@ -30,10 +30,10 @@ import Footer from "@/components/Footer";
  */
 
 const LAST_UPDATED = "1 May 2026";
-const COMPANY_NAME = "GCSA Consulting UK LTD";
-const CONTACT_EMAIL = "info@gcsaconsulting.co.uk";
+const COMPANY_NAME = "Real Estate";
+const CONTACT_EMAIL = "info@realestate.com";
 const CONTACT_PHONE = "123-456-7890";
-const CONTACT_ADDRESS = "71-75 Shelton Street, Covent Garden, London WC2H 9JQ";
+const CONTACT_ADDRESS = "";
 
 const SECTIONS = [
   { id: "introduction", label: "1. Introduction" },
@@ -55,12 +55,12 @@ const SECTIONS = [
 const PRIVACY_LD = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.gcsaconsulting.co.uk/privacy-policy/#webpage",
-  url: "https://www.gcsaconsulting.co.uk/privacy-policy",
-  name: "Privacy Policy | GCSA Consulting",
+  "@id": "https://www.realestate.com/privacy-policy/#webpage",
+  url: "https://www.realestate.com/privacy-policy",
+  name: "Privacy Policy | Real Estate",
   description:
-    "How GCSA Consulting UK LTD collects, uses, and protects your personal information in compliance with UK GDPR.",
-  isPartOf: { "@id": "https://www.gcsaconsulting.co.uk/#website" },
+    "How Real Estate collects, uses, and protects your personal information.",
+  isPartOf: { "@id": "https://www.realestate.com/#website" },
   inLanguage: "en-GB",
 };
 

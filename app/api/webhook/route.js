@@ -24,7 +24,7 @@ import { confirmRegistration, notifyRegistration } from "@/lib/email";
  *
  * Production setup:
  *   1. Stripe Dashboard → Developers → Webhooks → Add endpoint
- *   2. URL: https://www.gcsaconsulting.co.uk/api/webhook
+ *   2. URL: https://www.realestate.com/api/webhook
  *   3. Events: checkout.session.completed, payment_intent.payment_failed
  *   4. Copy the signing secret → set as STRIPE_WEBHOOK_SECRET in your host env
  *

@@ -29,10 +29,10 @@ import Footer from "@/components/Footer";
  */
 
 const LAST_UPDATED = "1 May 2026";
-const COMPANY_NAME = "GCSA Consulting UK LTD";
-const CONTACT_EMAIL = "info@gcsaconsulting.co.uk";
-const CONTACT_PHONE = "123-456-7890";
-const CONTACT_ADDRESS = "71-75 Shelton Street, Covent Garden, London WC2H 9JQ";
+const COMPANY_NAME = "Real Estate";
+const CONTACT_EMAIL = "info@realestate.com";
+const CONTACT_PHONE = "+234 803 000 0100";
+const CONTACT_ADDRESS = "Plot 123, Adetokunbo Ademola Crescent, Wuse 2, Abuja, Nigeria";
 
 const SECTIONS = [
   { id: "introduction", label: "1. Introduction" },

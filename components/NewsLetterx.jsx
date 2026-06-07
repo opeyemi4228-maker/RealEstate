@@ -5,9 +5,9 @@ import Link from "next/link";
 import { FiArrowUpRight, FiArrowRight } from "react-icons/fi";
 
 /**
- * ClosingCTA — GCSA Consulting | Final call-to-action before footer
- *
- * Content adapted from gcsaconsulting.co.uk:
+ * ClosingCTA — Real Estate | Final call-to-action before footer
+
+ * Content adapted from realestate.com:
  * - "Explore the possibilities with us. Let's redefine success, together."
  * - "Whether you're a startup aiming to disrupt the market or an
  *    established enterprise..."
@@ -46,18 +46,18 @@ function useReveal(options = { threshold: 0.15, rootMargin: "0px 0px -80px 0px" 
 const CONTACT_ANCHORS = [
   {
     label: "Write to us",
-    value: "info@gcsaconsulting.co.uk",
+    value: "info@realestate.com",
     href: "/contact",
   },
   {
-    label: "Schedule a call",
-    value: "Book a consultation",
-    href: "/contact",
+    label: "Book a viewing",
+    value: "Schedule a tour",
+    href: "/all-products",
   },
   {
-    label: "Based in",
-    value: "London · Serving Africa, Europe, Asia",
-    href: "/contact",
+    label: "Coverage",
+    value: "15 cities & growing",
+    href: "/all-products",
   },
 ];
 
@@ -127,9 +127,9 @@ const ClosingCTA = () => {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           ].join(" ")}
         >
-          Let's redefine{" "}
+          Let&apos;s find your{" "}
           <span className="font-light italic" style={{ color: "#FFC72C" }}>
-            success
+            next home
           </span>
           ,<br />
           together.
@@ -142,11 +142,10 @@ const ClosingCTA = () => {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5",
           ].join(" ")}
         >
-          Whether you're a startup aiming to disrupt the market, an established
-          enterprise exploring new geographies in Africa, Europe, or Asia, or a
-          professional ready to transition into your next role —{" "}
+          Whether you're searching for your next home, selling a property, or
+          looking for professional property management —{" "}
           <span className="text-white font-medium">
-            GCSA is your partner for strategic excellence and business transformation.
+            Real Estate is here to help you every step of the way.
           </span>
         </p>
 
@@ -158,10 +157,10 @@ const ClosingCTA = () => {
           ].join(" ")}
         >
           <Link
-            href="/contact"
+            href="/all-products"
             className="group inline-flex items-center gap-2 px-8 md:px-10 py-4 md:py-5 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] md:text-[13px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-10px_rgba(255,199,44,0.6)] hover:shadow-[0_16px_40px_-10px_rgba(255,199,44,0.8)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A1A36] focus-visible:ring-[#FFC72C] transition-all duration-300"
           >
-            Schedule a Consultation
+            Browse Listings
             <FiArrowRight
               className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
               aria-hidden="true"
@@ -172,7 +171,7 @@ const ClosingCTA = () => {
             href="/contact"
             className="group inline-flex items-center gap-2 px-8 md:px-10 py-4 md:py-5 rounded-full bg-white/5 hover:bg-white/10 border border-white/30 hover:border-white/55 text-white text-[12px] md:text-[13px] font-bold tracking-[0.18em] uppercase backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A1A36] focus-visible:ring-white/50 transition-all duration-300"
           >
-            Apply Now
+            List Your Property
             <FiArrowUpRight
               className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               aria-hidden="true"

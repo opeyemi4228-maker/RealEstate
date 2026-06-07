@@ -6,13 +6,13 @@ import Script from "next/script";
 import { FiX, FiArrowRight, FiCheck } from "react-icons/fi";
 
 import Navbar from "@/components/Navbar";
-import HeaderSlider from "@/components/HeaderSlider";
-import HomeProducts from "@/components/HomeProducts";
-import FeaturedProduct from "@/components/FeaturedProduct";
-import Process from "@/components/process";
-import Training from "@/components/training";
-import Banner from "@/components/Banner";
-import NewsLetterx from "@/components/NewsLetterx";
+import Hero from "@/components/HeaderSlider";
+import FeaturedListings from "@/components/HomeProducts";
+import AboutTeaser from "@/components/FeaturedProduct";
+import HowItWorks from "@/components/process";
+import AgentsTeaser from "@/components/training";
+import Services from "@/components/Banner";
+import ClosingCTA from "@/components/NewsLetterx";
 import Footer from "@/components/Footer";
 
 /**
@@ -88,13 +88,13 @@ const safeGetSession = (key) => {
 const HOMEPAGE_LD = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.gcsaconsulting.co.uk/#webpage",
-  url: "https://www.gcsaconsulting.co.uk",
-  name: "GCSA Consulting UK LTD | Business Consultants",
-  isPartOf: { "@id": "https://www.gcsaconsulting.co.uk/#website" },
-  about: { "@id": "https://www.gcsaconsulting.co.uk/#organization" },
+  "@id": "https://www.realestate.com/#webpage",
+  url: "https://www.realestate.com",
+  name: "Real Estate — Property Listings & Agents",
+  isPartOf: { "@id": "https://www.realestate.com/#website" },
+  about: { "@id": "https://www.realestate.com/#organization" },
   description:
-    "Strategic excellence meets innovation. GCSA Consulting helps businesses adapt, grow, and gain competitive advantage across Africa, Europe, and Asia.",
+    "Find homes, apartments, and commercial properties near you. Browse listings, contact agents, and schedule viewings.",
   inLanguage: "en-GB",
 };
 
@@ -246,30 +246,30 @@ const NewsLetterFloater = () => {
                 You&apos;re on the list.
               </h2>
               <p className="text-[13px] leading-relaxed text-white/70">
-                Thank you — our next briefing from{" "}
-                <span style={{ color: "#FFC72C" }}>GCSA Insights</span> will
-                arrive in your inbox.
+                Thank you — fresh listings from{" "}
+                <span style={{ color: "#FFC72C" }}>Real Estate</span> will arrive
+                in your inbox.
               </p>
             </div>
           ) : (
             <>
               <p className="text-[10.5px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-3">
                 <span className="inline-block w-6 h-px bg-[#FFC72C] align-middle mr-3" />
-                GCSA Insights
+                New Listings Alert
               </p>
               <h2
                 id="newsletter-heading"
                 className="text-[22px] md:text-[24px] font-extrabold leading-[1.15] tracking-[-0.01em] text-white mb-3"
               >
-                Strategy briefings from our{" "}
+                Be first to see{" "}
                 <span className="italic font-light" style={{ color: "#FFC72C" }}>
-                  senior consultants
+                  new homes
                 </span>
                 .
               </h2>
               <p className="text-[13px] leading-relaxed text-white/70 mb-5">
-                Quarterly perspectives on governance, transformation, and the
-                forces reshaping enterprise — curated for leaders who decide.
+                Get new listings, price drops, and open-house dates in your area
+                — delivered the moment they go live.
               </p>
 
               <form onSubmit={handleSubmit} noValidate className="space-y-3">
@@ -426,10 +426,9 @@ const CookieBanner = () => {
                   id="cookie-banner-desc"
                   className="text-[13.5px] leading-relaxed text-white/75"
                 >
-                  GCSA Consulting uses cookies and related technologies to
-                  improve site functionality, analyse traffic, and personalise
-                  content. You can control your preferences at any time —
-                  details in our{" "}
+                  Real Estate uses cookies and related technologies to improve
+                  site functionality, analyse traffic, and personalise content.
+                  You can control your preferences at any time — details in our{" "}
                   <Link
                     href="/privacy-policy"
                     className="text-[#FFC72C] underline underline-offset-2 hover:text-[#FFD43B] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/50 rounded-sm transition-colors"
@@ -487,13 +486,13 @@ const Home = () => {
       <Navbar />
 
       <main id="main-content" role="main" className="bg-white">
-        <HeaderSlider />
-        <HomeProducts />
-        <FeaturedProduct />
-        <Process />
-        <Training />
-        <Banner />
-        <NewsLetterx />
+        <Hero />
+        <FeaturedListings />
+        <Services />
+        <HowItWorks />
+        <AboutTeaser />
+        <AgentsTeaser />
+        <ClosingCTA />
       </main>
 
       <Footer />

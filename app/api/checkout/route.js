@@ -42,13 +42,13 @@ import {
  * Required env vars:
  *  - STRIPE_SECRET_KEY        (sk_test_... or sk_live_...) — optional; lead is
  *                             still captured without it
- *  - NEXT_PUBLIC_SITE_URL     (https://www.gcsaconsulting.co.uk)
+ *  - NEXT_PUBLIC_SITE_URL     (https://www.realestate.com)
  */
 
 export const runtime = "nodejs";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.gcsaconsulting.co.uk";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.realestate.com";
 
 function getStripe() {
   const key = process.env.STRIPE_SECRET_KEY;

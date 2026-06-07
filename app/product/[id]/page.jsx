@@ -1,143 +1,281 @@
-"use client"
-import { useEffect, useState } from "react";
-import { assets } from "@/assets/assets";
-import ProductCard from "@/components/ProductCard";
+"use client";
+
+import React, { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import {
+  FiMapPin,
+  FiPhone,
+  FiMail,
+  FiCheck,
+  FiCalendar,
+  FiArrowLeft,
+} from "react-icons/fi";
+import { LuBedDouble, LuBath, LuMaximize, LuCar, LuCalendarClock } from "react-icons/lu";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Image from "next/image";
-import { useParams } from "next/navigation";
 import Loading from "@/components/Loading";
+import ProductCard from "@/components/ProductCard";
 import { useAppContext } from "@/context/AppContext";
-import React from "react";
 
-const Product = () => {
+const Property = () => {
+  const { id } = useParams();
+  const { products, formatPrice, getAgentById } = useAppContext();
 
-    const { id } = useParams();
+  const [mainImage, setMainImage] = useState(null);
+  const property = useMemo(
+    () => products.find((p) => p._id === id),
+    [products, id]
+  );
 
-    const { products, router, addToCart } = useAppContext()
+  useEffect(() => {
+    setMainImage(null);
+  }, [id]);
 
-    const [mainImage, setMainImage] = useState(null);
-    const [productData, setProductData] = useState(null);
+  if (!property) return <Loading />;
 
-    const fetchProductData = async () => {
-        const product = products.find(product => product._id === id);
-        setProductData(product);
-    }
+  const agent = getAgentById?.(property.agentId);
+  const isRent = property.status === "For Rent";
+  const similar = products
+    .filter((p) => p._id !== property._id && p.category === property.category)
+    .slice(0, 4);
+  const fallback = products.filter((p) => p._id !== property._id).slice(0, 4);
+  const related = similar.length ? similar : fallback;
 
-    useEffect(() => {
-        fetchProductData();
-    }, [id, products.length])
+  const SPECS = [
+    { Icon: LuBedDouble, label: "Bedrooms", value: property.bedrooms },
+    { Icon: LuBath, label: "Bathrooms", value: property.bathrooms },
+    { Icon: LuMaximize, label: "Area", value: `${property.areaSqFt?.toLocaleString()} sqft` },
+    { Icon: LuCar, label: "Garage", value: property.garage ?? 0 },
+    { Icon: LuCalendarClock, label: "Year Built", value: property.yearBuilt ?? "—" },
+  ];
 
-    return productData ? (<>
-        <Navbar />
-        <div className="px-6 md:px-16 lg:px-32 pt-14 space-y-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div className="px-5 lg:px-16 xl:px-20">
-                    <div className="rounded-lg overflow-hidden bg-gray-500/10 mb-4">
+  return (
+    <>
+      <Navbar />
+
+      <main
+        className="bg-white"
+        style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
+      >
+        <div className="px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto pt-28 md:pt-32 pb-16">
+          <Link
+            href="/all-products"
+            className="inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.14em] uppercase text-[#0A1A36]/60 hover:text-[#FFC72C] transition-colors mb-8"
+          >
+            <FiArrowLeft className="w-4 h-4" aria-hidden="true" />
+            Back to listings
+          </Link>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-10 lg:gap-14">
+            {/* Left: gallery + details */}
+            <div>
+              {/* Gallery */}
+              <div className="relative aspect-[16/10] rounded-sm overflow-hidden bg-[#0A1A36]/5">
+                <Image
+                  src={mainImage || property.image[0]}
+                  alt={property.name}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover"
+                />
+                <span
+                  className={[
+                    "absolute top-4 left-4 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[10px] font-extrabold tracking-[0.16em] uppercase shadow-sm",
+                    isRent ? "bg-[#0A1A36] text-white" : "bg-[#FFC72C] text-[#0A1A36]",
+                  ].join(" ")}
+                >
+                  {property.status}
+                </span>
+              </div>
+
+              {property.image.length > 1 && (
+                <div className="grid grid-cols-4 gap-3 mt-3">
+                  {property.image.map((image, index) => {
+                    const active = (mainImage || property.image[0]) === image;
+                    return (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => setMainImage(image)}
+                        className={[
+                          "relative aspect-[4/3] rounded-sm overflow-hidden bg-[#0A1A36]/5 transition-all",
+                          active ? "ring-2 ring-[#FFC72C]" : "opacity-80 hover:opacity-100",
+                        ].join(" ")}
+                      >
                         <Image
-                            src={mainImage || productData.image[0]}
-                            alt="alt"
-                            className="w-full h-auto object-cover mix-blend-multiply"
-                            width={1280}
-                            height={720}
+                          src={image}
+                          alt={`${property.name} — photo ${index + 1}`}
+                          fill
+                          sizes="20vw"
+                          className="object-cover"
                         />
-                    </div>
-
-                    <div className="grid grid-cols-4 gap-4">
-                        {productData.image.map((image, index) => (
-                            <div
-                                key={index}
-                                onClick={() => setMainImage(image)}
-                                className="cursor-pointer rounded-lg overflow-hidden bg-gray-500/10"
-                            >
-                                <Image
-                                    src={image}
-                                    alt="alt"
-                                    className="w-full h-auto object-cover mix-blend-multiply"
-                                    width={1280}
-                                    height={720}
-                                />
-                            </div>
-
-                        ))}
-                    </div>
+                      </button>
+                    );
+                  })}
                 </div>
+              )}
 
-                <div className="flex flex-col">
-                    <h1 className="text-3xl font-medium text-gray-800/90 mb-4">
-                        {productData.name}
-                    </h1>
-                    <div className="flex items-center gap-2">
-                        <div className="flex items-center gap-0.5">
-                            <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                            <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                            <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                            <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                            <Image
-                                className="h-4 w-4"
-                                src={assets.star_dull_icon}
-                                alt="star_dull_icon"
-                            />
-                        </div>
-                        <p>(4.5)</p>
-                    </div>
-                    <p className="text-gray-600 mt-3">
-                        {productData.description}
+              {/* Title + price (mobile) */}
+              <div className="mt-8">
+                <span className="inline-block px-2.5 py-1 rounded-full bg-[#0A1A36]/[0.05] text-[10px] font-bold tracking-[0.14em] uppercase text-[#0A1A36]/65 mb-3">
+                  {property.category}
+                </span>
+                <h1 className="font-extrabold leading-[1.1] tracking-[-0.01em] text-[#0A1A36] text-[28px] md:text-[36px]">
+                  {property.name}
+                </h1>
+                <p className="mt-3 flex items-center gap-2 text-[14px] text-[#0A1A36]/65">
+                  <FiMapPin className="w-4 h-4 text-[#FFC72C]" aria-hidden="true" />
+                  {property.location?.address}, {property.location?.city}, {property.location?.state}
+                </p>
+              </div>
+
+              {/* Specs */}
+              <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-[#0A1A36]/10 border border-[#0A1A36]/10 rounded-sm overflow-hidden">
+                {SPECS.map((s) => (
+                  <div key={s.label} className="bg-white p-4 md:p-5 text-center">
+                    <s.Icon className="w-5 h-5 text-[#FFC72C] mx-auto mb-2" aria-hidden="true" />
+                    <p className="text-[16px] font-extrabold text-[#0A1A36] leading-none">
+                      {s.value}
                     </p>
-                    <p className="text-3xl font-medium mt-6">
-                        ${productData.offerPrice}
-                        <span className="text-base font-normal text-gray-800/60 line-through ml-2">
-                            ${productData.price}
+                    <p className="text-[10.5px] font-semibold tracking-[0.1em] uppercase text-[#0A1A36]/50 mt-1.5">
+                      {s.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Description */}
+              <div className="mt-10">
+                <h2 className="text-[20px] font-bold text-[#0A1A36] mb-4">About this property</h2>
+                <p className="text-[15px] leading-[1.8] text-[#0A1A36]/75">
+                  {property.description}
+                </p>
+              </div>
+
+              {/* Amenities */}
+              {property.amenities?.length > 0 && (
+                <div className="mt-10">
+                  <h2 className="text-[20px] font-bold text-[#0A1A36] mb-5">Features & amenities</h2>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {property.amenities.map((a) => (
+                      <span
+                        key={a}
+                        className="inline-flex items-center gap-2 text-[14px] text-[#0A1A36]/80"
+                      >
+                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#FFC72C]/20 text-[#0A1A36]">
+                          <FiCheck className="w-3 h-3" strokeWidth={3} aria-hidden="true" />
                         </span>
-                    </p>
-                    <hr className="bg-gray-600 my-6" />
-                    <div className="overflow-x-auto">
-                        <table className="table-auto border-collapse w-full max-w-72">
-                            <tbody>
-                                <tr>
-                                    <td className="text-gray-600 font-medium">Brand</td>
-                                    <td className="text-gray-800/50 ">Generic</td>
-                                </tr>
-                                <tr>
-                                    <td className="text-gray-600 font-medium">Color</td>
-                                    <td className="text-gray-800/50 ">Multi</td>
-                                </tr>
-                                <tr>
-                                    <td className="text-gray-600 font-medium">Category</td>
-                                    <td className="text-gray-800/50">
-                                        {productData.category}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        {a}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
 
-                    <div className="flex items-center mt-10 gap-4">
-                        <button onClick={() => addToCart(productData._id)} className="w-full py-3.5 bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition">
-                            Add to Cart
-                        </button>
-                        <button onClick={() => { addToCart(productData._id); router.push('/cart') }} className="w-full py-3.5 bg-orange-500 text-white hover:bg-orange-600 transition">
-                            Buy now
-                        </button>
+            {/* Right: sticky price + agent */}
+            <aside className="lg:sticky lg:top-28 lg:self-start space-y-5">
+              <div className="bg-white border border-[#0A1A36]/10 rounded-sm p-6 shadow-[0_20px_50px_-30px_rgba(10,26,54,0.4)]">
+                <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#0A1A36]/50 mb-1">
+                  {isRent ? "Monthly Rent" : "Asking Price"}
+                </p>
+                <p className="text-[34px] font-extrabold text-[#0A1A36] leading-none">
+                  {formatPrice(property.offerPrice ?? property.price)}
+                  {isRent && <span className="text-[14px] font-semibold text-[#0A1A36]/50"> /mo</span>}
+                </p>
+                {property.price > (property.offerPrice ?? property.price) && (
+                  <p className="mt-1 text-[13px] text-[#0A1A36]/45 line-through">
+                    {formatPrice(property.price)}
+                  </p>
+                )}
+
+                <div className="mt-6 space-y-3">
+                  <Link
+                    href={`/contact?property=${property._id}&action=schedule`}
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.14em] uppercase transition-colors"
+                  >
+                    <FiCalendar className="w-4 h-4" aria-hidden="true" />
+                    Schedule a Viewing
+                  </Link>
+                  <Link
+                    href={`/contact?property=${property._id}`}
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#0A1A36] hover:bg-[#06122A] text-white text-[12px] font-extrabold tracking-[0.14em] uppercase transition-colors"
+                  >
+                    Request Info
+                  </Link>
+                </div>
+              </div>
+
+              {/* Agent card */}
+              {agent && (
+                <div className="bg-[#0A1A36] text-white rounded-sm p-6">
+                  <p className="text-[10.5px] font-bold tracking-[0.2em] uppercase text-[#FFC72C] mb-4">
+                    Listed by
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 ring-2 ring-[#FFC72C]/40">
+                      <Image src={agent.photo} alt={agent.name} fill sizes="64px" className="object-cover" />
                     </div>
+                    <div>
+                      <p className="font-bold text-[16px]">{agent.name}</p>
+                      <p className="text-white/60 text-[12px]">{agent.title}</p>
+                      <p className="text-white/40 text-[11px] mt-0.5">License {agent.license}</p>
+                    </div>
+                  </div>
+                  <div className="mt-5 space-y-2.5">
+                    <a
+                      href={`tel:${agent.phone}`}
+                      className="flex items-center gap-3 text-[13.5px] text-white/85 hover:text-[#FFC72C] transition-colors"
+                    >
+                      <FiPhone className="w-4 h-4 text-[#FFC72C]" aria-hidden="true" />
+                      {agent.phone}
+                    </a>
+                    <a
+                      href={`mailto:${agent.email}`}
+                      className="flex items-center gap-3 text-[13.5px] text-white/85 hover:text-[#FFC72C] transition-colors"
+                    >
+                      <FiMail className="w-4 h-4 text-[#FFC72C]" aria-hidden="true" />
+                      {agent.email}
+                    </a>
+                  </div>
                 </div>
-            </div>
-            <div className="flex flex-col items-center">
-                <div className="flex flex-col items-center mb-4 mt-16">
-                    <p className="text-3xl font-medium">Featured <span className="font-medium text-orange-600">Products</span></p>
-                    <div className="w-28 h-0.5 bg-orange-600 mt-2"></div>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-6 pb-14 w-full">
-                    {products.slice(0, 5).map((product, index) => <ProductCard key={index} product={product} />)}
-                </div>
-                <button className="px-8 py-2 mb-16 border rounded text-gray-500/70 hover:bg-slate-50/90 transition">
-                    See more
-                </button>
-            </div>
+              )}
+            </aside>
+          </div>
+
+          {/* Related */}
+          {related.length > 0 && (
+            <section className="mt-20 md:mt-28">
+              <div className="flex items-end justify-between mb-8">
+                <h2 className="font-extrabold text-[#0A1A36] text-[26px] md:text-[34px]">
+                  Similar{" "}
+                  <span className="font-light italic" style={{ color: "#FFC72C" }}>
+                    properties
+                  </span>
+                </h2>
+                <Link
+                  href="/all-products"
+                  className="text-[12px] font-bold tracking-[0.14em] uppercase text-[#0A1A36] hover:text-[#FFC72C] transition-colors"
+                >
+                  View all
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                {related.map((p) => (
+                  <ProductCard key={p._id} product={p} />
+                ))}
+              </div>
+            </section>
+          )}
         </div>
-        <Footer />
+      </main>
+
+      <Footer />
     </>
-    ) : <Loading />
+  );
 };
 
-export default Product;
+export default Property;

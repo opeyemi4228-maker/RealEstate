@@ -5,7 +5,7 @@ import { AppContextProvider } from "@/context/AppContext";
 import { Toaster } from "react-hot-toast";
 
 /**
- * RootLayout — GCSA Consulting UK LTD
+ * RootLayout — Real Estate
  *
  * Brand:
  *  - Navy:  #0A1A36
@@ -27,41 +27,38 @@ const montserrat = Montserrat({
 });
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.gcsaconsulting.co.uk";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.realestate.com";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "GCSA Consulting UK LTD | Business Consultants",
-    template: "%s · GCSA Consulting",
+    default: "Real Estate — Property Listings & Agents",
+    template: "%s · Real Estate",
   },
 
   description:
-    "Taking your business to the next level. GCSA helps organisations identify, acquire, and deploy the key capabilities required to adapt, grow, gain competitive advantage, defend a strategic position, or exit a crisis. Serving Africa, Europe, and Asia from our London headquarters.",
+    "Real Estate — Browse property listings, find agents, and contact sellers. Search homes, apartments, and commercial properties with filters and map views.",
 
-  applicationName: "GCSA Consulting",
-  authors: [{ name: "GCSA Consulting UK LTD" }],
-  creator: "GCSA Consulting UK LTD",
-  publisher: "GCSA Consulting UK LTD",
+  applicationName: "Real Estate",
+  authors: [{ name: "Real Estate" }],
+  creator: "Real Estate",
+  publisher: "Real Estate",
   generator: "Next.js",
   referrer: "strict-origin-when-cross-origin",
 
   keywords: [
-    "GCSA Consulting",
-    "Business Consultants",
-    "Management Consulting",
-    "Corporate Governance",
-    "Enterprise Architecture",
-    "Strategy Management",
-    "Technology Advisory",
-    "Infrastructure Consulting",
-    "London Consultants",
-    "Architecture Training",
-    "Transition to Architecture",
+    "real estate",
+    "property listings",
+    "homes for sale",
+    "apartments for rent",
+    "real estate agents",
+    "property management",
+    "commercial real estate",
+    "house hunting",
   ],
 
-  category: "Business Consulting",
+  category: "Real Estate",
 
   alternates: {
     canonical: "/",
@@ -72,27 +69,26 @@ export const metadata = {
     type: "website",
     locale: "en_GB",
     url: SITE_URL,
-    siteName: "GCSA Consulting",
-    title: "GCSA Consulting UK LTD | Business Consultants",
+    siteName: "Real Estate",
+    title: "Real Estate — Property Listings & Agents",
     description:
-      "Strategic excellence meets innovation. Helping organisations adapt, grow, and thrive across Africa, Europe, and Asia.",
+      "Find your next home. Search listings, view photos, contact agents, and save favorite properties.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "GCSA Consulting — Taking Your Business to the Next Level",
+        alt: "Real Estate — Property Listings",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "GCSA Consulting UK LTD | Business Consultants",
-    description:
-      "Strategic excellence meets innovation. Serving Africa, Europe, and Asia from London.",
+    title: "Real Estate — Property Listings & Agents",
+    description: "Find homes, apartments, and commercial properties near you.",
     images: ["/og-image.jpg"],
-    creator: "@gcsaconsulting",
+    creator: "@realestate",
   },
 
   robots: {
@@ -141,8 +137,8 @@ const STRUCTURED_DATA = {
     {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      name: "GCSA Consulting UK LTD",
-      alternateName: "GCSA Consulting",
+      name: "Real Estate",
+      alternateName: "Real Estate",
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
@@ -151,54 +147,46 @@ const STRUCTURED_DATA = {
         height: 512,
       },
       sameAs: [
-        "https://www.linkedin.com/company/gcsa-consulting",
-        "https://x.com/gcsaconsulting",
+        "https://www.linkedin.com/company/realestate",
+        "https://x.com/realestate",
       ],
       contactPoint: [
         {
           "@type": "ContactPoint",
           contactType: "customer support",
-          email: "info@gcsaconsulting.co.uk",
-          telephone: "+44-123-456-7890",
-          areaServed: ["GB", "Africa", "Europe", "Asia"],
+          email: "info@realestate.com",
+          telephone: "+234-803-000-0100",
+          areaServed: ["NG"],
           availableLanguage: ["English"],
         },
       ],
       address: {
         "@type": "PostalAddress",
-        streetAddress: "71-75 Shelton Street, Covent Garden",
-        addressLocality: "London",
-        postalCode: "WC2H 9JQ",
-        addressCountry: "GB",
+        streetAddress: "Plot 123, Adetokunbo Ademola Crescent, Wuse 2",
+        addressLocality: "Abuja",
+        addressRegion: "Federal Capital Territory",
+        addressCountry: "NG",
       },
     },
     {
-      "@type": "ProfessionalService",
+      "@type": "Service",
       "@id": `${SITE_URL}/#service`,
-      name: "GCSA Consulting — Management & Technology Advisory",
+      name: "Real Estate — Property Marketplace",
       parentOrganization: { "@id": `${SITE_URL}/#organization` },
       description:
-        "Management consulting services for public and private institutions: corporate governance, infrastructure consulting, enterprise architecture, strategy management, and technology advisory.",
+        "Online property marketplace listing residential and commercial properties, with agent contacts and lead capture.",
       areaServed: [
-        { "@type": "Place", name: "Africa" },
-        { "@type": "Place", name: "Europe" },
-        { "@type": "Place", name: "Asia" },
+        { "@type": "Place", name: "Abuja" },
+        { "@type": "Place", name: "Nigeria" },
       ],
-      serviceType: [
-        "Corporate Governance",
-        "Infrastructure Consulting",
-        "Enterprise Architecture",
-        "Strategy Management",
-        "Technology Advisory",
-      ],
-      slogan: "Taking Your Business to the Next Level",
-      priceRange: "$$$",
+      serviceType: ["Property Listings", "Agent Directory", "Lead Capture"],
+      slogan: "Find your next home",
     },
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: "GCSA Consulting",
+      name: "Real Estate",
       publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: "en-GB",
     },

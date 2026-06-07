@@ -69,7 +69,10 @@ const DIFFERENTIATORS = [
   },
 ];
 
-const PORTRAIT_IMAGE = assets.Mr_Marcel;
+// Founder portrait (Unsplash — allowed in next.config.mjs)
+const PORTRAIT_IMAGE =
+  "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1000&q=80";
+const FOUNDER_NAME = "Adaeze Obi";
 
 const About = () => {
   const [headerRef, headerVisible] = useReveal();
@@ -107,7 +110,7 @@ const About = () => {
               ].join(" ")}
             >
               <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
-              About GCSA
+              About Real Estate
             </p>
             <h2
               id="about-heading"
@@ -117,10 +120,10 @@ const About = () => {
               ].join(" ")}
             >
               Born from a vision to{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
-                redefine
-              </span>{" "}
-              consulting.
+                <span className="font-light italic" style={{ color: "#FFC72C" }}>
+                  redefine
+                </span>{" "}
+                property search.
             </h2>
           </div>
 
@@ -165,7 +168,7 @@ const About = () => {
                 <div className="relative aspect-[4/5]">
                   <Image
                     src={PORTRAIT_IMAGE}
-                    alt="GCSA Consulting team in strategic session"
+                    alt={`${FOUNDER_NAME}, Founder & CEO`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 42vw"
                     className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
@@ -188,9 +191,9 @@ const About = () => {
                       style={{ backgroundColor: "#FFC72C" }}
                       aria-hidden="true"
                     />
-                    <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#0A1A36]">
-                      GCSA · London HQ
-                    </span>
+                      <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#0A1A36]">
+                        Abuja · HQ
+                      </span>
                   </span>
                 </div>
 
@@ -210,30 +213,29 @@ const About = () => {
             {/* Story column */}
             <div className="lg:col-span-7 lg:pl-4 lg:pt-4">
               <p className="font-light leading-[1.18] tracking-[-0.01em] text-[#0A1A36] text-[26px] md:text-[32px] lg:text-[38px] max-w-2xl">
-                A consulting firm built on{" "}
+                A real estate agency built on{" "}
                 <span className="italic font-medium" style={{ color: "#FFC72C" }}>
-                  collaboration, innovation
+                  trust, local expertise
                 </span>
-                , and the relentless pursuit of client success.
+                , and the relentless pursuit of the right home.
               </p>
 
               <div className="mt-6 md:mt-8 space-y-5 text-[15px] md:text-[16px] leading-[1.8] text-[#0A1A36]/80 max-w-xl">
                 <p>
-                  Founded with a passion for transforming businesses, GCSA was
-                  born from a vision to redefine how organisations approach
-                  challenges and embrace opportunities. Our journey began with
-                  a simple yet powerful idea: to create a consulting firm that
-                  not only delivers exceptional results but also prioritises
-                  partnership at every level.
+                  Founded with a passion for serving buyers, sellers, and
+                  landlords, Real Estate was born from a vision to make finding
+                  and presenting properties simple, transparent, and stress-free.
+                  Our journey began with one idea: great listings backed by
+                  genuinely expert local service.
                 </p>
                 <p>
-                  Whether you're a startup aiming to disrupt the market, or
-                  an established enterprise exploring{" "}
+                  Whether you&apos;re a first-time buyer, a growing family, or an
+                  investor building a{" "}
                   <em className="not-italic font-bold text-[#0A1A36]">
-                    new geographies in Africa, Europe, and Asia
+                    portfolio across multiple cities
                   </em>
-                  , GCSA is your trusted partner for strategic excellence and
-                  business transformation.
+                  , our agents are your trusted partners for buying, selling,
+                  renting, and managing property.
                 </p>
               </div>
 
@@ -252,7 +254,7 @@ const About = () => {
                   together.
                 </blockquote>
                 <figcaption className="mt-4 text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#0A1A36]/60">
-                  GCSA Consulting · Founding Principle
+                  {FOUNDER_NAME} · Founder &amp; CEO
                 </figcaption>
               </figure>
             </div>
@@ -271,7 +273,7 @@ const About = () => {
             </p>
             <p className="text-[14px] text-[#0A1A36]/65 max-w-md">
               A unique blend of experience, creativity, and commitment that
-              defines every GCSA engagement.
+              defines every Real Estate experience.
             </p>
           </div>
 
