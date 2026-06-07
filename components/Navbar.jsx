@@ -2,7 +2,21 @@
 
 import React, { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
+import {
+  ChevronDown,
+  Menu,
+  X,
+  ArrowRight,
+  LayoutGrid,
+  Tag,
+  KeyRound,
+  Home,
+  Building2,
+  Briefcase,
+  TrendingUp,
+  Wrench,
+  ClipboardList,
+} from "lucide-react";
 
 /**
  * Navbar — Real Estate
@@ -38,23 +52,23 @@ const NAV_ITEMS = [
     label: "Properties",
     href: "/all-products",
     children: [
-      { label: "All Properties", href: "/all-products" },
-      { label: "For Sale", href: "/all-products?status=For Sale" },
-      { label: "For Rent", href: "/all-products?status=For Rent" },
-      { label: "Houses", href: "/all-products?category=House" },
-      { label: "Apartments", href: "/all-products?category=Apartment" },
-      { label: "Commercial", href: "/all-products?category=Commercial" },
+      { label: "All Properties", href: "/all-products", Icon: LayoutGrid, desc: "Browse every listing" },
+      { label: "For Sale", href: "/all-products?status=For Sale", Icon: Tag, desc: "Homes available to buy" },
+      { label: "For Rent", href: "/all-products?status=For Rent", Icon: KeyRound, desc: "Rentals & lettings" },
+      { label: "Houses", href: "/all-products?category=House", Icon: Home, desc: "Duplexes & detached" },
+      { label: "Apartments", href: "/all-products?category=Apartment", Icon: Building2, desc: "Flats & serviced units" },
+      { label: "Commercial", href: "/all-products?category=Commercial", Icon: Briefcase, desc: "Offices & retail space" },
     ],
   },
   {
     label: "Services",
     href: "/services",
     children: [
-      { label: "Buy a Home", href: "/services#buy" },
-      { label: "Sell a Property", href: "/services#sell" },
-      { label: "Rent & Lettings", href: "/services#rent" },
-      { label: "Property Management", href: "/services#manage" },
-      { label: "Valuations & Advice", href: "/services#valuation" },
+      { label: "Buy a Home", href: "/services#buy", Icon: Home, desc: "Find & purchase" },
+      { label: "Sell a Property", href: "/services#sell", Icon: TrendingUp, desc: "List & maximise price" },
+      { label: "Rent & Lettings", href: "/services#rent", Icon: KeyRound, desc: "Tenants & landlords" },
+      { label: "Property Management", href: "/services#manage", Icon: Wrench, desc: "Hands-off ownership" },
+      { label: "Valuations & Advice", href: "/services#valuation", Icon: ClipboardList, desc: "Free market valuation" },
     ],
   },
   { label: "Agents", href: "/agents" },
@@ -219,22 +233,47 @@ const Navbar = () => {
                     </Link>
 
                     {hasChildren && isOpen && (
-                      <div className="absolute left-0 top-full pt-3 min-w-[300px]" role="menu">
+                      <div className="absolute left-0 top-full pt-3 min-w-[340px]" role="menu">
                         <div
-                          className="bg-white border-t-[3px] shadow-[0_12px_40px_-8px_rgba(10,26,54,0.25)] rounded-b-sm py-3 animate-in fade-in slide-in-from-top-1 duration-200"
+                          className="bg-white border-t-[3px] shadow-[0_12px_40px_-8px_rgba(10,26,54,0.25)] rounded-b-sm p-2.5 animate-in fade-in slide-in-from-top-1 duration-200"
                           style={{ borderTopColor: BRAND.gold }}
                         >
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.label}
-                              href={child.href}
-                              role="menuitem"
-                              className="block px-5 py-2.5 text-[16px] text-[#0A1A36] hover:text-[#FFC72C] hover:bg-[#0A1A36]/[0.03] focus:bg-[#0A1A36]/[0.03] focus:text-[#FFC72C] focus:outline-none transition-colors font-medium"
-                              onClick={() => setOpenDropdown(null)}
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
+                          {item.children.map((child) => {
+                            const ChildIcon = child.Icon;
+                            return (
+                              <Link
+                                key={child.label}
+                                href={child.href}
+                                role="menuitem"
+                                className="group/item flex items-center gap-3.5 px-3 py-2.5 rounded-sm hover:bg-[#0A1A36]/[0.035] focus:bg-[#0A1A36]/[0.035] focus:outline-none transition-colors"
+                                onClick={() => setOpenDropdown(null)}
+                              >
+                                {ChildIcon && (
+                                  <span
+                                    className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#0A1A36]/[0.05] text-[#0A1A36] group-hover/item:bg-[#FFC72C] group-hover/item:text-[#0A1A36] transition-colors duration-200"
+                                    aria-hidden="true"
+                                  >
+                                    <ChildIcon className="w-[18px] h-[18px]" strokeWidth={2} />
+                                  </span>
+                                )}
+                                <span className="flex flex-col leading-tight">
+                                  <span className="text-[15px] font-semibold text-[#0A1A36] group-hover/item:text-[#FFC72C] transition-colors">
+                                    {child.label}
+                                  </span>
+                                  {child.desc && (
+                                    <span className="text-[12px] text-[#0A1A36]/50">
+                                      {child.desc}
+                                    </span>
+                                  )}
+                                </span>
+                                <ArrowRight
+                                  className="ml-auto w-4 h-4 text-[#FFC72C] opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"
+                                  strokeWidth={2.5}
+                                  aria-hidden="true"
+                                />
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -396,17 +435,28 @@ const MobileNavItem = ({ item, onNavigate }) => {
         ].join(" ")}
       >
         <ul className="py-2 pl-4 border-l-2 ml-1 my-2" style={{ borderLeftColor: "#FFC72C" }}>
-          {item.children.map((child) => (
-            <li key={child.label}>
-              <Link
-                href={child.href}
-                onClick={onNavigate}
-                className="block py-2.5 pl-3 text-[15px] text-[#0A1A36]/75 hover:text-[#FFC72C] transition-colors"
-              >
-                {child.label}
-              </Link>
-            </li>
-          ))}
+          {item.children.map((child) => {
+            const ChildIcon = child.Icon;
+            return (
+              <li key={child.label}>
+                <Link
+                  href={child.href}
+                  onClick={onNavigate}
+                  className="group/item flex items-center gap-3 py-2.5 pl-3 text-[15px] text-[#0A1A36]/75 hover:text-[#FFC72C] transition-colors"
+                >
+                  {ChildIcon && (
+                    <span
+                      className="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-lg bg-[#0A1A36]/[0.05] text-[#0A1A36] group-hover/item:bg-[#FFC72C] group-hover/item:text-[#0A1A36] transition-colors"
+                      aria-hidden="true"
+                    >
+                      <ChildIcon className="w-[16px] h-[16px]" strokeWidth={2} />
+                    </span>
+                  )}
+                  {child.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </li>
