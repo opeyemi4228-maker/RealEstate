@@ -32,7 +32,7 @@ import Footer from "@/components/Footer";
 const LAST_UPDATED = "1 May 2026";
 const COMPANY_NAME = "Prime Homes";
 const CONTACT_EMAIL = "info@primehomes.ng";
-const CONTACT_PHONE = "123-456-7890";
+const CONTACT_PHONE = "+234 (0) 803 648 2333";
 const CONTACT_ADDRESS = "";
 
 const SECTIONS = [

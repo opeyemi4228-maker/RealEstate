@@ -18,7 +18,7 @@ import { FiArrowUpRight, FiMapPin, FiMail, FiPhone } from "react-icons/fi";
  * - Brand: Prime Homes · Property Marketplace
  * - Address: 71-75 Shelton Street, Covent Garden, London WC2H 9JQ
  * - Email: info@primehomes.ng
- * - Tel: 123-456-7890 (placeholder)
+ * - Tel: +234 (0) 803 648 2333
  * - Newsletter: "Stay Connected. Listings & Insights"
  * - Socials: Twitter, LinkedIn, Email
  * - Footer nav: About · Services · Contact
@@ -234,7 +234,7 @@ const Footer = () => {
                 <FooterContactLink
                   Icon={FiPhone}
                   label="Tel"
-                  value="123-456-7890"
+                  value="+234 (0) 803 648 2333"
                   href="/contact"
                 />
               </div>

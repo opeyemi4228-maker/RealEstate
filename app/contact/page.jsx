@@ -251,8 +251,8 @@ const FormAndDetails = () => {
               <ContactMethod
                 Icon={FiPhone}
                 label="Call"
-                value="+234 803 000 0100"
-                href="tel:+2348030000100"
+                value="+234 (0) 803 648 2333"
+                href="tel:+2348036482333"
               />
               <ContactMethod
                 Icon={FiMapPin}

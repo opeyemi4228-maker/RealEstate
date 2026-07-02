@@ -31,7 +31,7 @@ import Footer from "@/components/Footer";
 const LAST_UPDATED = "1 May 2026";
 const COMPANY_NAME = "Prime Homes";
 const CONTACT_EMAIL = "info@primehomes.ng";
-const CONTACT_PHONE = "+234 803 000 0100";
+const CONTACT_PHONE = "+234 (0) 803 648 2333";
 const CONTACT_ADDRESS = "Plot 123, Adetokunbo Ademola Crescent, Wuse 2, Abuja, Nigeria";
 
 const SECTIONS = [
