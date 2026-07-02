@@ -29,7 +29,7 @@ import Footer from "@/components/Footer";
 import { PROGRAMMES, formatGBP, totalInPence } from "@/lib/programmes";
 
 /**
- * /training — GCSA Training (single-page)
+ * /training, GCSA Training (single-page)
  *
  * One self-contained page that delivers:
  *   - Training landing/intro                 (was /training)
@@ -52,13 +52,13 @@ import { PROGRAMMES, formatGBP, totalInPence } from "@/lib/programmes";
  *
  * Plus the embedded RegistrationModal (Stripe Checkout flow).
  *
- * Brand: navy #0A1A36 + gold #FFC72C + Montserrat
+ * Brand: navy #141210 + gold #E6A032 + Montserrat
  */
 
 const PROGRAMME_ID = "transition-to-architecture";
 const PROGRAMME_NAME = "Transition to Architecture in 6 Weeks";
 
-// ── Pricing — derived from the single source of truth (lib/programmes.js)
+// ── Pricing, derived from the single source of truth (lib/programmes.js)
 const PROGRAMME = PROGRAMMES[PROGRAMME_ID];
 const PRICING = {
   registration: formatGBP(PROGRAMME.registrationFeeInPence), // £300
@@ -83,7 +83,7 @@ const PAYMENT_PLAN_OPTIONS = [
     label: "Pay in full",
     amount: PRICING.total,
     amountNote: "Registration + course · due today",
-    blurb: `Settle everything in one payment — ${PRICING.registration} registration + ${PRICING.course} course fee. Nothing further to pay.`,
+    blurb: `Settle everything in one payment, ${PRICING.registration} registration + ${PRICING.course} course fee. Nothing further to pay.`,
     highlight: false,
   },
 ];
@@ -131,7 +131,7 @@ const WHY_GCSA = [
   {
     Icon: LuGraduationCap,
     title: "Expert mentorship",
-    copy: "Small cohorts. Practising consultants — not career trainers — leading every session.",
+    copy: "Small cohorts. Practising consultants, not career trainers, leading every session.",
   },
   {
     Icon: LuTrendingUp,
@@ -234,15 +234,15 @@ const INCLUDED = [
 const FAQS = [
   {
     q: "How much does the programme cost, and can I pay in instalments?",
-    a: "The programme is £1,500 in total — a £300 registration fee plus a £1,200 course fee. You can pay everything in one go, or pay the £300 registration fee to secure your place and spread the £1,200 course fee across 4 weekly instalments of £300. You choose your plan at checkout.",
+    a: "The programme is £1,500 in total, a £300 registration fee plus a £1,200 course fee. You can pay everything in one go, or pay the £300 registration fee to secure your place and spread the £1,200 course fee across 4 weekly instalments of £300. You choose your plan at checkout.",
   },
   {
     q: "What's the time commitment per week?",
-    a: "Plan for around 6–8 hours per week: live sessions, workshops, and self-paced exercises. Sessions are scheduled outside standard working hours where possible to accommodate working professionals.",
+    a: "Plan for around 6 to 8 hours per week: live sessions, workshops, and self-paced exercises. Sessions are scheduled outside standard working hours where possible to accommodate working professionals.",
   },
   {
     q: "Do I need a technical background?",
-    a: "Not at a deep-engineering level. The programme is built for professionals from any background — business analysts, project managers, product owners, IT/ops professionals — provided you can solve problems and think structurally. We bring the technical scaffolding.",
+    a: "Not at a deep-engineering level. The programme is built for professionals from any background, business analysts, project managers, product owners, IT/ops professionals, provided you can solve problems and think structurally. We bring the technical scaffolding.",
   },
   {
     q: "Is the programme delivered live or recorded?",
@@ -254,7 +254,7 @@ const FAQS = [
   },
   {
     q: "Do you offer refunds?",
-    a: "Yes — full refunds within 7 days of payment, provided the cohort has not yet started. After the start date, refunds are reviewed case-by-case. See our terms for the full policy.",
+    a: "Yes, full refunds within 7 days of payment, provided the cohort has not yet started. After the start date, refunds are reviewed case-by-case. See our terms for the full policy.",
   },
   {
     q: "Can my employer be invoiced directly?",
@@ -273,8 +273,8 @@ const ROLE_OPTIONS = [
 ];
 const EXPERIENCE_OPTIONS = [
   "Less than 2 years",
-  "2–5 years",
-  "5–10 years",
+  "2 to 5 years",
+  "5 to 10 years",
   "10+ years",
 ];
 const HEAR_ABOUT_OPTIONS = [
@@ -379,40 +379,31 @@ const PageHero = () => {
   return (
     <section
       aria-labelledby="training-hero-heading"
-      className="relative bg-[#0A1A36] text-white overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28"
+      className="relative bg-[#141210] text-white overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28"
     >
-      <div
-        className="absolute inset-0 opacity-60 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 88% 15%, rgba(255,199,44,0.18), transparent 50%), radial-gradient(circle at 8% 90%, rgba(255,199,44,0.06), transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
 
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-2 text-[11px] font-bold tracking-[0.22em] uppercase text-white/50 mb-8"
         >
-          <Link href="/" className="hover:text-[#FFC72C] transition-colors">
+          <Link href="/" className="hover:text-[#E6A032] transition-colors">
             Home
           </Link>
           <span aria-hidden="true">·</span>
-          <span className="text-[#FFC72C]">Training</span>
+          <span className="text-[#E6A032]">Training</span>
         </nav>
 
-        <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-          <span className="inline-block w-12 h-px" style={{ backgroundColor: "#FFC72C" }} />
+        <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-6">
           GCSA Training
         </p>
 
         <h1
           id="training-hero-heading"
-          className="font-extrabold leading-[0.98] tracking-[-0.02em] text-white text-[44px] sm:text-[60px] md:text-[80px] lg:text-[96px] max-w-5xl"
+          className="font-display font-light leading-[0.98] tracking-[-0.02em] text-white text-[44px] sm:text-[60px] md:text-[80px] lg:text-[96px] max-w-5xl"
         >
           Ready to Become an{" "}
-          <span className="font-light italic" style={{ color: "#FFC72C" }}>
+          <span className="font-light italic" style={{ color: "#E6A032" }}>
             Architect
           </span>{" "}
           in Just 6 Weeks?
@@ -422,13 +413,13 @@ const PageHero = () => {
           Stop watching others lead transformation programmes while you remain
           stuck delivering requirements. This is your opportunity to transition
           into high-impact Architecture roles with real-world, hands-on
-          experience — delivered by practising GCSA consultants.
+          experience, delivered by practising GCSA consultants.
         </p>
 
         <div className="mt-10 md:mt-12 flex flex-wrap gap-3">
           <a
             href="#programme"
-            className="group inline-flex items-center gap-2 px-7 md:px-9 py-4 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-7 md:px-9 py-4 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)] transition-all duration-300"
           >
             View Active Programme
             <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -453,16 +444,15 @@ const WhyGCSA = () => {
     >
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="max-w-3xl mb-14 md:mb-16">
-          <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-            <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+          <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
             Why train with GCSA
           </p>
           <h2
             id="why-heading"
-            className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[36px] md:text-[48px] lg:text-[56px]"
+            className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[36px] md:text-[48px] lg:text-[56px]"
           >
             Practising consultants.{" "}
-            <span className="font-light italic" style={{ color: "#FFC72C" }}>Real</span>{" "}
+            <span className="font-light italic" style={{ color: "#E6A032" }}>Real</span>{" "}
             outcomes.
           </h2>
         </div>
@@ -472,26 +462,26 @@ const WhyGCSA = () => {
             <article
               key={w.title}
               className={[
-                "group relative p-7 md:p-8 bg-[#FBF8F1] border border-[#0A1A36]/10 rounded-sm hover:border-[#FFC72C] hover:-translate-y-1 transition-all duration-500 ease-out",
+                "group relative p-7 md:p-8 bg-[#FBF8F1] border border-[#141210]/10 rounded-sm hover:border-[#E6A032] hover:-translate-y-1 transition-all duration-500 ease-out",
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
               ].join(" ")}
               style={{ transitionDelay: visible ? `${130 * i}ms` : "0ms" }}
             >
               <span
                 className="absolute top-0 left-0 right-0 h-[2px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
-                style={{ backgroundColor: "#FFC72C" }}
+                style={{ backgroundColor: "#E6A032" }}
                 aria-hidden="true"
               />
               <div
                 className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-5"
-                style={{ backgroundColor: "#FFC72C" }}
+                style={{ backgroundColor: "#E6A032" }}
               >
-                <w.Icon className="w-5 h-5 text-[#0A1A36]" strokeWidth={2.2} />
+                <w.Icon className="w-5 h-5 text-[#141210]" strokeWidth={2.2} />
               </div>
-              <h3 className="font-extrabold tracking-[-0.01em] text-[#0A1A36] text-[20px] md:text-[22px] mb-3">
+              <h3 className="font-display font-light tracking-[-0.01em] text-[#141210] text-[20px] md:text-[22px] mb-3">
                 {w.title}
               </h3>
-              <p className="text-[13.5px] md:text-[14px] leading-[1.7] text-[#0A1A36]/70">
+              <p className="text-[13.5px] md:text-[14px] leading-[1.7] text-[#141210]/70">
                 {w.copy}
               </p>
             </article>
@@ -503,7 +493,7 @@ const WhyGCSA = () => {
 };
 
 // ═══════════════════════════════════════════════════════════════════════
-// 3. Programme divider — visual handoff between intro and detail
+// 3. Programme divider, visual handoff between intro and detail
 // ═══════════════════════════════════════════════════════════════════════
 const ProgrammeDivider = () => {
   return (
@@ -514,14 +504,14 @@ const ProgrammeDivider = () => {
     >
       <div className="px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="flex items-center gap-4 md:gap-6">
-          <span className="flex-1 h-px bg-[#0A1A36]/15" />
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-[#0A1A36] text-white">
-            <span className="w-2 h-2 rounded-full bg-[#FFC72C] animate-pulse" />
+          <span className="flex-1 h-px bg-[#141210]/15" />
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-[#141210] text-white">
+            <span className="w-2 h-2 rounded-full bg-[#E6A032] animate-pulse" />
             <span className="text-[10px] md:text-[11px] font-extrabold tracking-[0.22em] uppercase">
-              Limited Cohort · High Demand — Now Enrolling
+              Limited Cohort · High Demand, Now Enrolling
             </span>
           </span>
-          <span className="flex-1 h-px bg-[#0A1A36]/15" />
+          <span className="flex-1 h-px bg-[#141210]/15" />
         </div>
       </div>
     </section>
@@ -529,48 +519,31 @@ const ProgrammeDivider = () => {
 };
 
 // ═══════════════════════════════════════════════════════════════════════
-// 4. Programme hero — mirrors the flyer
+// 4. Programme hero, mirrors the flyer
 // ═══════════════════════════════════════════════════════════════════════
 const ProgrammeHero = ({ onRegister }) => {
   return (
     <section
       aria-labelledby="prog-hero-heading"
-      className="relative bg-[#0A1A36] text-white overflow-hidden pt-16 md:pt-24 pb-20 md:pb-28"
+      className="relative bg-[#141210] text-white overflow-hidden pt-16 md:pt-24 pb-20 md:pb-28"
     >
-      <div
-        className="absolute inset-0 opacity-60 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 88% 15%, rgba(255,199,44,0.18), transparent 50%), radial-gradient(circle at 8% 90%, rgba(255,199,44,0.06), transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-        aria-hidden="true"
-      />
 
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-[#FFC72C] mb-7">
-              <LuRocket className="w-3.5 h-3.5 text-[#0A1A36]" strokeWidth={2.5} />
-              <span className="text-[10px] md:text-[11px] font-extrabold tracking-[0.22em] uppercase text-[#0A1A36]">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-[#E6A032] mb-7">
+              <LuRocket className="w-3.5 h-3.5 text-[#141210]" strokeWidth={2.5} />
+              <span className="text-[10px] md:text-[11px] font-extrabold tracking-[0.22em] uppercase text-[#141210]">
                 Design the Future. Lead the Change.
               </span>
             </div>
 
             <h2
               id="prog-hero-heading"
-              className="font-extrabold leading-[0.92] tracking-[-0.025em] text-white text-[42px] sm:text-[60px] md:text-[80px] lg:text-[100px] xl:text-[112px]"
+              className="font-display font-light leading-[0.92] tracking-[-0.025em] text-white text-[42px] sm:text-[60px] md:text-[80px] lg:text-[100px] xl:text-[112px]"
             >
               Transition to <br />
-              <span style={{ color: "#FFC72C" }}>Architecture</span>
+              <span style={{ color: "#E6A032" }}>Architecture</span>
               <span className="block mt-3 text-[24px] md:text-[34px] lg:text-[40px] font-bold text-white/90 tracking-[-0.01em]">
                 in just 6 weeks!
               </span>
@@ -583,7 +556,7 @@ const ProgrammeHero = ({ onRegister }) => {
                 { Icon: LuGraduationCap, label: "Higher Influence" },
               ].map(({ Icon, label }) => (
                 <div key={label} className="inline-flex items-center gap-2">
-                  <Icon className="w-5 h-5" style={{ color: "#FFC72C" }} />
+                  <Icon className="w-5 h-5" style={{ color: "#E6A032" }} />
                   <span className="text-[12px] md:text-[13px] font-bold tracking-[0.14em] uppercase text-white/85">
                     {label}
                   </span>
@@ -595,33 +568,33 @@ const ProgrammeHero = ({ onRegister }) => {
               This is your opportunity to transition into high-impact
               Architecture roles with real-world, hands-on experience across
               Solution, Business, Data, Application, Platform, and Technology
-              Architecture — led by practising GCSA consultants.
+              Architecture, led by practising GCSA consultants.
             </p>
           </div>
 
-          {/* Right — investment / CTA card */}
+          {/* Right, investment / CTA card */}
           <div className="lg:col-span-4">
-            <div className="relative bg-gradient-to-br from-white to-[#FBF8F1] text-[#0A1A36] rounded-2xl p-7 md:p-8 shadow-[0_30px_80px_-20px_rgba(255,199,44,0.4)] overflow-hidden">
+            <div className="relative bg-gradient-to-br from-white to-[#FBF8F1] text-[#141210] rounded-2xl p-7 md:p-8 shadow-[0_30px_80px_-20px_rgba(230,160,50,0.4)] overflow-hidden">
               <div
                 className="absolute top-0 left-0 right-0 h-1.5"
-                style={{ backgroundColor: "#FFC72C" }}
+                style={{ backgroundColor: "#E6A032" }}
                 aria-hidden="true"
               />
 
-              <p className="text-[10px] font-bold tracking-[0.26em] uppercase text-[#0A1A36]/50 mb-1.5">
+              <p className="text-[10px] font-bold tracking-[0.26em] uppercase text-[#141210]/50 mb-1.5">
                 Reserve your seat from
               </p>
               <div className="flex items-baseline gap-2 mb-1">
-                <span className="text-[44px] md:text-[48px] font-extrabold leading-none tracking-[-0.02em] text-[#0A1A36]">
+                <span className="text-[44px] md:text-[48px] font-display font-light leading-none tracking-[-0.02em] text-[#141210]">
                   {PRICING.registration}
                 </span>
-                <span className="text-[12px] font-bold text-[#0A1A36]/55">
+                <span className="text-[12px] font-bold text-[#141210]/55">
                   registration fee
                 </span>
               </div>
-              <p className="text-[12.5px] leading-[1.6] text-[#0A1A36]/70 mb-6">
-                Then {PRICING.course} course fee — pay in full or across{" "}
-                <span className="font-bold text-[#0A1A36]">
+              <p className="text-[12.5px] leading-[1.6] text-[#141210]/70 mb-6">
+                Then {PRICING.course} course fee, pay in full or across{" "}
+                <span className="font-bold text-[#141210]">
                   {PRICING.instalments} weekly instalments of {PRICING.instalmentAmount}
                 </span>
                 . {PRICING.total} total.
@@ -634,8 +607,8 @@ const ProgrammeHero = ({ onRegister }) => {
                   "Certificate of completion",
                   "Career-ready portfolio",
                 ].map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-[13px] text-[#0A1A36]/80">
-                    <FiCheck className="shrink-0 mt-0.5 w-4 h-4" style={{ color: "#FFC72C" }} strokeWidth={3} />
+                  <li key={b} className="flex items-start gap-2 text-[13px] text-[#141210]/80">
+                    <FiCheck className="shrink-0 mt-0.5 w-4 h-4" style={{ color: "#E6A032" }} strokeWidth={3} />
                     {b}
                   </li>
                 ))}
@@ -644,14 +617,14 @@ const ProgrammeHero = ({ onRegister }) => {
               <button
                 type="button"
                 onClick={onRegister}
-                className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C] transition-all duration-300"
+                className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E6A032] transition-all duration-300"
               >
                 <FiCreditCard className="w-4 h-4" />
                 Secure Your Spot Today
                 <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
 
-              <p className="mt-4 text-[10.5px] font-bold tracking-[0.18em] uppercase text-[#0A1A36]/55 text-center">
+              <p className="mt-4 text-[10.5px] font-bold tracking-[0.18em] uppercase text-[#141210]/55 text-center">
                 Limited Cohort · High Demand
               </p>
             </div>
@@ -677,21 +650,20 @@ const Outcomes = () => {
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
               You Will Walk Away With
             </p>
             <h2
               id="outcomes-heading"
-              className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[36px] md:text-[48px] lg:text-[56px]"
+              className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[36px] md:text-[48px] lg:text-[56px]"
             >
               Six weeks. Six{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>tangible</span>{" "}
+              <span className="font-light italic" style={{ color: "#E6A032" }}>tangible</span>{" "}
               outcomes.
             </h2>
-            <p className="mt-6 text-[15px] md:text-[16px] leading-[1.75] text-[#0A1A36]/75 max-w-md">
+            <p className="mt-6 text-[15px] md:text-[16px] leading-[1.75] text-[#141210]/75 max-w-md">
               Every week produces a portfolio piece you can show in an interview
-              — not just lecture notes. By Week 6, you have the experience,
+              not just lecture notes. By Week 6, you have the experience,
               language, and confidence of an architect.
             </p>
           </div>
@@ -709,11 +681,11 @@ const Outcomes = () => {
                 >
                   <span
                     className="shrink-0 mt-0.5 inline-flex items-center justify-center w-6 h-6 rounded-full"
-                    style={{ backgroundColor: "#FFC72C" }}
+                    style={{ backgroundColor: "#E6A032" }}
                   >
-                    <FiCheck className="w-3.5 h-3.5 text-[#0A1A36]" strokeWidth={3} />
+                    <FiCheck className="w-3.5 h-3.5 text-[#141210]" strokeWidth={3} />
                   </span>
-                  <span className="text-[14.5px] md:text-[15px] leading-[1.55] text-[#0A1A36]/85">
+                  <span className="text-[14.5px] md:text-[15px] leading-[1.55] text-[#141210]/85">
                     {o}
                   </span>
                 </li>
@@ -727,7 +699,7 @@ const Outcomes = () => {
 };
 
 // ═══════════════════════════════════════════════════════════════════════
-// 6. Curriculum — interactive 6-week panel
+// 6. Curriculum, interactive 6-week panel
 // ═══════════════════════════════════════════════════════════════════════
 const Curriculum = () => {
   const [ref, visible] = useReveal();
@@ -737,35 +709,34 @@ const Curriculum = () => {
     <section
       ref={ref}
       aria-labelledby="curriculum-heading"
-      className="relative bg-[#0A1A36] text-white py-20 md:py-28 lg:py-36 overflow-hidden"
+      className="relative bg-[#141210] text-white py-20 md:py-28 lg:py-36 overflow-hidden"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-60"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 85% 15%, rgba(255,199,44,0.10), transparent 55%)",
+            "radial-gradient(circle at 85% 15%, rgba(230,160,50,0.10), transparent 55%)",
         }}
         aria-hidden="true"
       />
 
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="max-w-3xl mb-12 md:mb-16">
-          <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-            <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+          <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-6">
             The Curriculum
           </p>
           <h2
             id="curriculum-heading"
-            className="font-extrabold leading-[1.02] tracking-[-0.02em] text-white text-[36px] md:text-[48px] lg:text-[56px]"
+            className="font-display font-light leading-[1.02] tracking-[-0.02em] text-white text-[36px] md:text-[48px] lg:text-[56px]"
           >
             Master the top{" "}
-            <span style={{ color: "#FFC72C" }}>6 architectural</span>{" "}
+            <span style={{ color: "#E6A032" }}>6 architectural</span>{" "}
             skillsets.
           </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Left — week list */}
+          {/* Left, week list */}
           <div className="lg:col-span-5">
             <ul className="space-y-2">
               {CURRICULUM.map((c, i) => {
@@ -778,15 +749,15 @@ const Curriculum = () => {
                       className={[
                         "group w-full text-left flex items-center gap-4 p-4 md:p-5 rounded-sm border transition-all duration-300",
                         isActive
-                          ? "bg-white/[0.06] border-[#FFC72C]/50"
+                          ? "bg-white/[0.06] border-[#E6A032]/50"
                           : "bg-transparent border-white/10 hover:border-white/30",
                       ].join(" ")}
                     >
                       <span
                         className={[
-                          "shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full text-[14px] font-extrabold transition-colors",
+                          "shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full text-[14px] font-display font-light transition-colors",
                           isActive
-                            ? "bg-[#FFC72C] text-[#0A1A36]"
+                            ? "bg-[#E6A032] text-white"
                             : "bg-white/10 text-white/70 group-hover:bg-white/20",
                         ].join(" ")}
                       >
@@ -796,7 +767,7 @@ const Curriculum = () => {
                         <span
                           className={[
                             "block text-[10px] font-bold tracking-[0.24em] uppercase mb-0.5 transition-colors",
-                            isActive ? "text-[#FFC72C]" : "text-white/50",
+                            isActive ? "text-[#E6A032]" : "text-white/50",
                           ].join(" ")}
                         >
                           {c.week}
@@ -814,7 +785,7 @@ const Curriculum = () => {
                         className={[
                           "shrink-0 w-4 h-4 transition-all duration-300",
                           isActive
-                            ? "text-[#FFC72C] translate-x-0.5 -translate-y-0.5"
+                            ? "text-[#E6A032] translate-x-0.5 -translate-y-0.5"
                             : "text-white/40 group-hover:text-white/70",
                         ].join(" ")}
                       />
@@ -825,34 +796,34 @@ const Curriculum = () => {
             </ul>
           </div>
 
-          {/* Right — week detail */}
+          {/* Right, week detail */}
           <div className="lg:col-span-7">
             <div
               key={active}
-              className="relative bg-gradient-to-br from-[#06122A] via-[#0A1A36] to-[#06122A] border border-white/10 rounded-2xl p-8 md:p-10 lg:p-12 animate-[panelFade_500ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
+              className="relative bg-gradient-to-br from-[#0A0806] via-[#141210] to-[#0A0806] border border-white/10 rounded-2xl p-8 md:p-10 lg:p-12 animate-[panelFade_500ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
             >
               <span
                 className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
-                style={{ backgroundColor: "#FFC72C" }}
+                style={{ backgroundColor: "#E6A032" }}
                 aria-hidden="true"
               />
-              <p className="text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#FFC72C] mb-3">
+              <p className="text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#E6A032] mb-3">
                 {CURRICULUM[active].week}
               </p>
-              <h3 className="font-extrabold leading-[1.05] tracking-[-0.015em] text-white text-[28px] md:text-[34px] mb-4">
+              <h3 className="font-display font-light leading-[1.05] tracking-[-0.015em] text-white text-[28px] md:text-[34px] mb-4">
                 {CURRICULUM[active].title}
               </h3>
               <p className="text-[15px] md:text-[16px] leading-[1.75] text-white/75 mb-8">
                 {CURRICULUM[active].summary}
               </p>
 
-              <p className="text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#FFC72C] mb-3">
+              <p className="text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#E6A032] mb-3">
                 Deliverables
               </p>
               <ul className="space-y-2.5">
                 {CURRICULUM[active].deliverables.map((d) => (
                   <li key={d} className="flex items-start gap-3 text-[14px] text-white/85">
-                    <FiCheck className="shrink-0 mt-0.5 w-4 h-4" style={{ color: "#FFC72C" }} strokeWidth={3} />
+                    <FiCheck className="shrink-0 mt-0.5 w-4 h-4" style={{ color: "#E6A032" }} strokeWidth={3} />
                     {d}
                   </li>
                 ))}
@@ -888,16 +859,15 @@ const WhoFor = () => {
     >
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="max-w-3xl mb-12 md:mb-16">
-          <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-            <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+          <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
             Built for Professionals from Any Background
           </p>
           <h2
             id="who-heading"
-            className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[36px] md:text-[48px] lg:text-[56px]"
+            className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[36px] md:text-[48px] lg:text-[56px]"
           >
             If you can solve problems, you can become an{" "}
-            <span className="font-light italic" style={{ color: "#FFC72C" }}>architect</span>.
+            <span className="font-light italic" style={{ color: "#E6A032" }}>architect</span>.
           </h2>
         </div>
 
@@ -906,26 +876,26 @@ const WhoFor = () => {
             <article
               key={w.title}
               className={[
-                "group relative p-6 bg-white border border-[#0A1A36]/10 rounded-sm hover:border-[#FFC72C] hover:-translate-y-1 transition-all duration-500",
+                "group relative p-6 bg-white border border-[#141210]/10 rounded-sm hover:border-[#E6A032] hover:-translate-y-1 transition-all duration-500",
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
               ].join(" ")}
               style={{ transitionDelay: visible ? `${100 * i}ms` : "0ms" }}
             >
               <span
                 className="absolute top-0 left-0 right-0 h-[2px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-                style={{ backgroundColor: "#FFC72C" }}
+                style={{ backgroundColor: "#E6A032" }}
                 aria-hidden="true"
               />
               <div
                 className="inline-flex items-center justify-center w-10 h-10 rounded-full mb-4"
-                style={{ backgroundColor: "#FFC72C" }}
+                style={{ backgroundColor: "#E6A032" }}
               >
-                <w.Icon className="w-4 h-4 text-[#0A1A36]" strokeWidth={2.2} />
+                <w.Icon className="w-4 h-4 text-[#141210]" strokeWidth={2.2} />
               </div>
-              <h3 className="font-extrabold tracking-[-0.01em] text-[#0A1A36] text-[15px] md:text-[16px] leading-tight mb-2">
+              <h3 className="font-display font-light tracking-[-0.01em] text-[#141210] text-[15px] md:text-[16px] leading-tight mb-2">
                 {w.title}
               </h3>
-              <p className="text-[12.5px] leading-[1.6] text-[#0A1A36]/65">
+              <p className="text-[12.5px] leading-[1.6] text-[#141210]/65">
                 {w.copy}
               </p>
             </article>
@@ -948,16 +918,15 @@ const Included = ({ onRegister }) => {
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-5">
-            <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
               What's Included
             </p>
             <h2
               id="included-heading"
-              className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[32px] md:text-[42px] lg:text-[48px] mb-8"
+              className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[32px] md:text-[42px] lg:text-[48px] mb-8"
             >
               Everything you need to{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              <span className="font-light italic" style={{ color: "#E6A032" }}>
                 succeed
               </span>
               .
@@ -965,7 +934,7 @@ const Included = ({ onRegister }) => {
             <button
               type="button"
               onClick={onRegister}
-              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#0A1A36] hover:bg-[#06122A] text-white text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-md hover:shadow-lg transition-all duration-300"
+              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#141210] hover:bg-[#0A0806] text-white text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-md hover:shadow-lg transition-all duration-300"
             >
               Secure Your Spot Today
               <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -978,11 +947,11 @@ const Included = ({ onRegister }) => {
                 <li key={item} className="flex items-start gap-3">
                   <span
                     className="shrink-0 mt-0.5 inline-flex items-center justify-center w-6 h-6 rounded-full"
-                    style={{ backgroundColor: "#FFC72C" }}
+                    style={{ backgroundColor: "#E6A032" }}
                   >
-                    <FiCheck className="w-3.5 h-3.5 text-[#0A1A36]" strokeWidth={3} />
+                    <FiCheck className="w-3.5 h-3.5 text-[#141210]" strokeWidth={3} />
                   </span>
-                  <span className="text-[14.5px] md:text-[15px] leading-[1.55] text-[#0A1A36]/85">
+                  <span className="text-[14.5px] md:text-[15px] leading-[1.55] text-[#141210]/85">
                     {item}
                   </span>
                 </li>
@@ -1005,27 +974,18 @@ const ScheduleInvestment = ({ onRegister }) => {
       className="relative bg-[#FBF8F1] py-20 md:py-28"
     >
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
-        <div className="bg-[#0A1A36] text-white rounded-2xl overflow-hidden relative">
-          <div
-            className="absolute inset-0 opacity-50 pointer-events-none"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 90% 50%, rgba(255,199,44,0.15), transparent 60%)",
-            }}
-            aria-hidden="true"
-          />
+        <div className="bg-[#141210] text-white rounded-2xl overflow-hidden relative">
           <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-0">
             <div className="lg:col-span-7 p-8 md:p-12 lg:p-14">
-              <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-5">
-                <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+              <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-5">
                 Schedule
               </p>
               <h2
                 id="schedule-heading"
-                className="font-extrabold leading-[1.05] tracking-[-0.02em] text-white text-[28px] md:text-[40px] lg:text-[46px] mb-8"
+                className="font-display font-light leading-[1.05] tracking-[-0.02em] text-white text-[28px] md:text-[40px] lg:text-[46px] mb-8"
               >
                 Six weeks to a{" "}
-                <span className="font-light italic" style={{ color: "#FFC72C" }}>
+                <span className="font-light italic" style={{ color: "#E6A032" }}>
                   career-changing
                 </span>{" "}
                 future.
@@ -1034,12 +994,12 @@ const ScheduleInvestment = ({ onRegister }) => {
               <div className="grid grid-cols-2 gap-6 md:gap-8">
                 {[
                   { Icon: FiCalendar, label: "Next Cohort", value: "Starting Soon" },
-                  { Icon: FiClock, label: "Duration", value: "6 weeks · 6–8h/wk" },
+                  { Icon: FiClock, label: "Duration", value: "6 weeks · 6 to 8h/wk" },
                   { Icon: FiUsers, label: "Format", value: "Live online + workshops" },
                   { Icon: FiAward, label: "Outcome", value: "Certificate + portfolio" },
                 ].map(({ Icon, label, value }) => (
                   <div key={label} className="flex items-start gap-3">
-                    <Icon className="shrink-0 mt-0.5 w-4 h-4" style={{ color: "#FFC72C" }} />
+                    <Icon className="shrink-0 mt-0.5 w-4 h-4" style={{ color: "#E6A032" }} />
                     <div>
                       <div className="text-[10px] font-bold tracking-[0.22em] uppercase text-white/50 mb-1">
                         {label}
@@ -1053,42 +1013,42 @@ const ScheduleInvestment = ({ onRegister }) => {
               </div>
             </div>
 
-            <div className="lg:col-span-5 p-8 md:p-12 lg:p-14 bg-gradient-to-br from-[#06122A] to-[#0A1A36] lg:border-l border-white/10 flex flex-col justify-center">
+            <div className="lg:col-span-5 p-8 md:p-12 lg:p-14 bg-gradient-to-br from-[#0A0806] to-[#141210] lg:border-l border-white/10 flex flex-col justify-center">
 
-              <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-[#FFC72C] mb-4">
+              <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-[#E6A032] mb-4">
                 Your Investment
               </p>
 
               <dl className="space-y-3 mb-5">
                 <div className="flex items-baseline justify-between gap-4">
                   <dt className="text-[13px] text-white/75">Registration fee</dt>
-                  <dd className="text-[15px] font-extrabold text-white">{PRICING.registration}</dd>
+                  <dd className="text-[15px] font-display font-light text-white">{PRICING.registration}</dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-4">
                   <dt className="text-[13px] text-white/75">Course fee</dt>
-                  <dd className="text-[15px] font-extrabold text-white">{PRICING.course}</dd>
+                  <dd className="text-[15px] font-display font-light text-white">{PRICING.course}</dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-4 pt-3 border-t border-white/10">
-                  <dt className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#FFC72C]">Total</dt>
-                  <dd className="text-[22px] font-extrabold text-white leading-none">{PRICING.total}</dd>
+                  <dt className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#E6A032]">Total</dt>
+                  <dd className="text-[22px] font-display font-light text-white leading-none">{PRICING.total}</dd>
                 </div>
               </dl>
 
-              <div className="flex items-start gap-2.5 mb-7 p-3.5 rounded-sm bg-[#FFC72C]/[0.08] border border-[#FFC72C]/25">
-                <FiCreditCard className="shrink-0 mt-0.5 w-4 h-4" style={{ color: "#FFC72C" }} />
+              <div className="flex items-start gap-2.5 mb-7 p-3.5 rounded-sm bg-[#E6A032]/[0.08] border border-[#E6A032]/25">
+                <FiCreditCard className="shrink-0 mt-0.5 w-4 h-4" style={{ color: "#E6A032" }} />
                 <p className="text-[12px] leading-[1.55] text-white/80">
                   Spread the course fee over{" "}
                   <span className="font-bold text-white">
                     {PRICING.instalments} weekly instalments of {PRICING.instalmentAmount}
                   </span>{" "}
-                  — pay the {PRICING.registration} registration fee today to secure your place.
+                  pay the {PRICING.registration} registration fee today to secure your place.
                 </p>
               </div>
 
               <button
                 type="button"
                 onClick={onRegister}
-                className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C] transition-all duration-300"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E6A032] transition-all duration-300"
               >
                 <FiCreditCard className="w-4 h-4" />
                 Secure Your Spot Today
@@ -1105,7 +1065,7 @@ const ScheduleInvestment = ({ onRegister }) => {
                 </p>
                 <a
                   href="mailto:info@gcsaconsulting.co.uk"
-                  className="block text-[11.5px] font-bold text-[#FFC72C] hover:text-white transition-colors"
+                  className="block text-[11.5px] font-bold text-[#E6A032] hover:text-white transition-colors"
                 >
                   📩 info@gcsaconsulting.co.uk
                 </a>
@@ -1132,16 +1092,15 @@ const FAQ = () => {
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-4">
-            <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
               Programme FAQs
             </p>
             <h2
               id="prog-faq-heading"
-              className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[32px] md:text-[42px]"
+              className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[32px] md:text-[42px]"
             >
               Common{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              <span className="font-light italic" style={{ color: "#E6A032" }}>
                 questions
               </span>
               .
@@ -1149,7 +1108,7 @@ const FAQ = () => {
           </div>
 
           <div className="lg:col-span-8">
-            <ul className="divide-y divide-[#0A1A36]/15 border-t border-[#0A1A36]/15">
+            <ul className="divide-y divide-[#141210]/15 border-t border-[#141210]/15">
               {FAQS.map((f, i) => (
                 <li key={f.q}>
                   <button
@@ -1158,15 +1117,15 @@ const FAQ = () => {
                     aria-expanded={openIdx === i}
                     className="group w-full flex items-center justify-between gap-6 py-6 md:py-7 text-left focus:outline-none"
                   >
-                    <span className="text-[15px] md:text-[17px] font-extrabold tracking-[-0.01em] text-[#0A1A36] group-hover:text-[#FFC72C] transition-colors">
+                    <span className="text-[15px] md:text-[17px] font-display font-light tracking-[-0.01em] text-[#141210] group-hover:text-[#E6A032] transition-colors">
                       {f.q}
                     </span>
                     <span
                       className={[
-                        "shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-300 text-[18px] font-extrabold leading-none",
+                        "shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-300 text-[18px] font-display font-light leading-none",
                         openIdx === i
-                          ? "bg-[#FFC72C] border-[#FFC72C] text-[#0A1A36] rotate-45"
-                          : "border-[#0A1A36]/20 text-[#0A1A36] group-hover:border-[#FFC72C]",
+                          ? "bg-[#E6A032] border-[#E6A032] text-white rotate-45"
+                          : "border-[#141210]/20 text-[#141210] group-hover:border-[#E6A032]",
                       ].join(" ")}
                       aria-hidden="true"
                     >
@@ -1180,7 +1139,7 @@ const FAQ = () => {
                     ].join(" ")}
                   >
                     <div className="overflow-hidden">
-                      <p className="pb-7 pr-8 text-[14px] md:text-[15px] leading-[1.75] text-[#0A1A36]/75 max-w-2xl">
+                      <p className="pb-7 pr-8 text-[14px] md:text-[15px] leading-[1.75] text-[#141210]/75 max-w-2xl">
                         {f.a}
                       </p>
                     </div>
@@ -1205,41 +1164,32 @@ const CorporateTraining = () => {
       className="relative bg-[#FBF8F1] py-20 md:py-28"
     >
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
-        <div className="bg-[#0A1A36] text-white rounded-2xl overflow-hidden p-8 md:p-14 lg:p-16 relative">
-          <div
-            className="absolute inset-0 opacity-50 pointer-events-none"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 90% 50%, rgba(255,199,44,0.15), transparent 60%)",
-            }}
-            aria-hidden="true"
-          />
+        <div className="bg-[#141210] text-white rounded-2xl overflow-hidden p-8 md:p-14 lg:p-16 relative">
           <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-8">
-              <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-5">
-                <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+              <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-5">
                 Corporate Training
               </p>
               <h2
                 id="corporate-heading"
-                className="font-extrabold leading-[1.05] tracking-[-0.02em] text-white text-[28px] md:text-[40px] lg:text-[46px] mb-5"
+                className="font-display font-light leading-[1.05] tracking-[-0.02em] text-white text-[28px] md:text-[40px] lg:text-[46px] mb-5"
               >
                 Need to upskill your{" "}
-                <span className="font-light italic" style={{ color: "#FFC72C" }}>
+                <span className="font-light italic" style={{ color: "#E6A032" }}>
                   whole team
                 </span>
                 ?
               </h2>
               <p className="text-[15px] md:text-[16px] leading-[1.75] text-white/75 max-w-2xl">
-                We design and deliver custom in-house programmes — architecture
-                upskilling, governance bootcamps, leadership academies — tailored
-                to your sector, scale, and standards. Cohorts of 8–40, on-site or virtual.
+                We design and deliver custom in-house programmes, architecture
+                upskilling, governance bootcamps, leadership academies, tailored
+                to your sector, scale, and standards. Cohorts of 8 to 40, on-site or virtual.
               </p>
             </div>
             <div className="lg:col-span-4 lg:flex lg:justify-end">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)] transition-all duration-300"
               >
                 Request a proposal
                 <FiArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -1257,24 +1207,14 @@ const CorporateTraining = () => {
 // ═══════════════════════════════════════════════════════════════════════
 const FinalCta = ({ onRegister }) => {
   return (
-    <section className="relative bg-[#06122A] text-white overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 90% 50%, rgba(255,199,44,0.18), transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
+    <section className="relative bg-[#0A0806] text-white overflow-hidden">
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto py-20 md:py-28 lg:py-32 text-center">
-        <p className="flex items-center justify-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-          <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+        <p className="flex items-center justify-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-6">
           Limited Cohort · High Demand
-          <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
         </p>
-        <h2 className="font-extrabold leading-[0.98] tracking-[-0.025em] text-white text-[44px] md:text-[68px] lg:text-[88px] max-w-4xl mx-auto">
+        <h2 className="font-display font-light leading-[0.98] tracking-[-0.025em] text-white text-[44px] md:text-[68px] lg:text-[88px] max-w-4xl mx-auto">
           Your next career breakthrough is only{" "}
-          <span className="font-light italic" style={{ color: "#FFC72C" }}>6 weeks</span>{" "}away.
+          <span className="font-light italic" style={{ color: "#E6A032" }}>6 weeks</span>{" "}away.
         </h2>
         <p className="mt-8 max-w-xl mx-auto text-[15px] md:text-[17px] leading-[1.7] text-white/75">
           If you're serious about accelerating your career and positioning
@@ -1283,7 +1223,7 @@ const FinalCta = ({ onRegister }) => {
         <button
           type="button"
           onClick={onRegister}
-          className="group mt-10 inline-flex items-center gap-2 px-9 py-5 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[13px] font-extrabold tracking-[0.2em] uppercase shadow-[0_14px_40px_-10px_rgba(255,199,44,0.7)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06122A] focus-visible:ring-[#FFC72C] transition-all duration-300"
+          className="group mt-10 inline-flex items-center gap-2 px-9 py-5 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[13px] font-extrabold tracking-[0.2em] uppercase shadow-[0_14px_40px_-10px_rgba(230,160,50,0.7)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0806] focus-visible:ring-[#E6A032] transition-all duration-300"
         >
           <FiCreditCard className="w-5 h-5" />
           Secure Your Spot Today
@@ -1293,7 +1233,7 @@ const FinalCta = ({ onRegister }) => {
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 text-[13px] text-white/60">
           <span>📍 Classes in London, Wales, Scotland &amp; North Ireland</span>
           <span className="hidden sm:inline text-white/30">·</span>
-          <a href="mailto:info@gcsaconsulting.co.uk" className="font-bold text-[#FFC72C] hover:text-white transition-colors">
+          <a href="mailto:info@gcsaconsulting.co.uk" className="font-bold text-[#E6A032] hover:text-white transition-colors">
             📩 info@gcsaconsulting.co.uk
           </a>
         </div>
@@ -1303,7 +1243,7 @@ const FinalCta = ({ onRegister }) => {
 };
 
 // ═══════════════════════════════════════════════════════════════════════
-// REGISTRATION MODAL — embedded in the same file
+// REGISTRATION MODAL, embedded in the same file
 // ═══════════════════════════════════════════════════════════════════════
 const RegistrationModal = ({
   open,
@@ -1321,7 +1261,7 @@ const RegistrationModal = ({
     phone: "",
     country: "",
     currentRole: "Business Analyst",
-    experience: "2–5 years",
+    experience: "2 to 5 years",
     company: "",
     linkedin: "",
     motivation: "",
@@ -1419,7 +1359,7 @@ const RegistrationModal = ({
         window.location.href = data.url;
         return;
       }
-      // Stripe isn't configured yet — the registration was still captured.
+      // Stripe isn't configured yet, the registration was still captured.
       if (data?.pending) {
         toast.success(
           data.message ||
@@ -1449,40 +1389,40 @@ const RegistrationModal = ({
         type="button"
         aria-label="Close registration"
         onClick={() => !submitting && onClose?.()}
-        className="absolute inset-0 bg-[#06122A]/80 backdrop-blur-sm animate-[modalFade_300ms_ease-out_forwards] cursor-default"
+        className="absolute inset-0 bg-[#0A0806]/80 backdrop-blur-sm animate-[modalFade_300ms_ease-out_forwards] cursor-default"
       />
 
-      <div className="relative w-full md:max-w-[820px] md:max-h-[90vh] bg-white md:rounded-2xl shadow-[0_40px_120px_-20px_rgba(10,26,54,0.6)] overflow-hidden flex flex-col animate-[modalPop_400ms_cubic-bezier(0.22,1,0.36,1)_forwards]">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-[#FFC72C]" aria-hidden="true" />
+      <div className="relative w-full md:max-w-[820px] md:max-h-[90vh] bg-white md:rounded-2xl shadow-[0_40px_120px_-20px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col animate-[modalPop_400ms_cubic-bezier(0.22,1,0.36,1)_forwards]">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#E6A032]" aria-hidden="true" />
 
         {/* Header */}
-        <div className="relative px-6 md:px-10 pt-7 md:pt-9 pb-5 border-b border-[#0A1A36]/10 bg-white">
+        <div className="relative px-6 md:px-10 pt-7 md:pt-9 pb-5 border-b border-[#141210]/10 bg-white">
           <button
             type="button"
             onClick={() => !submitting && onClose?.()}
             disabled={submitting}
             aria-label="Close"
-            className="absolute top-5 right-5 md:top-7 md:right-7 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#0A1A36]/[0.05] hover:bg-[#0A1A36]/10 text-[#0A1A36] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/60 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute top-5 right-5 md:top-7 md:right-7 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#141210]/[0.05] hover:bg-[#141210]/10 text-[#141210] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/60 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <FiX className="w-5 h-5" />
           </button>
 
-          <p className="text-[10.5px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-2">
-            <span className="inline-block w-8 h-px bg-[#FFC72C] align-middle mr-3" />
+          <p className="text-[10.5px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-2">
+            <span className="inline-block w-8 h-px bg-[#E6A032] align-middle mr-3" />
             Register
           </p>
           <h2
             id="registration-heading"
-            className="font-extrabold leading-[1.1] tracking-[-0.01em] text-[#0A1A36] text-[22px] md:text-[28px] pr-12"
+            className="font-display font-light leading-[1.1] tracking-[-0.01em] text-[#141210] text-[22px] md:text-[28px] pr-12"
           >
             {programmeName}
           </h2>
 
           <div className="mt-5 flex items-center gap-3">
             <Step n={1} active={step >= 1} done={step > 1} label="Your details" />
-            <span className="flex-1 h-px bg-[#0A1A36]/15" />
+            <span className="flex-1 h-px bg-[#141210]/15" />
             <Step n={2} active={step >= 2} done={step > 2} label="Background" />
-            <span className="flex-1 h-px bg-[#0A1A36]/15" />
+            <span className="flex-1 h-px bg-[#141210]/15" />
             <Step n={3} active={step >= 3} done={false} label="Payment" />
           </div>
         </div>
@@ -1514,15 +1454,15 @@ const RegistrationModal = ({
                   name="consent"
                   checked={form.consent}
                   onChange={onChange}
-                  className="shrink-0 mt-0.5 w-4 h-4 rounded-sm border-2 border-[#0A1A36]/30 accent-[#FFC72C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/60"
+                  className="shrink-0 mt-0.5 w-4 h-4 rounded-sm border-2 border-[#141210]/30 accent-[#E6A032] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/60"
                 />
-                <span className="text-[12.5px] leading-[1.6] text-[#0A1A36]/80">
+                <span className="text-[12.5px] leading-[1.6] text-[#141210]/80">
                   I agree to the GCSA{" "}
-                  <a href="/terms-of-use" target="_blank" rel="noopener noreferrer" className="font-bold text-[#0A1A36] underline underline-offset-2 hover:text-[#FFC72C]">
+                  <a href="/terms-of-use" target="_blank" rel="noopener noreferrer" className="font-bold text-[#141210] underline underline-offset-2 hover:text-[#E6A032]">
                     terms of use
                   </a>{" "}
                   and{" "}
-                  <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="font-bold text-[#0A1A36] underline underline-offset-2 hover:text-[#FFC72C]">
+                  <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="font-bold text-[#141210] underline underline-offset-2 hover:text-[#E6A032]">
                     privacy policy
                   </a>
                   , and consent to GCSA contacting me about this programme.
@@ -1533,13 +1473,13 @@ const RegistrationModal = ({
 
           {step === 3 && (
             <div key="step-3" className="animate-[stepFade_350ms_ease-out_forwards]">
-              <p className="text-[10.5px] font-bold tracking-[0.22em] uppercase text-[#0A1A36]/65 mb-1">
+              <p className="text-[10.5px] font-bold tracking-[0.22em] uppercase text-[#141210]/65 mb-1">
                 Choose how to pay
               </p>
-              <p className="text-[13px] leading-[1.6] text-[#0A1A36]/70 mb-5">
+              <p className="text-[13px] leading-[1.6] text-[#141210]/70 mb-5">
                 The programme is{" "}
-                <span className="font-bold text-[#0A1A36]">{PRICING.total}</span> in
-                total — {PRICING.registration} registration fee plus {PRICING.course}{" "}
+                <span className="font-bold text-[#141210]">{PRICING.total}</span> in
+                total, {PRICING.registration} registration fee plus {PRICING.course}{" "}
                 course fee.
               </p>
 
@@ -1554,38 +1494,38 @@ const RegistrationModal = ({
                       aria-checked={selected}
                       onClick={() => setForm((s) => ({ ...s, plan: opt.id }))}
                       className={[
-                        "relative text-left p-5 rounded-lg border-2 bg-white transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/60",
+                        "relative text-left p-5 rounded-lg border-2 bg-white transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/60",
                         selected
-                          ? "border-[#FFC72C] shadow-[0_10px_30px_-12px_rgba(255,199,44,0.7)]"
-                          : "border-[#0A1A36]/12 hover:border-[#0A1A36]/30",
+                          ? "border-[#E6A032] shadow-[0_10px_30px_-12px_rgba(230,160,50,0.7)]"
+                          : "border-[#141210]/12 hover:border-[#141210]/30",
                       ].join(" ")}
                     >
                       {opt.highlight && (
-                        <span className="absolute top-3 right-3 inline-flex px-2 py-1 rounded-full bg-[#FFC72C] text-[8.5px] font-extrabold tracking-[0.16em] uppercase text-[#0A1A36]">
+                        <span className="absolute top-3 right-3 inline-flex px-2 py-1 rounded-full bg-[#E6A032] text-[8.5px] font-extrabold tracking-[0.16em] uppercase text-white">
                           Popular
                         </span>
                       )}
                       <span
                         className={[
                           "inline-flex items-center justify-center w-5 h-5 rounded-full border-2 mb-3 transition-colors",
-                          selected ? "border-[#FFC72C] bg-[#FFC72C]" : "border-[#0A1A36]/25",
+                          selected ? "border-[#E6A032] bg-[#E6A032]" : "border-[#141210]/25",
                         ].join(" ")}
                         aria-hidden="true"
                       >
-                        {selected && <FiCheck className="w-3 h-3 text-[#0A1A36]" strokeWidth={3.5} />}
+                        {selected && <FiCheck className="w-3 h-3 text-[#141210]" strokeWidth={3.5} />}
                       </span>
-                      <div className="text-[13px] font-bold tracking-[-0.01em] text-[#0A1A36] mb-1">
+                      <div className="text-[13px] font-bold tracking-[-0.01em] text-[#141210] mb-1">
                         {opt.label}
                       </div>
                       <div className="flex items-baseline gap-1.5 mb-1">
-                        <span className="text-[28px] font-extrabold leading-none tracking-[-0.02em] text-[#0A1A36]">
+                        <span className="text-[28px] font-display font-light leading-none tracking-[-0.02em] text-[#141210]">
                           {opt.amount}
                         </span>
                       </div>
-                      <div className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#FFC72C] mb-3">
+                      <div className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#E6A032] mb-3">
                         {opt.amountNote}
                       </div>
-                      <p className="text-[12px] leading-[1.55] text-[#0A1A36]/65">
+                      <p className="text-[12px] leading-[1.55] text-[#141210]/65">
                         {opt.blurb}
                       </p>
                     </button>
@@ -1593,11 +1533,11 @@ const RegistrationModal = ({
                 })}
               </div>
 
-              <div className="mt-5 flex items-start gap-2.5 p-4 rounded-sm bg-[#0A1A36]/[0.04] border border-[#0A1A36]/10">
-                <FiLock className="shrink-0 mt-0.5 w-3.5 h-3.5 text-[#FFC72C]" />
-                <p className="text-[12px] leading-[1.6] text-[#0A1A36]/70">
+              <div className="mt-5 flex items-start gap-2.5 p-4 rounded-sm bg-[#141210]/[0.04] border border-[#141210]/10">
+                <FiLock className="shrink-0 mt-0.5 w-3.5 h-3.5 text-[#E6A032]" />
+                <p className="text-[12px] leading-[1.6] text-[#141210]/70">
                   You'll be redirected to{" "}
-                  <span className="font-bold text-[#0A1A36]">Stripe</span> to pay your{" "}
+                  <span className="font-bold text-[#141210]">Stripe</span> to pay your{" "}
                   {form.plan === "full" ? PRICING.total : PRICING.registration} securely.
                   {form.plan === "registration" && (
                     <>
@@ -1613,12 +1553,12 @@ const RegistrationModal = ({
         </form>
 
         {/* Footer */}
-        <div className="px-6 md:px-10 py-5 border-t border-[#0A1A36]/10 bg-white flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div className="flex items-center gap-3 text-[11.5px] text-[#0A1A36]/65">
-            <FiLock className="w-3.5 h-3.5 text-[#FFC72C]" />
+        <div className="px-6 md:px-10 py-5 border-t border-[#141210]/10 bg-white flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="flex items-center gap-3 text-[11.5px] text-[#141210]/65">
+            <FiLock className="w-3.5 h-3.5 text-[#E6A032]" />
             <span>
               Secure checkout via{" "}
-              <span className="font-bold text-[#0A1A36]">Stripe</span>
+              <span className="font-bold text-[#141210]">Stripe</span>
             </span>
           </div>
 
@@ -1628,7 +1568,7 @@ const RegistrationModal = ({
                 type="button"
                 onClick={back}
                 disabled={submitting}
-                className="inline-flex items-center justify-center px-5 py-3 rounded-full border-2 border-[#0A1A36]/15 text-[#0A1A36] text-[11px] font-bold tracking-[0.18em] uppercase hover:border-[#0A1A36] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40 transition-colors disabled:opacity-50"
+                className="inline-flex items-center justify-center px-5 py-3 rounded-full border-2 border-[#141210]/15 text-[#141210] text-[11px] font-bold tracking-[0.18em] uppercase hover:border-[#141210] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/40 transition-colors disabled:opacity-50"
               >
                 Back
               </button>
@@ -1637,7 +1577,7 @@ const RegistrationModal = ({
               <button
                 type="button"
                 onClick={next}
-                className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#0A1A36] hover:bg-[#06122A] text-white text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C] transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#141210] hover:bg-[#0A0806] text-white text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E6A032] transition-all duration-300"
               >
                 Continue
                 <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -1647,11 +1587,11 @@ const RegistrationModal = ({
                 type="button"
                 onClick={submit}
                 disabled={submitting}
-                className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E6A032] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {submitting ? (
                   <>
-                    <span className="w-3.5 h-3.5 rounded-full border-2 border-[#0A1A36]/30 border-t-[#0A1A36] animate-spin" />
+                    <span className="w-3.5 h-3.5 rounded-full border-2 border-[#141210]/30 border-t-[#141210] animate-spin" />
                     Redirecting…
                   </>
                 ) : (
@@ -1697,12 +1637,12 @@ const Step = ({ n, active, done, label }) => (
   <div className="flex items-center gap-2 shrink-0">
     <span
       className={[
-        "inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full text-[11px] md:text-[12px] font-extrabold transition-colors",
+        "inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full text-[11px] md:text-[12px] font-display font-light transition-colors",
         done
-          ? "bg-[#FFC72C] text-[#0A1A36]"
+          ? "bg-[#E6A032] text-white"
           : active
-          ? "bg-[#0A1A36] text-white"
-          : "bg-[#0A1A36]/10 text-[#0A1A36]/40",
+          ? "bg-[#141210] text-white"
+          : "bg-[#141210]/10 text-[#141210]/40",
       ].join(" ")}
     >
       {done ? <FiCheck className="w-3.5 h-3.5" strokeWidth={3} /> : n}
@@ -1710,7 +1650,7 @@ const Step = ({ n, active, done, label }) => (
     <span
       className={[
         "hidden sm:inline text-[10.5px] md:text-[11px] font-bold tracking-[0.18em] uppercase",
-        active || done ? "text-[#0A1A36]" : "text-[#0A1A36]/40",
+        active || done ? "text-[#141210]" : "text-[#141210]/40",
       ].join(" ")}
     >
       {label}
@@ -1720,8 +1660,8 @@ const Step = ({ n, active, done, label }) => (
 
 const Field = ({ label, name, type = "text", value, onChange, required, full, textarea, placeholder }) => (
   <div className={full ? "md:col-span-2" : ""}>
-    <label htmlFor={name} className="block text-[10.5px] font-bold tracking-[0.22em] uppercase text-[#0A1A36]/65 mb-2">
-      {label} {required && <span className="text-[#FFC72C]">*</span>}
+    <label htmlFor={name} className="block text-[10.5px] font-bold tracking-[0.22em] uppercase text-[#141210]/65 mb-2">
+      {label} {required && <span className="text-[#E6A032]">*</span>}
     </label>
     {textarea ? (
       <textarea
@@ -1732,7 +1672,7 @@ const Field = ({ label, name, type = "text", value, onChange, required, full, te
         required={required}
         rows={4}
         placeholder={placeholder}
-        className="w-full px-4 py-3 bg-white border border-[#0A1A36]/15 rounded-sm text-[14px] text-[#0A1A36] placeholder:text-[#0A1A36]/40 focus:outline-none focus:border-[#FFC72C] focus:ring-2 focus:ring-[#FFC72C]/20 transition-all resize-none"
+        className="w-full px-4 py-3 bg-white border border-[#141210]/15 rounded-sm text-[14px] text-[#141210] placeholder:text-[#141210]/40 focus:outline-none focus:border-[#E6A032] focus:ring-2 focus:ring-[#E6A032]/20 transition-all resize-none"
       />
     ) : (
       <input
@@ -1743,7 +1683,7 @@ const Field = ({ label, name, type = "text", value, onChange, required, full, te
         onChange={onChange}
         required={required}
         placeholder={placeholder}
-        className="w-full px-4 py-3 bg-white border border-[#0A1A36]/15 rounded-sm text-[14px] text-[#0A1A36] placeholder:text-[#0A1A36]/40 focus:outline-none focus:border-[#FFC72C] focus:ring-2 focus:ring-[#FFC72C]/20 transition-all"
+        className="w-full px-4 py-3 bg-white border border-[#141210]/15 rounded-sm text-[14px] text-[#141210] placeholder:text-[#141210]/40 focus:outline-none focus:border-[#E6A032] focus:ring-2 focus:ring-[#E6A032]/20 transition-all"
       />
     )}
   </div>
@@ -1751,7 +1691,7 @@ const Field = ({ label, name, type = "text", value, onChange, required, full, te
 
 const SelectField = ({ label, name, value, onChange, options, full }) => (
   <div className={full ? "md:col-span-2" : ""}>
-    <label htmlFor={name} className="block text-[10.5px] font-bold tracking-[0.22em] uppercase text-[#0A1A36]/65 mb-2">
+    <label htmlFor={name} className="block text-[10.5px] font-bold tracking-[0.22em] uppercase text-[#141210]/65 mb-2">
       {label}
     </label>
     <select
@@ -1759,7 +1699,7 @@ const SelectField = ({ label, name, value, onChange, options, full }) => (
       name={name}
       value={value}
       onChange={onChange}
-      className="w-full px-4 py-3 bg-white border border-[#0A1A36]/15 rounded-sm text-[14px] text-[#0A1A36] focus:outline-none focus:border-[#FFC72C] focus:ring-2 focus:ring-[#FFC72C]/20 transition-all appearance-none cursor-pointer"
+      className="w-full px-4 py-3 bg-white border border-[#141210]/15 rounded-sm text-[14px] text-[#141210] focus:outline-none focus:border-[#E6A032] focus:ring-2 focus:ring-[#E6A032]/20 transition-all appearance-none cursor-pointer"
       style={{
         backgroundImage:
           "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230A1A36'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E\")",

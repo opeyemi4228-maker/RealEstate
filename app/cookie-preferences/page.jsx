@@ -19,7 +19,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 /**
- * Cookie Preferences — GCSA Consulting UK LTD
+ * Cookie Preferences, GCSA Consulting UK LTD
  *
  * Interactive consent manager. Persists to localStorage under two keys:
  *
@@ -28,7 +28,7 @@ import Footer from "@/components/Footer";
  *                                 existing homepage cookie banner)
  *
  *   gcsa.cookieCategories        JSON: { necessary, analytics, marketing }
- *                                 — fine-grained per-category state
+ *, fine-grained per-category state
  *
  * On save we dispatch a `cookie-consent-change` CustomEvent that the
  * analytics gate in app/layout.jsx already listens for.
@@ -267,39 +267,30 @@ const CookiePreferencesPage = () => {
 const PageHero = () => (
   <section
     aria-labelledby="cookies-hero-heading"
-    className="relative bg-[#0A1A36] text-white overflow-hidden pt-32 md:pt-40 pb-20 md:pb-24"
+    className="relative bg-[#141210] text-white overflow-hidden pt-32 md:pt-40 pb-20 md:pb-24"
   >
-    <div
-      className="absolute inset-0 opacity-60 pointer-events-none"
-      style={{
-        backgroundImage:
-          "radial-gradient(circle at 88% 15%, rgba(255,199,44,0.18), transparent 50%), radial-gradient(circle at 8% 90%, rgba(255,199,44,0.06), transparent 55%)",
-      }}
-      aria-hidden="true"
-    />
     <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
       <nav
         aria-label="Breadcrumb"
         className="flex items-center gap-2 text-[11px] font-bold tracking-[0.22em] uppercase text-white/50 mb-8"
       >
-        <Link href="/" className="hover:text-[#FFC72C] transition-colors">
+        <Link href="/" className="hover:text-[#E6A032] transition-colors">
           Home
         </Link>
         <span aria-hidden="true">·</span>
-        <span className="text-[#FFC72C]">Cookie Preferences</span>
+        <span className="text-[#E6A032]">Cookie Preferences</span>
       </nav>
 
-      <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-        <span className="inline-block w-12 h-px" style={{ backgroundColor: "#FFC72C" }} />
+      <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-6">
         Privacy Controls
       </p>
 
       <h1
         id="cookies-hero-heading"
-        className="font-extrabold leading-[0.98] tracking-[-0.02em] text-white text-[44px] sm:text-[60px] md:text-[80px] lg:text-[88px]"
+        className="font-display font-light leading-[0.98] tracking-[-0.02em] text-white text-[44px] sm:text-[60px] md:text-[80px] lg:text-[88px]"
       >
         Cookie{" "}
-        <span className="font-light italic" style={{ color: "#FFC72C" }}>
+        <span className="font-light italic" style={{ color: "#E6A032" }}>
           Preferences
         </span>
         .
@@ -326,19 +317,18 @@ const SettingsSection = ({ mounted, prefs, onToggle, onAllOn, onAllOff, onSave, 
     >
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          {/* LEFT — controls + status */}
+          {/* LEFT, controls + status */}
           <aside className="lg:col-span-4 lg:sticky lg:top-32">
-            <p className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/55 mb-5">
-              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[10.5px] font-semibold tracking-[0.26em] uppercase text-[#141210]/55 mb-5">
               Quick Controls
             </p>
 
             <h2
               id="settings-heading"
-              className="font-extrabold leading-[1.05] tracking-[-0.02em] text-[#0A1A36] text-[28px] md:text-[34px] mb-6"
+              className="font-display font-light leading-[1.05] tracking-[-0.02em] text-[#141210] text-[28px] md:text-[34px] mb-6"
             >
               Set your{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              <span className="font-light italic" style={{ color: "#E6A032" }}>
                 preferences
               </span>
               .
@@ -349,7 +339,7 @@ const SettingsSection = ({ mounted, prefs, onToggle, onAllOn, onAllOff, onSave, 
                 type="button"
                 onClick={onAllOn}
                 disabled={!mounted}
-                className="group w-full inline-flex items-center justify-between gap-3 px-6 py-3.5 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C] disabled:opacity-50 transition-all duration-300"
+                className="group w-full inline-flex items-center justify-between gap-3 px-6 py-3.5 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E6A032] disabled:opacity-50 transition-all duration-300"
               >
                 Accept All
                 <FiCheck className="w-4 h-4" strokeWidth={3} />
@@ -358,7 +348,7 @@ const SettingsSection = ({ mounted, prefs, onToggle, onAllOn, onAllOff, onSave, 
                 type="button"
                 onClick={onAllOff}
                 disabled={!mounted}
-                className="group w-full inline-flex items-center justify-between gap-3 px-6 py-3.5 rounded-full bg-white border-2 border-[#0A1A36]/15 hover:border-[#0A1A36] text-[#0A1A36] text-[11.5px] font-extrabold tracking-[0.18em] uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A1A36]/40 disabled:opacity-50 transition-all duration-300"
+                className="group w-full inline-flex items-center justify-between gap-3 px-6 py-3.5 rounded-full bg-white border-2 border-[#141210]/15 hover:border-[#141210] text-[#141210] text-[11.5px] font-extrabold tracking-[0.18em] uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-[#141210]/40 disabled:opacity-50 transition-all duration-300"
               >
                 Reject Optional
               </button>
@@ -366,7 +356,7 @@ const SettingsSection = ({ mounted, prefs, onToggle, onAllOn, onAllOff, onSave, 
                 type="button"
                 onClick={onSave}
                 disabled={!mounted}
-                className="group w-full inline-flex items-center justify-between gap-3 px-6 py-3.5 rounded-full bg-[#0A1A36] hover:bg-[#06122A] text-white text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C] disabled:opacity-50 transition-all duration-300"
+                className="group w-full inline-flex items-center justify-between gap-3 px-6 py-3.5 rounded-full bg-[#141210] hover:bg-[#0A0806] text-white text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E6A032] disabled:opacity-50 transition-all duration-300"
               >
                 Save Selection
                 <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -378,26 +368,26 @@ const SettingsSection = ({ mounted, prefs, onToggle, onAllOn, onAllOff, onSave, 
               <div
                 role="status"
                 aria-live="polite"
-                className="mt-7 p-5 bg-[#FBF8F1] border border-[#0A1A36]/10 rounded-sm"
+                className="mt-7 p-5 bg-[#FBF8F1] border border-[#141210]/10 rounded-sm"
               >
                 <div className="flex items-start gap-3">
                   <span
                     className={[
                       "shrink-0 mt-0.5 inline-flex items-center justify-center w-7 h-7 rounded-full",
-                      saved ? "bg-[#FFC72C]" : "bg-[#0A1A36]/10",
+                      saved ? "bg-[#E6A032]" : "bg-[#141210]/10",
                     ].join(" ")}
                   >
                     {saved ? (
-                      <FiCheck className="w-3.5 h-3.5 text-[#0A1A36]" strokeWidth={3} />
+                      <FiCheck className="w-3.5 h-3.5 text-[#141210]" strokeWidth={3} />
                     ) : (
-                      <FiInfo className="w-3.5 h-3.5 text-[#0A1A36]" />
+                      <FiInfo className="w-3.5 h-3.5 text-[#141210]" />
                     )}
                   </span>
                   <div>
-                    <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#0A1A36]/55 mb-1">
+                    <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#141210]/55 mb-1">
                       {saved ? "Saved" : "Unsaved Changes"}
                     </p>
-                    <p className="text-[13px] leading-[1.55] text-[#0A1A36]/80">
+                    <p className="text-[13px] leading-[1.55] text-[#141210]/80">
                       {saved && savedAt
                         ? `Last saved ${formatTimeAgo(savedAt)}.`
                         : saved
@@ -409,12 +399,12 @@ const SettingsSection = ({ mounted, prefs, onToggle, onAllOn, onAllOff, onSave, 
               </div>
             )}
 
-            <p className="mt-6 text-[12px] leading-[1.6] text-[#0A1A36]/55">
+            <p className="mt-6 text-[12px] leading-[1.6] text-[#141210]/55">
               Preferences are stored on your device using browser storage. Read
               full details in our{" "}
               <Link
                 href="/privacy-policy"
-                className="font-bold text-[#0A1A36] underline underline-offset-4 hover:text-[#FFC72C] transition-colors"
+                className="font-bold text-[#141210] underline underline-offset-4 hover:text-[#E6A032] transition-colors"
               >
                 Privacy Policy
               </Link>
@@ -422,10 +412,9 @@ const SettingsSection = ({ mounted, prefs, onToggle, onAllOn, onAllOff, onSave, 
             </p>
           </aside>
 
-          {/* RIGHT — category toggles */}
+          {/* RIGHT, category toggles */}
           <div className="lg:col-span-8">
-            <p className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[10.5px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-6">
               By Category
             </p>
 
@@ -452,13 +441,13 @@ const CategoryCard = ({ category, enabled, onToggle, mounted }) => {
   const { id, Icon, title, required, description, examples } = category;
 
   return (
-    <article className="group relative bg-[#FBF8F1] border border-[#0A1A36]/10 rounded-sm overflow-hidden transition-all duration-300 hover:border-[#FFC72C]/50">
+    <article className="group relative bg-[#FBF8F1] border border-[#141210]/10 rounded-sm overflow-hidden transition-all duration-300 hover:border-[#E6A032]/50">
       <span
         className={[
           "absolute top-0 left-0 right-0 h-[2px] origin-left transition-transform duration-500",
           enabled ? "scale-x-100" : "scale-x-0",
         ].join(" ")}
-        style={{ backgroundColor: "#FFC72C" }}
+        style={{ backgroundColor: "#E6A032" }}
         aria-hidden="true"
       />
 
@@ -467,26 +456,26 @@ const CategoryCard = ({ category, enabled, onToggle, mounted }) => {
           <span
             className={[
               "shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full transition-colors",
-              enabled ? "bg-[#FFC72C]" : "bg-[#0A1A36]/10",
+              enabled ? "bg-[#E6A032]" : "bg-[#141210]/10",
             ].join(" ")}
           >
             <Icon
-              className={["w-5 h-5", enabled ? "text-[#0A1A36]" : "text-[#0A1A36]/55"].join(" ")}
+              className={["w-5 h-5", enabled ? "text-[#141210]" : "text-[#141210]/55"].join(" ")}
               strokeWidth={2.2}
             />
           </span>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1 flex-wrap">
-              <h3 className="font-extrabold tracking-[-0.01em] text-[#0A1A36] text-[18px] md:text-[20px]">
+              <h3 className="font-display font-light tracking-[-0.01em] text-[#141210] text-[18px] md:text-[20px]">
                 {title}
               </h3>
               {required && (
-                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#0A1A36]/[0.06] text-[9.5px] font-bold tracking-[0.2em] uppercase text-[#0A1A36]/65">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#141210]/[0.06] text-[9.5px] font-bold tracking-[0.2em] uppercase text-[#141210]/65">
                   Always Active
                 </span>
               )}
             </div>
-            <p className="text-[13.5px] leading-[1.6] text-[#0A1A36]/70">{description}</p>
+            <p className="text-[13.5px] leading-[1.6] text-[#141210]/70">{description}</p>
           </div>
         </div>
 
@@ -506,7 +495,7 @@ const CategoryCard = ({ category, enabled, onToggle, mounted }) => {
         type="button"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        className="w-full flex items-center justify-between gap-3 px-6 md:px-7 py-3.5 border-t border-[#0A1A36]/10 text-[11px] font-bold tracking-[0.18em] uppercase text-[#0A1A36]/65 hover:text-[#0A1A36] hover:bg-white transition-colors focus:outline-none focus-visible:bg-white"
+        className="w-full flex items-center justify-between gap-3 px-6 md:px-7 py-3.5 border-t border-[#141210]/10 text-[11px] font-bold tracking-[0.18em] uppercase text-[#141210]/65 hover:text-[#141210] hover:bg-white transition-colors focus:outline-none focus-visible:bg-white"
       >
         <span className="flex items-center gap-2">
           <FiSettings className="w-3.5 h-3.5" />
@@ -530,16 +519,16 @@ const CategoryCard = ({ category, enabled, onToggle, mounted }) => {
         ].join(" ")}
       >
         <div className="overflow-hidden">
-          <div className="px-6 md:px-7 pb-6 pt-2 bg-white border-t border-[#0A1A36]/[0.06]">
-            <p className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#FFC72C] mb-3">
+          <div className="px-6 md:px-7 pb-6 pt-2 bg-white border-t border-[#141210]/[0.06]">
+            <p className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#E6A032] mb-3">
               Typical examples
             </p>
             <ul className="space-y-2">
               {examples.map((ex) => (
-                <li key={ex} className="flex items-start gap-2.5 text-[13px] leading-[1.55] text-[#0A1A36]/75">
+                <li key={ex} className="flex items-start gap-2.5 text-[13px] leading-[1.55] text-[#141210]/75">
                   <span
                     className="shrink-0 mt-0.5 inline-block w-1 h-1 rounded-full"
-                    style={{ backgroundColor: "#FFC72C" }}
+                    style={{ backgroundColor: "#E6A032" }}
                   />
                   {ex}
                 </li>
@@ -561,8 +550,8 @@ const Toggle = ({ checked, disabled, onChange, label }) => (
     disabled={disabled}
     onClick={onChange}
     className={[
-      "relative inline-flex items-center w-14 h-8 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C]",
-      checked ? "bg-[#FFC72C]" : "bg-[#0A1A36]/15",
+      "relative inline-flex items-center w-14 h-8 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E6A032]",
+      checked ? "bg-[#E6A032]" : "bg-[#141210]/15",
       disabled ? "cursor-not-allowed opacity-65" : "cursor-pointer hover:opacity-90",
     ].join(" ")}
   >
@@ -588,21 +577,20 @@ const CookieTableSection = () => {
     >
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="max-w-3xl mb-10 md:mb-14">
-          <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-            <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+          <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
             Detailed Cookie List
           </p>
           <h2
             id="cookies-list-heading"
-            className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[32px] md:text-[42px] lg:text-[48px]"
+            className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[32px] md:text-[42px] lg:text-[48px]"
           >
             Cookies we{" "}
-            <span className="font-light italic" style={{ color: "#FFC72C" }}>
+            <span className="font-light italic" style={{ color: "#E6A032" }}>
               currently use
             </span>
             .
           </h2>
-          <p className="mt-6 text-[14.5px] md:text-[15px] leading-[1.75] text-[#0A1A36]/70 max-w-2xl">
+          <p className="mt-6 text-[14.5px] md:text-[15px] leading-[1.75] text-[#141210]/70 max-w-2xl">
             This list is updated as our tooling changes. Strictly necessary
             cookies are required for core site functionality and cannot be
             disabled. Third-party cookies are governed by the providers' own
@@ -613,7 +601,7 @@ const CookieTableSection = () => {
         <div className="overflow-x-auto -mx-6 md:mx-0 px-6 md:px-0">
           <table className="w-full min-w-[760px] border-collapse bg-white rounded-sm overflow-hidden">
             <thead>
-              <tr className="bg-[#0A1A36] text-white">
+              <tr className="bg-[#141210] text-white">
                 <th className="text-left text-[10.5px] font-bold tracking-[0.22em] uppercase py-4 px-5">
                   Cookie / Storage Key
                 </th>
@@ -636,21 +624,21 @@ const CookieTableSection = () => {
                 <tr
                   key={c.name}
                   className={[
-                    "border-t border-[#0A1A36]/10",
+                    "border-t border-[#141210]/10",
                     i % 2 === 1 ? "bg-[#FBF8F1]/40" : "",
                   ].join(" ")}
                 >
-                  <td className="py-4 px-5 text-[13px] font-mono font-bold text-[#0A1A36]">
+                  <td className="py-4 px-5 text-[13px] font-mono font-bold text-[#141210]">
                     {c.name}
                   </td>
-                  <td className="py-4 px-5 text-[13px] text-[#0A1A36]/80">{c.provider}</td>
-                  <td className="py-4 px-5 text-[13px] text-[#0A1A36]/80">{c.purpose}</td>
+                  <td className="py-4 px-5 text-[13px] text-[#141210]/80">{c.provider}</td>
+                  <td className="py-4 px-5 text-[13px] text-[#141210]/80">{c.purpose}</td>
                   <td className="py-4 px-5 text-[12.5px]">
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#FFC72C]/15 text-[10.5px] font-bold tracking-[0.16em] uppercase text-[#0A1A36]">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#E6A032]/15 text-[10.5px] font-bold tracking-[0.16em] uppercase text-white">
                       {c.type}
                     </span>
                   </td>
-                  <td className="py-4 px-5 text-[13px] text-[#0A1A36]/80">{c.expiry}</td>
+                  <td className="py-4 px-5 text-[13px] text-[#141210]/80">{c.expiry}</td>
                 </tr>
               ))}
             </tbody>
@@ -666,25 +654,16 @@ const CookieTableSection = () => {
 // ═══════════════════════════════════════════════════════════════════════
 const ResourcesSection = () => {
   return (
-    <section className="relative bg-[#06122A] text-white overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 90% 50%, rgba(255,199,44,0.18), transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
+    <section className="relative bg-[#0A0806] text-white overflow-hidden">
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto py-16 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5">
-            <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-5">
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-5">
               Learn More
             </p>
-            <h2 className="font-extrabold leading-[1.02] tracking-[-0.02em] text-white text-[28px] md:text-[40px] lg:text-[44px]">
+            <h2 className="font-display font-light leading-[1.02] tracking-[-0.02em] text-white text-[28px] md:text-[40px] lg:text-[44px]">
               Useful{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              <span className="font-light italic" style={{ color: "#E6A032" }}>
                 resources
               </span>
               .
@@ -697,7 +676,7 @@ const ResourcesSection = () => {
 
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             <ResourceLink
-              title="ICO — Cookies and similar technologies"
+              title="ICO, Cookies and similar technologies"
               description="The UK Information Commissioner's official guidance for citizens."
               href="https://ico.org.uk/for-the-public/online/cookies/"
             />
@@ -729,7 +708,7 @@ const ResourcesSection = () => {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] transition-all duration-300"
+              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)] transition-all duration-300"
             >
               Contact Us
               <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -757,22 +736,22 @@ const ResourceLink = ({ title, description, href, internal }) => {
   return (
     <Wrapper
       {...props}
-      className="group relative block p-6 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#FFC72C]/40 rounded-sm transition-all duration-300"
+      className="group relative block p-6 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#E6A032]/40 rounded-sm transition-all duration-300"
     >
       <span
         className="absolute top-0 left-0 right-0 h-[2px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-        style={{ backgroundColor: "#FFC72C" }}
+        style={{ backgroundColor: "#E6A032" }}
         aria-hidden="true"
       />
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="font-extrabold tracking-[-0.01em] text-white text-[15px] md:text-[16px] leading-tight mb-2 group-hover:text-[#FFC72C] transition-colors">
+          <h3 className="font-display font-light tracking-[-0.01em] text-white text-[15px] md:text-[16px] leading-tight mb-2 group-hover:text-[#E6A032] transition-colors">
             {title}
           </h3>
           <p className="text-[12.5px] leading-[1.6] text-white/65">{description}</p>
         </div>
         <FiArrowUpRight
-          className="shrink-0 w-4 h-4 text-white/55 group-hover:text-[#FFC72C] transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          className="shrink-0 w-4 h-4 text-white/55 group-hover:text-[#E6A032] transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           aria-hidden="true"
         />
       </div>

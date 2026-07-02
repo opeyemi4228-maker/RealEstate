@@ -6,7 +6,7 @@ import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 import { assets } from "../assets/assets";
 /**
- * About — GCSA Consulting | Our Story + What Sets Us Apart
+ * About, GCSA Consulting | Our Story + What Sets Us Apart
  *
  * Content (per gcsaconsulting.co.uk About page):
  * - "Founded with a passion for transforming businesses, GCSA was born
@@ -69,10 +69,10 @@ const DIFFERENTIATORS = [
   },
 ];
 
-// Founder portrait (Unsplash — allowed in next.config.mjs)
+// Founder portrait (Unsplash, allowed in next.config.mjs)
 const PORTRAIT_IMAGE =
   "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1000&q=80";
-const FOUNDER_NAME = "Adaeze Obi";
+const FOUNDER_NAME = "Barrister Morenikeji Fagbe Esq.";
 
 const About = () => {
   const [headerRef, headerVisible] = useReveal();
@@ -105,25 +105,24 @@ const About = () => {
           <div className="max-w-2xl">
             <p
               className={[
-                "flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6 transition-all duration-700",
+                "flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6 transition-all duration-700",
                 headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3",
               ].join(" ")}
             >
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
-              About Real Estate
+              About Prime Homes
             </p>
             <h2
               id="about-heading"
               className={[
-                "font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[40px] md:text-[52px] lg:text-[60px] transition-all duration-[900ms] delay-100",
+                "font-display font-light leading-[1.03] tracking-[-0.005em] text-[#141210] text-[42px] md:text-[54px] lg:text-[62px] transition-all duration-[900ms] delay-100",
                 headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
               ].join(" ")}
             >
-              Born from a vision to{" "}
-                <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              Built to{" "}
+                <span className="font-light italic" style={{ color: "#E6A032" }}>
                   redefine
                 </span>{" "}
-                property search.
+                real estate in Nigeria.
             </h2>
           </div>
 
@@ -135,13 +134,13 @@ const About = () => {
           >
             <Link
               href="/about"
-              className="group inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.16em] uppercase text-[#0A1A36] hover:text-[#FFC72C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40 rounded-sm transition-colors duration-200"
+              className="group inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.16em] uppercase text-[#141210] hover:text-[#E6A032] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/40 rounded-sm transition-colors duration-200"
             >
               <span className="relative">
                 Read our full story
                 <span
                   className="absolute left-0 right-0 -bottom-0.5 h-px origin-left scale-x-100 transition-transform duration-300"
-                  style={{ backgroundColor: "#FFC72C" }}
+                  style={{ backgroundColor: "#E6A032" }}
                   aria-hidden="true"
                 />
               </span>
@@ -164,7 +163,7 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Image column */}
             <div className="lg:col-span-5">
-              <div className="relative overflow-hidden rounded-sm bg-[#0A1A36] group">
+              <div className="relative overflow-hidden rounded-sm bg-[#141210] group">
                 <div className="relative aspect-[4/5]">
                   <Image
                     src={PORTRAIT_IMAGE}
@@ -177,7 +176,7 @@ const About = () => {
                     className="absolute inset-0 mix-blend-multiply opacity-30"
                     style={{
                       background:
-                        "linear-gradient(180deg, transparent 50%, rgba(10,26,54,0.5) 100%)",
+                        "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%)",
                     }}
                     aria-hidden="true"
                   />
@@ -188,42 +187,32 @@ const About = () => {
                   <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm">
                     <span
                       className="w-1.5 h-1.5 rounded-full"
-                      style={{ backgroundColor: "#FFC72C" }}
+                      style={{ backgroundColor: "#E6A032" }}
                       aria-hidden="true"
                     />
-                      <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#0A1A36]">
+                      <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#141210]">
                         Abuja · HQ
                       </span>
                   </span>
                 </div>
 
-                {/* Decorative gold corner */}
-                <div
-                  className="absolute top-0 right-0 w-16 h-16 md:w-20 md:h-20 pointer-events-none"
-                  style={{
-                    background:
-                      "linear-gradient(225deg, #FFC72C 0%, #FFC72C 50%, transparent 50%)",
-                    opacity: 0.95,
-                  }}
-                  aria-hidden="true"
-                />
               </div>
             </div>
 
             {/* Story column */}
             <div className="lg:col-span-7 lg:pl-4 lg:pt-4">
-              <p className="font-light leading-[1.18] tracking-[-0.01em] text-[#0A1A36] text-[26px] md:text-[32px] lg:text-[38px] max-w-2xl">
+              <p className="font-display font-light leading-[1.2] tracking-[-0.005em] text-[#141210] text-[27px] md:text-[33px] lg:text-[39px] max-w-2xl">
                 A real estate agency built on{" "}
-                <span className="italic font-medium" style={{ color: "#FFC72C" }}>
+                <span className="italic font-normal" style={{ color: "#C88C28" }}>
                   trust, local expertise
                 </span>
                 , and the relentless pursuit of the right home.
               </p>
 
-              <div className="mt-6 md:mt-8 space-y-5 text-[15px] md:text-[16px] leading-[1.8] text-[#0A1A36]/80 max-w-xl">
+              <div className="mt-6 md:mt-8 space-y-5 text-[15px] md:text-[16px] leading-[1.8] text-[#141210]/80 max-w-xl">
                 <p>
                   Founded with a passion for serving buyers, sellers, and
-                  landlords, Real Estate was born from a vision to make finding
+                  landlords, Prime Homes was born from a vision to make finding
                   and presenting properties simple, transparent, and stress-free.
                   Our journey began with one idea: great listings backed by
                   genuinely expert local service.
@@ -231,7 +220,7 @@ const About = () => {
                 <p>
                   Whether you&apos;re a first-time buyer, a growing family, or an
                   investor building a{" "}
-                  <em className="not-italic font-bold text-[#0A1A36]">
+                  <em className="not-italic font-bold text-[#141210]">
                     portfolio across multiple cities
                   </em>
                   , our agents are your trusted partners for buying, selling,
@@ -242,18 +231,17 @@ const About = () => {
               {/* Pull quote */}
               <figure
                 className="relative mt-10 md:mt-12 pl-8 border-l-[3px]"
-                style={{ borderLeftColor: "#FFC72C" }}
+                style={{ borderLeftColor: "#E6A032" }}
               >
                 <span
                   aria-hidden="true"
                   className="absolute -left-[8px] top-0 w-4 h-4 rounded-full"
-                  style={{ backgroundColor: "#FFC72C" }}
+                  style={{ backgroundColor: "#E6A032" }}
                 />
-                <blockquote className="text-[18px] md:text-[22px] leading-[1.45] italic font-light text-[#0A1A36] max-w-xl">
-                  Explore the possibilities with us. Let's redefine success,
-                  together.
+                <blockquote className="font-display text-[20px] md:text-[25px] leading-[1.4] italic font-light text-[#141210] max-w-xl">
+                  Do it right, deliver value, and build trust.
                 </blockquote>
-                <figcaption className="mt-4 text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#0A1A36]/60">
+                <figcaption className="mt-4 text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#141210]/60">
                   {FOUNDER_NAME} · Founder &amp; CEO
                 </figcaption>
               </figure>
@@ -262,22 +250,18 @@ const About = () => {
         </div>
 
         {/* ── 4 Differentiators ─────────────────────────────── */}
-        <div ref={listRef} className="pt-12 md:pt-14 border-t border-[#0A1A36]/15">
+        <div ref={listRef} className="pt-12 md:pt-14 border-t border-[#141210]/15">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
-            <p className="text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60">
-              <span
-                className="inline-block w-10 h-px mr-3 align-middle"
-                style={{ backgroundColor: "#FFC72C" }}
-              />
+            <p className="text-[11px] font-semibold tracking-[0.26em] uppercase text-[#C88C28]">
               What Sets Us Apart
             </p>
-            <p className="text-[14px] text-[#0A1A36]/65 max-w-md">
+            <p className="text-[14px] text-[#141210]/65 max-w-md">
               A unique blend of experience, creativity, and commitment that
-              defines every Real Estate experience.
+              defines every Prime Homes experience.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#0A1A36]/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#141210]/10">
             {DIFFERENTIATORS.map((d, i) => (
               <DifferentiatorCard
                 key={d.number}
@@ -306,27 +290,27 @@ const DifferentiatorCard = ({ differentiator, index, visible }) => {
       {/* Hover gold bar */}
       <span
         className="absolute top-0 left-0 right-0 h-[3px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
-        style={{ backgroundColor: "#FFC72C" }}
+        style={{ backgroundColor: "#E6A032" }}
         aria-hidden="true"
       />
 
       <div className="flex items-baseline gap-4 mb-6">
         <span
-          className="text-[36px] md:text-[44px] font-extrabold leading-none transition-all duration-500"
-          style={{ color: "#FFC72C" }}
+          className="text-[36px] md:text-[44px] font-display font-light leading-none transition-all duration-500"
+          style={{ color: "#E6A032" }}
         >
           {number}
         </span>
         <span
           className="inline-block w-10 h-px mb-2"
-          style={{ backgroundColor: "#0A1A36", opacity: 0.3 }}
+          style={{ backgroundColor: "#141210", opacity: 0.3 }}
         />
       </div>
 
-      <h3 className="font-extrabold leading-[1.15] tracking-[-0.01em] text-[#0A1A36] text-[22px] md:text-[26px] mb-4">
+      <h3 className="font-display font-normal leading-[1.15] tracking-[-0.005em] text-[#141210] text-[23px] md:text-[27px] mb-4">
         {title}
       </h3>
-      <p className="text-[14px] md:text-[15px] leading-[1.75] text-[#0A1A36]/70 max-w-md">
+      <p className="text-[14px] md:text-[15px] leading-[1.75] text-[#141210]/70 max-w-md">
         {copy}
       </p>
     </article>

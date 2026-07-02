@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ChevronDown,
   Menu,
@@ -19,11 +20,11 @@ import {
 } from "lucide-react";
 
 /**
- * Navbar — Real Estate
+ * Navbar, Prime Homes
  *
  * Brand identity (per training flyer):
- * - Navy:  #0A1A36   (primary dark)
- * - Gold:  #FFC72C   (accent)
+ * - Navy:  #141210   (primary dark)
+ * - Gold:  #E6A032   (accent)
  * - White: #FFFFFF
  * - Font:  Montserrat
  *
@@ -39,10 +40,10 @@ import {
  */
 
 const BRAND = {
-  navy: "#0A1A36",
-  navyDeep: "#06122A",
-  gold: "#FFC72C",
-  goldHover: "#E6B324",
+  navy: "#141210",
+  navyDeep: "#0A0806",
+  gold: "#E6A032",
+  goldHover: "#C88C28",
 };
 
 // Primary navigation for the property marketplace
@@ -64,14 +65,13 @@ const NAV_ITEMS = [
     label: "Services",
     href: "/services",
     children: [
-      { label: "Buy a Home", href: "/services#buy", Icon: Home, desc: "Find & purchase" },
-      { label: "Sell a Property", href: "/services#sell", Icon: TrendingUp, desc: "List & maximise price" },
-      { label: "Rent & Lettings", href: "/services#rent", Icon: KeyRound, desc: "Tenants & landlords" },
-      { label: "Property Management", href: "/services#manage", Icon: Wrench, desc: "Hands-off ownership" },
-      { label: "Valuations & Advice", href: "/services#valuation", Icon: ClipboardList, desc: "Free market valuation" },
+      { label: "Sourcing & Acquisition", href: "/services#sourcing", Icon: Home, desc: "Secure the right property" },
+      { label: "Investment Advisory", href: "/services#investment", Icon: TrendingUp, desc: "Portfolio guidance" },
+      { label: "Development & Supervision", href: "/services#development", Icon: Building2, desc: "Projects done right" },
+      { label: "Legal & Documentation", href: "/services#legal", Icon: ClipboardList, desc: "Due diligence & titles" },
+      { label: "Management & Consultancy", href: "/services#management", Icon: Wrench, desc: "Hands-off ownership" },
     ],
   },
-  { label: "Agents", href: "/agents" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -109,7 +109,7 @@ const Navbar = () => {
   const handleDropdownEnter = useCallback((label) => setOpenDropdown(label), []);
   const handleDropdownLeave = useCallback(() => setOpenDropdown(null), []);
 
-  const textColor = scrolled ? "text-[#0A1A36]" : "text-white";
+  const textColor = scrolled ? "text-black" : "text-[#E6A032]";
 
   return (
     <>
@@ -117,7 +117,7 @@ const Navbar = () => {
         className={[
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out",
           scrolled
-            ? "bg-white shadow-[0_1px_0_0_rgba(10,26,54,0.08),0_8px_24px_-12px_rgba(10,26,54,0.18)]"
+            ? "bg-white shadow-[0_1px_0_0_rgba(0,0,0,0.08),0_8px_24px_-12px_rgba(0,0,0,0.18)]"
             : "bg-transparent",
         ].join(" ")}
         style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
@@ -129,65 +129,40 @@ const Navbar = () => {
               scrolled ? "h-[86px]" : "h-[98px]",
             ].join(" ")}
           >
-            {/* Wordmark */}
+            {/* Logo + wordmark */}
             <Link
               href="/"
-              className="flex items-center gap-3 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/60 rounded-sm group"
-              aria-label="Real Estate — home"
+              className="flex items-center gap-3 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/60 rounded-sm group"
+              aria-label="Prime Homes, home"
               onClick={() => setMobileOpen(false)}
             >
-              {/* Shield monogram */}
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                aria-hidden="true"
-                className="shrink-0 transition-transform duration-500 group-hover:rotate-[8deg]"
+              <Image
+                src="/prime-homes-logo.png"
+                alt="Prime Homes"
+                width={956}
+                height={481}
+                priority
+                className={[
+                  "w-auto transition-all duration-300",
+                  scrolled ? "h-[46px] md:h-[50px]" : "h-[50px] md:h-[56px]",
+                  scrolled ? "" : "drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]",
+                ].join(" ")}
+              />
+              <span
+                className={[
+                  "flex flex-col justify-center leading-none pl-3.5 ml-0.5 border-l transition-colors duration-300",
+                  scrolled ? "border-black/10" : "border-white/25",
+                ].join(" ")}
               >
-                <path
-                  d="M16 2 L28 6 V16 C28 22 22.6 27.5 16 30 C9.4 27.5 4 22 4 16 V6 L16 2 Z"
-                  fill={scrolled ? BRAND.navy : BRAND.gold}
-                  stroke={scrolled ? BRAND.gold : "#FFFFFF"}
-                  strokeWidth="1.5"
-                />
-                <text
-                  x="16"
-                  y="20"
-                  textAnchor="middle"
-                  fontSize="9"
-                  fontWeight="800"
-                  fill={scrolled ? BRAND.gold : BRAND.navy}
-                  fontFamily="Montserrat, sans-serif"
-                  letterSpacing="0.25"
-                >
-                  RE
-                </text>
-              </svg>
-
-              <div className="flex flex-col leading-none">
                 <span
                   className={[
-                    "font-extrabold tracking-[0.04em] whitespace-nowrap transition-colors duration-300",
-                    scrolled ? "text-[#0A1A36]" : "text-white",
-                    "text-[22px] sm:text-[18px] md:text-[19px] lg:text-[20px] xl:text-[26px]",
+                    "text-[10px] md:text-[11px] font-semibold tracking-[0.34em] uppercase whitespace-nowrap transition-colors duration-300",
+                    scrolled ? "text-[#C88C28]" : "text-[#EBB45A]",
                   ].join(" ")}
                 >
-                  Real Estate
-                  <span className="hidden sm:inline font-light">
-                    {" "}
-                    PROPERTY
-                  </span>
+                  Premium Real Estate
                 </span>
-                <span
-                  className={[
-                    "hidden sm:block text-[11px] font-semibold tracking-[0.28em] uppercase mt-1 transition-colors duration-300",
-                    scrolled ? "text-[#FFC72C]" : "text-[#FFC72C]",
-                  ].join(" ")}
-                >
-                  Property Listings
-                </span>
-              </div>
+              </span>
             </Link>
 
             {/* Desktop nav */}
@@ -208,7 +183,10 @@ const Navbar = () => {
                       className={[
                         "group relative inline-flex items-center gap-1 px-2.5 py-2 text-[14px] sm:text-[15px] md:text-[15px] lg:text-[16px] xl:text-[17px] font-semibold tracking-[0.02em] rounded-sm transition-colors duration-200",
                         textColor,
-                        "hover:text-[#FFC72C] focus:text-[#FFC72C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40",
+                        scrolled
+                          ? "hover:text-[#E6A032] focus:text-[#E6A032]"
+                          : "hover:text-white focus:text-white",
+                        "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/40",
                       ].join(" ")}
                       aria-haspopup={hasChildren ? "true" : undefined}
                       aria-expanded={hasChildren ? isOpen : undefined}
@@ -235,7 +213,7 @@ const Navbar = () => {
                     {hasChildren && isOpen && (
                       <div className="absolute left-0 top-full pt-3 min-w-[340px]" role="menu">
                         <div
-                          className="bg-white border-t-[3px] shadow-[0_12px_40px_-8px_rgba(10,26,54,0.25)] rounded-b-sm p-2.5 animate-in fade-in slide-in-from-top-1 duration-200"
+                          className="bg-white border-t-[3px] shadow-[0_12px_40px_-8px_rgba(0,0,0,0.25)] rounded-b-sm p-2.5 animate-in fade-in slide-in-from-top-1 duration-200"
                           style={{ borderTopColor: BRAND.gold }}
                         >
                           {item.children.map((child) => {
@@ -245,29 +223,29 @@ const Navbar = () => {
                                 key={child.label}
                                 href={child.href}
                                 role="menuitem"
-                                className="group/item flex items-center gap-3.5 px-3 py-2.5 rounded-sm hover:bg-[#0A1A36]/[0.035] focus:bg-[#0A1A36]/[0.035] focus:outline-none transition-colors"
+                                className="group/item flex items-center gap-3.5 px-3 py-2.5 rounded-sm hover:bg-[#141210]/[0.035] focus:bg-[#141210]/[0.035] focus:outline-none transition-colors"
                                 onClick={() => setOpenDropdown(null)}
                               >
                                 {ChildIcon && (
                                   <span
-                                    className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#0A1A36]/[0.05] text-[#0A1A36] group-hover/item:bg-[#FFC72C] group-hover/item:text-[#0A1A36] transition-colors duration-200"
+                                    className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#005A32]/[0.08] text-[#005A32] group-hover/item:bg-[#E6A032] group-hover/item:text-white transition-colors duration-200"
                                     aria-hidden="true"
                                   >
                                     <ChildIcon className="w-[18px] h-[18px]" strokeWidth={2} />
                                   </span>
                                 )}
                                 <span className="flex flex-col leading-tight">
-                                  <span className="text-[15px] font-semibold text-[#0A1A36] group-hover/item:text-[#FFC72C] transition-colors">
+                                  <span className="text-[15px] font-semibold text-black group-hover/item:text-[#E6A032] transition-colors">
                                     {child.label}
                                   </span>
                                   {child.desc && (
-                                    <span className="text-[12px] text-[#0A1A36]/50">
+                                    <span className="text-[12px] text-[#141210]/50">
                                       {child.desc}
                                     </span>
                                   )}
                                 </span>
                                 <ArrowRight
-                                  className="ml-auto w-4 h-4 text-[#FFC72C] opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"
+                                  className="ml-auto w-4 h-4 text-[#E6A032] opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200"
                                   strokeWidth={2.5}
                                   aria-hidden="true"
                                 />
@@ -288,10 +266,10 @@ const Navbar = () => {
                 href="/contact"
                 className={[
                   "group inline-flex items-center gap-2 px-4 py-2 rounded-full text-[14px] md:text-[15px] lg:text-[15px] font-bold tracking-[0.14em] uppercase transition-all duration-300",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C]",
+                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E6A032]",
                   scrolled
-                    ? "bg-[#0A1A36] hover:bg-[#06122A] text-white shadow-sm hover:shadow-md focus-visible:ring-offset-white"
-                    : "bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] shadow-[0_8px_24px_-8px_rgba(255,199,44,0.6)] focus-visible:ring-offset-transparent",
+                    ? "bg-[#141210] hover:bg-[#0A0806] text-white shadow-sm hover:shadow-md focus-visible:ring-offset-white"
+                    : "bg-[#E6A032] hover:bg-[#C88C28] text-white shadow-[0_8px_24px_-8px_rgba(230,160,50,0.6)] focus-visible:ring-offset-transparent",
                 ].join(" ")}
               >
                 Contact Us
@@ -310,7 +288,7 @@ const Navbar = () => {
               className={[
                 "lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-sm transition-colors",
                 textColor,
-                "hover:text-[#FFC72C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40",
+                "hover:text-[#E6A032] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/40",
               ].join(" ")}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
@@ -337,7 +315,7 @@ const Navbar = () => {
         style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
       >
         <div
-          className="absolute inset-0 bg-[#0A1A36]/70 backdrop-blur-sm"
+          className="absolute inset-0 bg-[#141210]/70 backdrop-blur-sm"
           onClick={() => setMobileOpen(false)}
         />
         <div
@@ -349,14 +327,23 @@ const Navbar = () => {
           aria-modal="true"
           aria-label="Mobile navigation"
         >
-            <div className="flex items-center justify-between px-6 h-[64px] border-b border-[#0A1A36]/10">
-            <span className="text-[15px] md:text-[16px] font-extrabold tracking-[0.04em] text-[#0A1A36]">
-              Real Estate <span className="font-light">PROPERTY</span>
-            </span>
+            <div className="flex items-center justify-between px-6 h-[72px] border-b border-[#141210]/10">
+            <div className="flex items-center gap-2.5">
+              <Image
+                src="/prime-homes-logo.png"
+                alt="Prime Homes"
+                width={956}
+                height={481}
+                className="h-[42px] w-auto"
+              />
+              <span className="font-display text-[18px] font-semibold tracking-[0.01em] text-[#141210] pl-2.5 border-l border-black/10">
+                Prime Homes
+              </span>
+            </div>
             <button
               type="button"
               onClick={() => setMobileOpen(false)}
-              className="w-10 h-10 inline-flex items-center justify-center text-[#0A1A36] hover:text-[#FFC72C] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40 rounded-sm"
+              className="w-10 h-10 inline-flex items-center justify-center text-[#141210] hover:text-[#E6A032] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/40 rounded-sm"
               aria-label="Close menu"
             >
               <X className="w-6 h-6" strokeWidth={2} aria-hidden="true" />
@@ -371,11 +358,11 @@ const Navbar = () => {
             </ul>
           </nav>
 
-            <div className="p-6 border-t border-[#0A1A36]/10 space-y-3">
+            <div className="p-6 border-t border-[#141210]/10 space-y-3">
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[14px] md:text-[15px] font-bold tracking-[0.14em] uppercase transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFC72C]"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[14px] md:text-[15px] font-bold tracking-[0.14em] uppercase transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E6A032]"
             >
               List Your Property
               <ArrowRight className="w-4 h-4" strokeWidth={2.5} aria-hidden="true" />
@@ -383,7 +370,7 @@ const Navbar = () => {
             <Link
               href="/all-products"
               onClick={() => setMobileOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-[#0A1A36] text-[#0A1A36] text-[14px] md:text-[15px] font-bold tracking-[0.14em] uppercase transition-colors hover:bg-[#0A1A36] hover:text-white"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-[#141210] text-[#141210] text-[14px] md:text-[15px] font-bold tracking-[0.14em] uppercase transition-colors hover:bg-[#141210] hover:text-white"
             >
               Browse Listings
             </Link>
@@ -404,7 +391,7 @@ const MobileNavItem = ({ item, onNavigate }) => {
         <Link
           href={item.href}
           onClick={onNavigate}
-          className="flex items-center justify-between py-3.5 text-[15px] md:text-[16px] font-semibold text-[#0A1A36] hover:text-[#FFC72C] transition-colors border-b border-[#0A1A36]/10"
+          className="flex items-center justify-between py-3.5 text-[15px] md:text-[16px] font-semibold text-black hover:text-[#E6A032] transition-colors border-b border-[#141210]/10"
         >
           {item.label}
         </Link>
@@ -417,14 +404,14 @@ const MobileNavItem = ({ item, onNavigate }) => {
       <button
         type="button"
         onClick={() => setExpanded((v) => !v)}
-        className="w-full flex items-center justify-between py-3.5 text-[15px] font-semibold text-[#0A1A36] hover:text-[#FFC72C] transition-colors border-b border-[#0A1A36]/10 focus:outline-none"
+        className="w-full flex items-center justify-between py-3.5 text-[15px] font-semibold text-black hover:text-[#E6A032] transition-colors border-b border-[#141210]/10 focus:outline-none"
         aria-expanded={expanded}
       >
         {item.label}
         <ChevronDown
           className={["w-4 h-4 transition-transform duration-200", expanded ? "rotate-180" : ""].join(" ")}
           strokeWidth={2.5}
-          style={{ color: "#FFC72C" }}
+          style={{ color: "#E6A032" }}
           aria-hidden="true"
         />
       </button>
@@ -434,7 +421,7 @@ const MobileNavItem = ({ item, onNavigate }) => {
           expanded ? "max-h-[600px]" : "max-h-0",
         ].join(" ")}
       >
-        <ul className="py-2 pl-4 border-l-2 ml-1 my-2" style={{ borderLeftColor: "#FFC72C" }}>
+        <ul className="py-2 pl-4 border-l-2 ml-1 my-2" style={{ borderLeftColor: "#E6A032" }}>
           {item.children.map((child) => {
             const ChildIcon = child.Icon;
             return (
@@ -442,11 +429,11 @@ const MobileNavItem = ({ item, onNavigate }) => {
                 <Link
                   href={child.href}
                   onClick={onNavigate}
-                  className="group/item flex items-center gap-3 py-2.5 pl-3 text-[15px] text-[#0A1A36]/75 hover:text-[#FFC72C] transition-colors"
+                  className="group/item flex items-center gap-3 py-2.5 pl-3 text-[15px] text-[#141210]/75 hover:text-[#E6A032] transition-colors"
                 >
                   {ChildIcon && (
                     <span
-                      className="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-lg bg-[#0A1A36]/[0.05] text-[#0A1A36] group-hover/item:bg-[#FFC72C] group-hover/item:text-[#0A1A36] transition-colors"
+                      className="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-lg bg-[#005A32]/[0.08] text-[#005A32] group-hover/item:bg-[#E6A032] group-hover/item:text-white transition-colors"
                       aria-hidden="true"
                     >
                       <ChildIcon className="w-[16px] h-[16px]" strokeWidth={2} />

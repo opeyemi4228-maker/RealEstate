@@ -20,7 +20,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 /**
- * Contact — GCSA Consulting UK LTD
+ * Contact, GCSA Consulting UK LTD
  *
  * Full contact page:
  *  1. Page hero
@@ -34,22 +34,22 @@ import Footer from "@/components/Footer";
 
 const SUBJECTS = [
   "General Enquiry",
-  "Buying a Property",
-  "Selling a Property",
-  "Renting / Lettings",
-  "Property Management",
-  "Request a Valuation",
+  "Property Sourcing & Acquisition",
+  "Investment Advisory",
+  "Development & Project Supervision",
+  "Legal Verification & Documentation",
+  "Property Management & Consultancy",
   "Careers",
 ];
 
 const FAQS = [
   {
     q: "How do I book a viewing?",
-    a: "Open any listing and tap “Schedule a Viewing,” or send us a message with the property in mind. Your dedicated agent will confirm a time that works for you — in person or virtually.",
+    a: "Open any listing and tap “Schedule a Viewing,” or send us a message with the property in mind. Your dedicated agent will confirm a time that works for you, in person or virtually.",
   },
   {
     q: "How much does it cost to list my property?",
-    a: "We offer a free, no-obligation valuation and transparent fee options. Once we understand your property and goals, we'll recommend the right marketing package — with no hidden costs.",
+    a: "We offer a free, no-obligation valuation and transparent fee options. Once we understand your property and goals, we'll recommend the right marketing package, with no hidden costs.",
   },
   {
     q: "Do you handle rentals and property management?",
@@ -57,7 +57,7 @@ const FAQS = [
   },
   {
     q: "Which areas do you cover?",
-    a: "Our agents operate across Abuja and the wider FCT — Maitama, Asokoro, Wuse, Gwarinpa, Jabi, Guzape, Lokogoma, Lugbe and more — covering houses, apartments, and commercial property. Tell us your area and we'll connect you with a local specialist.",
+    a: "Our agents operate across Abuja and the wider FCT, Maitama, Asokoro, Wuse, Gwarinpa, Jabi, Guzape, Lokogoma, Lugbe and more, covering houses, apartments, and commercial property. Tell us your area and we'll connect you with a local specialist.",
   },
   {
     q: "How quickly will you respond to my enquiry?",
@@ -68,13 +68,13 @@ const FAQS = [
 const CONTACT_LD = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "@id": "https://www.realestate.com/contact/#webpage",
-  url: "https://www.realestate.com/contact",
-  name: "Contact Real Estate",
+  "@id": "https://www.primehomes.ng/contact/#webpage",
+  url: "https://www.primehomes.ng/contact",
+  name: "Contact Prime Homes",
   description:
-    "Get in touch with Real Estate. Call, email, or schedule a viewing with a local agent. Buy, sell, rent, and manage property.",
-  isPartOf: { "@id": "https://www.realestate.com/#website" },
-  about: { "@id": "https://www.realestate.com/#organization" },
+    "Get in touch with Prime Homes. Call, email, or schedule a viewing with a local agent. Buy, sell, rent, and manage property.",
+  isPartOf: { "@id": "https://www.primehomes.ng/#website" },
+  about: { "@id": "https://www.primehomes.ng/#organization" },
   inLanguage: "en-GB",
 };
 
@@ -117,38 +117,29 @@ const PageHero = () => {
   return (
     <section
       aria-labelledby="contact-hero-heading"
-      className="relative bg-[#0A1A36] text-white overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28"
+      className="relative bg-[#141210] text-white overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28"
     >
-      <div
-        className="absolute inset-0 opacity-60 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 88% 15%, rgba(255,199,44,0.18), transparent 50%), radial-gradient(circle at 8% 90%, rgba(255,199,44,0.06), transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
 
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-2 text-[11px] font-bold tracking-[0.22em] uppercase text-white/50 mb-8"
         >
-          <Link href="/" className="hover:text-[#FFC72C] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-[#E6A032] transition-colors">Home</Link>
           <span aria-hidden="true">·</span>
-          <span className="text-[#FFC72C]">Contact</span>
+          <span className="text-[#E6A032]">Contact</span>
         </nav>
 
-        <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-          <span className="inline-block w-12 h-px" style={{ backgroundColor: "#FFC72C" }} />
+        <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-6">
           Get in touch
         </p>
 
         <h1
           id="contact-hero-heading"
-          className="font-extrabold leading-[0.98] tracking-[-0.02em] text-white text-[44px] sm:text-[60px] md:text-[80px] lg:text-[96px] max-w-5xl"
+          className="font-display font-light leading-[0.98] tracking-[-0.02em] text-white text-[44px] sm:text-[60px] md:text-[80px] lg:text-[96px] max-w-5xl"
         >
           Let's start the{" "}
-          <span className="font-light italic" style={{ color: "#FFC72C" }}>
+          <span className="font-light italic" style={{ color: "#E6A032" }}>
             conversation
           </span>
           .
@@ -156,7 +147,7 @@ const PageHero = () => {
 
         <p className="mt-8 md:mt-10 max-w-2xl text-[16px] md:text-[18px] leading-[1.7] text-white/75 font-light">
           Whether you&apos;re buying your first home, selling a property, renting,
-          or looking for management — tell us what you need, and a local agent
+          or looking for management, tell us what you need, and a local agent
           will be in touch.
         </p>
       </div>
@@ -233,19 +224,18 @@ const FormAndDetails = () => {
     >
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* LEFT — contact methods */}
+          {/* LEFT, contact methods */}
           <aside className="lg:col-span-4 lg:sticky lg:top-32">
-            <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
               Reach us directly
             </p>
 
             <h2
               id="form-heading"
-              className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[32px] md:text-[40px] mb-8"
+              className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[32px] md:text-[40px] mb-8"
             >
               Three ways to{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              <span className="font-light italic" style={{ color: "#E6A032" }}>
                 connect
               </span>
               .
@@ -255,8 +245,8 @@ const FormAndDetails = () => {
               <ContactMethod
                 Icon={FiMail}
                 label="Email"
-                value="info@realestate.com"
-                href="mailto:info@realestate.com"
+                value="info@primehomes.ng"
+                href="mailto:info@primehomes.ng"
               />
               <ContactMethod
                 Icon={FiPhone}
@@ -273,12 +263,12 @@ const FormAndDetails = () => {
               <ContactMethod
                 Icon={FiClock}
                 label="Hours"
-                value="Mon–Sat · 9:00–18:00"
+                value="Mon to Sat · 9:00 to 18:00"
               />
             </div>
 
-            <div className="mt-10 pt-8 border-t border-[#0A1A36]/10">
-              <p className="text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#0A1A36]/60 mb-4">
+            <div className="mt-10 pt-8 border-t border-[#141210]/10">
+              <p className="text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#141210]/60 mb-4">
                 Follow us
               </p>
               <ul className="flex items-center gap-2.5">
@@ -288,7 +278,7 @@ const FormAndDetails = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[#0A1A36]/20 text-[#0A1A36] hover:bg-[#FFC72C] hover:border-[#FFC72C] transition-all"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[#141210]/20 text-white hover:bg-[#E6A032] hover:border-[#E6A032] transition-all"
                   >
                     <FaLinkedinIn className="w-3.5 h-3.5" />
                   </a>
@@ -299,7 +289,7 @@ const FormAndDetails = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="X (Twitter)"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[#0A1A36]/20 text-[#0A1A36] hover:bg-[#FFC72C] hover:border-[#FFC72C] transition-all"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-[#141210]/20 text-white hover:bg-[#E6A032] hover:border-[#E6A032] transition-all"
                   >
                     <FaXTwitter className="w-3.5 h-3.5" />
                   </a>
@@ -308,18 +298,17 @@ const FormAndDetails = () => {
             </div>
           </aside>
 
-          {/* RIGHT — form */}
+          {/* RIGHT, form */}
           <div className="lg:col-span-8">
             <form
               onSubmit={onSubmit}
               noValidate
-              className="bg-[#FBF8F1] border border-[#0A1A36]/10 rounded-sm p-6 md:p-10 lg:p-12"
+              className="bg-[#FBF8F1] border border-[#141210]/10 rounded-sm p-6 md:p-10 lg:p-12"
             >
-              <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-3">
-                <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+              <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-3">
                 Send a message
               </p>
-              <h3 className="font-extrabold tracking-[-0.01em] text-[#0A1A36] text-[24px] md:text-[28px] mb-8">
+              <h3 className="font-display font-light tracking-[-0.01em] text-[#141210] text-[24px] md:text-[28px] mb-8">
                 We'll respond within one UK business day.
               </h3>
 
@@ -383,7 +372,7 @@ const FormAndDetails = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-[#0A1A36] hover:bg-[#06122A] text-white text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
+                  className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-[#141210] hover:bg-[#0A0806] text-white text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
                 >
                   {submitting ? (
                     <>
@@ -397,9 +386,9 @@ const FormAndDetails = () => {
                     </>
                   )}
                 </button>
-                <p className="text-[12px] text-[#0A1A36]/60 leading-[1.6] sm:flex-1">
+                <p className="text-[12px] text-[#141210]/60 leading-[1.6] sm:flex-1">
                   By submitting, you agree to our privacy practices. Required
-                  fields marked <span className="text-[#FFC72C] font-bold">*</span>.
+                  fields marked <span className="text-[#E6A032] font-bold">*</span>.
                 </p>
               </div>
             </form>
@@ -414,9 +403,9 @@ const Field = ({ label, name, type = "text", value, onChange, required, full, te
   <div className={full ? "md:col-span-2" : ""}>
     <label
       htmlFor={name}
-      className="block text-[10.5px] font-bold tracking-[0.22em] uppercase text-[#0A1A36]/65 mb-2"
+      className="block text-[10.5px] font-bold tracking-[0.22em] uppercase text-[#141210]/65 mb-2"
     >
-      {label} {required && <span className="text-[#FFC72C]">*</span>}
+      {label} {required && <span className="text-[#E6A032]">*</span>}
     </label>
     {textarea ? (
       <textarea
@@ -426,7 +415,7 @@ const Field = ({ label, name, type = "text", value, onChange, required, full, te
         onChange={onChange}
         required={required}
         rows={5}
-        className="w-full px-4 py-3 bg-white border border-[#0A1A36]/15 rounded-sm text-[14px] text-[#0A1A36] placeholder:text-[#0A1A36]/40 focus:outline-none focus:border-[#FFC72C] focus:ring-2 focus:ring-[#FFC72C]/20 transition-all resize-none"
+        className="w-full px-4 py-3 bg-white border border-[#141210]/15 rounded-sm text-[14px] text-[#141210] placeholder:text-[#141210]/40 focus:outline-none focus:border-[#E6A032] focus:ring-2 focus:ring-[#E6A032]/20 transition-all resize-none"
       />
     ) : (
       <input
@@ -436,7 +425,7 @@ const Field = ({ label, name, type = "text", value, onChange, required, full, te
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full px-4 py-3 bg-white border border-[#0A1A36]/15 rounded-sm text-[14px] text-[#0A1A36] placeholder:text-[#0A1A36]/40 focus:outline-none focus:border-[#FFC72C] focus:ring-2 focus:ring-[#FFC72C]/20 transition-all"
+        className="w-full px-4 py-3 bg-white border border-[#141210]/15 rounded-sm text-[14px] text-[#141210] placeholder:text-[#141210]/40 focus:outline-none focus:border-[#E6A032] focus:ring-2 focus:ring-[#E6A032]/20 transition-all"
       />
     )}
   </div>
@@ -446,7 +435,7 @@ const SelectField = ({ label, name, value, onChange, options, full }) => (
   <div className={full ? "md:col-span-2" : ""}>
     <label
       htmlFor={name}
-      className="block text-[10.5px] font-bold tracking-[0.22em] uppercase text-[#0A1A36]/65 mb-2"
+      className="block text-[10.5px] font-bold tracking-[0.22em] uppercase text-[#141210]/65 mb-2"
     >
       {label}
     </label>
@@ -455,7 +444,7 @@ const SelectField = ({ label, name, value, onChange, options, full }) => (
       name={name}
       value={value}
       onChange={onChange}
-      className="w-full px-4 py-3 bg-white border border-[#0A1A36]/15 rounded-sm text-[14px] text-[#0A1A36] focus:outline-none focus:border-[#FFC72C] focus:ring-2 focus:ring-[#FFC72C]/20 transition-all appearance-none cursor-pointer"
+      className="w-full px-4 py-3 bg-white border border-[#141210]/15 rounded-sm text-[14px] text-[#141210] focus:outline-none focus:border-[#E6A032] focus:ring-2 focus:ring-[#E6A032]/20 transition-all appearance-none cursor-pointer"
       style={{
         backgroundImage:
           "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230A1A36'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E\")",
@@ -477,14 +466,14 @@ const SelectField = ({ label, name, value, onChange, options, full }) => (
 const ContactMethod = ({ Icon, label, value, href }) => {
   const Inner = (
     <>
-      <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-[#FFC72C]/15 border border-[#FFC72C]/30 group-hover:bg-[#FFC72C] group-hover:border-[#FFC72C] transition-colors duration-300 shrink-0">
-        <Icon className="w-4 h-4 text-[#0A1A36]" />
+      <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-[#E6A032]/15 border border-[#E6A032]/30 group-hover:bg-[#E6A032] group-hover:border-[#E6A032] transition-colors duration-300 shrink-0">
+        <Icon className="w-4 h-4 text-[#141210]" />
       </span>
       <span className="flex flex-col">
-        <span className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#0A1A36]/55 group-hover:text-[#0A1A36]/80 transition-colors">
+        <span className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#141210]/55 group-hover:text-[#141210]/80 transition-colors">
           {label}
         </span>
-        <span className="text-[14.5px] md:text-[15px] font-bold text-[#0A1A36] group-hover:text-[#FFC72C] transition-colors">
+        <span className="text-[14.5px] md:text-[15px] font-bold text-[#141210] group-hover:text-[#E6A032] transition-colors">
           {value}
         </span>
       </span>
@@ -514,10 +503,10 @@ const HQAddress = () => {
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
           {/* Map placeholder */}
-          <div className="lg:col-span-7 relative aspect-[4/3] lg:aspect-auto bg-[#0A1A36] rounded-sm overflow-hidden">
+          <div className="lg:col-span-7 relative aspect-[4/3] lg:aspect-auto bg-[#141210] rounded-sm overflow-hidden">
             {/* Replace this with a Google Maps / Mapbox embed when available */}
             <iframe
-              title="Real Estate Head Office"
+              title="Prime Homes Head Office"
               src="https://www.google.com/maps?q=Adetokunbo+Ademola+Crescent,+Wuse+2,+Abuja&output=embed"
               width="100%"
               height="100%"
@@ -529,31 +518,30 @@ const HQAddress = () => {
               className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10"
               style={{
                 background:
-                  "linear-gradient(135deg, #FFC72C 0%, #FFC72C 50%, transparent 50%)",
+                  "linear-gradient(135deg, #E6A032 0%, #E6A032 50%, transparent 50%)",
               }}
               aria-hidden="true"
             />
           </div>
 
           {/* Address card */}
-          <div className="lg:col-span-5 bg-[#0A1A36] text-white p-8 md:p-10 lg:p-12 rounded-sm relative overflow-hidden">
+          <div className="lg:col-span-5 bg-[#141210] text-white p-8 md:p-10 lg:p-12 rounded-sm relative overflow-hidden">
             <div
               className="absolute top-0 left-0 right-0 h-1"
-              style={{ backgroundColor: "#FFC72C" }}
+              style={{ backgroundColor: "#E6A032" }}
               aria-hidden="true"
             />
 
-            <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-6">
               Head Office
             </p>
 
             <h2
               id="hq-heading"
-              className="font-extrabold leading-[1.05] tracking-[-0.01em] text-[28px] md:text-[34px] lg:text-[38px] mb-8"
+              className="font-display font-light leading-[1.05] tracking-[-0.01em] text-[28px] md:text-[34px] lg:text-[38px] mb-8"
             >
               Visit us in{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              <span className="font-light italic" style={{ color: "#E6A032" }}>
                 Wuse 2
               </span>
               .
@@ -561,7 +549,7 @@ const HQAddress = () => {
 
             <div className="space-y-5">
               <div className="flex items-start gap-4">
-                <FiMapPin className="shrink-0 mt-1 w-4 h-4 text-[#FFC72C]" />
+                <FiMapPin className="shrink-0 mt-1 w-4 h-4 text-[#E6A032]" />
                 <div>
                   <div className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-white/50 mb-1">
                     Address
@@ -574,14 +562,14 @@ const HQAddress = () => {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <FiClock className="shrink-0 mt-1 w-4 h-4 text-[#FFC72C]" />
+                <FiClock className="shrink-0 mt-1 w-4 h-4 text-[#E6A032]" />
                 <div>
                   <div className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-white/50 mb-1">
                     Hours
                   </div>
                   <div className="text-[14.5px] text-white">
-                    Monday – Saturday<br />
-                    09:00 – 18:00
+                    Monday to Saturday<br />
+                    09:00 to 18:00
                   </div>
                 </div>
               </div>
@@ -593,14 +581,14 @@ const HQAddress = () => {
                 we&apos;ll have the right agent ready to meet you.
               </p>
               <Link
-                href="mailto:info@realestate.com?subject=Office%20Visit"
-                className="group inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.18em] uppercase text-[#FFC72C] hover:text-white transition-colors"
+                href="mailto:info@primehomes.ng?subject=Office%20Visit"
+                className="group inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.18em] uppercase text-[#E6A032] hover:text-white transition-colors"
               >
                 <span className="relative">
                   Plan your visit
                   <span
                     className="absolute left-0 right-0 -bottom-0.5 h-px scale-x-100 origin-left"
-                    style={{ backgroundColor: "#FFC72C" }}
+                    style={{ backgroundColor: "#E6A032" }}
                     aria-hidden="true"
                   />
                 </span>
@@ -628,25 +616,24 @@ const FAQ = () => {
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-4 lg:sticky lg:top-32">
-            <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
               FAQs
             </p>
             <h2
               id="faq-heading"
-              className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[32px] md:text-[42px] lg:text-[48px]"
+              className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[32px] md:text-[42px] lg:text-[48px]"
             >
               Common{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              <span className="font-light italic" style={{ color: "#E6A032" }}>
                 questions
               </span>
               .
             </h2>
-            <p className="mt-6 text-[15px] leading-[1.75] text-[#0A1A36]/70 max-w-md">
+            <p className="mt-6 text-[15px] leading-[1.75] text-[#141210]/70 max-w-md">
               Don't see what you're looking for?{" "}
               <a
-                href="mailto:info@realestate.com"
-                className="font-bold text-[#0A1A36] hover:text-[#FFC72C] underline underline-offset-4 transition-colors"
+                href="mailto:info@primehomes.ng"
+                className="font-bold text-[#141210] hover:text-[#E6A032] underline underline-offset-4 transition-colors"
               >
                 Email us
               </a>{" "}
@@ -655,7 +642,7 @@ const FAQ = () => {
           </div>
 
           <div className="lg:col-span-8">
-            <ul className="divide-y divide-[#0A1A36]/15 border-t border-[#0A1A36]/15">
+            <ul className="divide-y divide-[#141210]/15 border-t border-[#141210]/15">
               {FAQS.map((f, i) => (
                 <li key={f.q}>
                   <button
@@ -664,15 +651,15 @@ const FAQ = () => {
                     aria-expanded={openIdx === i}
                     className="group w-full flex items-center justify-between gap-6 py-6 md:py-7 text-left focus:outline-none"
                   >
-                    <span className="text-[16px] md:text-[18px] font-extrabold tracking-[-0.01em] text-[#0A1A36] group-hover:text-[#FFC72C] transition-colors">
+                    <span className="text-[16px] md:text-[18px] font-display font-light tracking-[-0.01em] text-[#141210] group-hover:text-[#E6A032] transition-colors">
                       {f.q}
                     </span>
                     <span
                       className={[
                         "shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full border-2 transition-all duration-300",
                         openIdx === i
-                          ? "bg-[#FFC72C] border-[#FFC72C] text-[#0A1A36]"
-                          : "border-[#0A1A36]/20 text-[#0A1A36] group-hover:border-[#FFC72C]",
+                          ? "bg-[#E6A032] border-[#E6A032] text-white"
+                          : "border-[#141210]/20 text-[#141210] group-hover:border-[#E6A032]",
                       ].join(" ")}
                     >
                       {openIdx === i ? (
@@ -689,7 +676,7 @@ const FAQ = () => {
                     ].join(" ")}
                   >
                     <div className="overflow-hidden">
-                      <p className="pb-7 pr-12 text-[14.5px] md:text-[15px] leading-[1.75] text-[#0A1A36]/75 max-w-2xl">
+                      <p className="pb-7 pr-12 text-[14.5px] md:text-[15px] leading-[1.75] text-[#141210]/75 max-w-2xl">
                         {f.a}
                       </p>
                     </div>

@@ -4,9 +4,31 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    scroll-behavior: smooth;
-    font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+:root {
+  /* Warm editorial neutrals layered over the navy/gold brand */
+  --ph-ink: #14120E;
+  --ph-bone: #FAF7F1;
+  --ph-bone-deep: #F1EBDF;
+  --ph-navy: #141210;
+  --ph-navy-deep: #0A0806;
+  --ph-gold: #C88C28;
+  --ph-gold-bright: #E6A032;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-montserrat), 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Editorial display face, refined serif for headings */
+.font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, 'Times New Roman', serif;
+  font-optical-sizing: auto;
 }
 
 @layer base {

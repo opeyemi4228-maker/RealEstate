@@ -35,15 +35,15 @@ export default async function SubscribersPage() {
           {docs.map((d) => (
             <tr
               key={d.id}
-              className="border-b border-[#0A1A36]/[0.06] last:border-0 hover:bg-[#0A1A36]/[0.02]"
+              className="border-b border-[#141210]/[0.06] last:border-0 hover:bg-[#141210]/[0.02]"
             >
-              <td className="px-4 py-3 text-[13px] font-semibold text-[#0A1A36]">
+              <td className="px-4 py-3 text-[13px] font-semibold text-[#141210]">
                 <a href={`mailto:${d.email}`} className="hover:underline underline-offset-2">
                   {d.email}
                 </a>
               </td>
-              <td className="px-4 py-3 text-[13px] text-[#0A1A36]/70">
-                {[d.firstName, d.lastName].filter(Boolean).join(" ") || "—"}
+              <td className="px-4 py-3 text-[13px] text-[#141210]/70">
+                {[d.firstName, d.lastName].filter(Boolean).join(" ") || "N/A"}
               </td>
               <td className="px-4 py-3">
                 <span
@@ -51,14 +51,14 @@ export default async function SubscribersPage() {
                     "inline-flex px-2 py-0.5 rounded-full text-[11px] font-semibold",
                     d.status === "subscribed"
                       ? "bg-green-50 text-green-700"
-                      : "bg-[#0A1A36]/5 text-[#0A1A36]/50",
+                      : "bg-[#141210]/5 text-[#141210]/50",
                   ].join(" ")}
                 >
                   {d.status || "subscribed"}
                 </span>
               </td>
-              <td className="px-4 py-3 text-[13px] text-[#0A1A36]/70">{d.source || "—"}</td>
-              <td className="px-4 py-3 text-[12px] text-[#0A1A36]/55 whitespace-nowrap">{fmtDate(d.createdAt)}</td>
+              <td className="px-4 py-3 text-[13px] text-[#141210]/70">{d.source || "N/A"}</td>
+              <td className="px-4 py-3 text-[12px] text-[#141210]/55 whitespace-nowrap">{fmtDate(d.createdAt)}</td>
             </tr>
           ))}
         </TableCard>

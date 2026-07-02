@@ -1,5 +1,5 @@
 // ════════════════════════════════════════════════════════════════════
-// Real Estate — data layer (Abuja, Nigeria)
+// Prime Homes, data layer (Abuja, Nigeria)
 //
 // Central source of demo data for the marketing site: property listings,
 // agents, service offerings, and testimonials. Prices are in Nigerian
@@ -19,7 +19,7 @@ export const agentsData = [
     name: "Amaka Okeke",
     title: "Principal Agent · Luxury Homes",
     photo: img("photo-1573496359142-b8d87734a5a2", 600),
-    email: "amaka@realestate.com",
+    email: "amaka@primehomes.ng",
     phone: "+234 803 000 0142",
     license: "RE-882041",
     experienceYears: 12,
@@ -34,7 +34,7 @@ export const agentsData = [
     name: "Tunde Bello",
     title: "Senior Agent · Residential Sales",
     photo: img("photo-1507003211169-0a1dd7228f2d", 600),
-    email: "tunde@realestate.com",
+    email: "tunde@primehomes.ng",
     phone: "+234 805 000 0193",
     license: "RE-771230",
     experienceYears: 9,
@@ -49,7 +49,7 @@ export const agentsData = [
     name: "Zainab Ibrahim",
     title: "Lettings & Property Management",
     photo: img("photo-1580489944761-15a19d654956", 600),
-    email: "zainab@realestate.com",
+    email: "zainab@primehomes.ng",
     phone: "+234 807 000 0177",
     license: "RE-665914",
     experienceYears: 7,
@@ -64,7 +64,7 @@ export const agentsData = [
     name: "Emeka Nwosu",
     title: "Commercial & Investment Advisor",
     photo: img("photo-1519085360753-af0119f7cbe7", 600),
-    email: "emeka@realestate.com",
+    email: "emeka@primehomes.ng",
     phone: "+234 809 000 0158",
     license: "RE-540027",
     experienceYears: 15,
@@ -330,48 +330,86 @@ export const propertyStatuses = ["All", "For Sale", "For Rent"];
 export const servicesData = [
   {
     number: "01",
-    slug: "buy",
-    title: "Buy a Home",
+    slug: "sourcing",
+    title: "Property Sourcing & Acquisition",
     summary:
-      "Find the right property with curated listings, private viewings, and expert negotiation on your side.",
+      "Secure, well-structured, high-value properties matched to your needs and budget.",
     detail:
-      "From your first search to handover, our agents handle viewings, offers, due diligence, and financing introductions so you buy with total confidence.",
+      "We source land and homes for individuals, corporate organisations, and diaspora investors, handling search, inspection, and acquisition end to end so you buy right, the first time.",
   },
   {
     number: "02",
-    slug: "sell",
-    title: "Sell a Property",
+    slug: "investment",
+    title: "Investment Advisory & Portfolio Guidance",
     summary:
-      "Get the best price with professional photography, targeted marketing, and data-driven pricing.",
+      "Informed, profitable real estate decisions backed by data and market expertise.",
     detail:
-      "We position your home across premium portals and our buyer network, manage every viewing, and negotiate hard to maximise your final sale price.",
+      "From single acquisitions to growing portfolios, our advisors guide you on where, when, and how to invest for the strongest, most secure returns.",
   },
   {
     number: "03",
-    slug: "rent",
-    title: "Rent & Lettings",
+    slug: "development",
+    title: "Development & Project Supervision",
     summary:
-      "Quality rentals for tenants and dependable, vetted occupants for landlords.",
+      "Real estate development delivered to the highest standards of quality and infrastructure.",
     detail:
-      "Browse move-in-ready rentals or list your property with full tenant screening, verification, and a smooth application process.",
+      "We manage projects from concept to completion, design, build, and on-site supervision, ensuring every development meets the Prime Homes benchmark.",
   },
   {
     number: "04",
-    slug: "manage",
-    title: "Property Management",
+    slug: "legal",
+    title: "Legal Verification & Documentation",
     summary:
-      "Hands-off ownership with rent collection, maintenance, and facility management handled for you.",
+      "Thorough due diligence and clean documentation on every transaction.",
     detail:
-      "Our managed service covers rent collection, repairs, inspections, and estate compliance — protecting your asset and your peace of mind.",
+      "Title verification, perfection of documents, and end-to-end legal checks eliminate uncertainty, so you enjoy complete security, clarity, and peace of mind.",
   },
   {
     number: "05",
-    slug: "valuation",
-    title: "Valuations & Advice",
+    slug: "management",
+    title: "Property Management & Consultancy",
     summary:
-      "Know what your property is really worth with a free, no-obligation market valuation.",
+      "Hands-off ownership with professional management and expert consultancy.",
     detail:
-      "Our local experts combine comparable sales, market trends, and on-site assessment to give you an accurate, actionable valuation.",
+      "Rent collection, maintenance, facility and tenant management, plus strategic consultancy, protecting and growing the value of your asset.",
+  },
+];
+
+// Company facts for About / structured data
+export const companyInfo = {
+  name: "Prime Homes",
+  tagline: "Do it right, deliver value, and build trust.",
+  vision:
+    "To be the most trusted and sought-after real estate brand in Nigeria, setting the benchmark for excellence, transparency, and value-driven property delivery.",
+  mission:
+    "To redefine real estate in Nigeria by delivering secure, high-quality, and value-oriented property solutions backed by integrity, professionalism, and exceptional service.",
+};
+
+export const strategicGoals = [
+  {
+    number: "01",
+    title: "Excellence in Delivery",
+    copy: "To consistently deliver real estate projects that meet the highest standards in quality, design, and infrastructure.",
+  },
+  {
+    number: "02",
+    title: "Trust & Transparency Leadership",
+    copy: "To become a leading authority in ethical real estate practices, eliminating uncertainty and building investor confidence.",
+  },
+  {
+    number: "03",
+    title: "Client Satisfaction & Retention",
+    copy: "To achieve a high level of repeat business by delivering outstanding service and measurable value.",
+  },
+  {
+    number: "04",
+    title: "Market Expansion",
+    copy: "To expand our footprint across key cities in Nigeria and position Prime Homes as a global investment partner for diaspora clients.",
+  },
+  {
+    number: "05",
+    title: "Technology Integration",
+    copy: "To develop a digital ecosystem that simplifies property search, verification, and acquisition.",
   },
 ];
 
@@ -397,7 +435,7 @@ export const testimonialsData = [
     name: "Ngozi Eze",
     role: "Landlord, Jabi",
     quote:
-      "Their management team takes everything off my plate — rent, repairs, tenants. I haven't had a single sleepless night since.",
+      "Their management team takes everything off my plate, rent, repairs, tenants. I haven't had a single sleepless night since.",
     rating: 5,
   },
 ];

@@ -8,7 +8,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-montserrat)', 'Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-fraunces)', 'ui-serif', 'Georgia', 'serif'],
+        display: ['var(--font-fraunces)', 'ui-serif', 'Georgia', 'serif'],
       },
       colors: {
         background: "var(--background)",

@@ -16,7 +16,7 @@ async function getTrainees() {
 }
 
 const money = (amount, currency) =>
-  amount != null ? `${(amount / 100).toFixed(2)} ${String(currency || "").toUpperCase()}` : "—";
+  amount != null ? `${(amount / 100).toFixed(2)} ${String(currency || "").toUpperCase()}` : "N/A";
 
 const STATUS_STYLES = {
   paid: "bg-green-50 text-green-700",
@@ -34,7 +34,7 @@ const StatusBadge = ({ status }) => {
     <span
       className={[
         "inline-flex px-2 py-0.5 rounded-full text-[11px] font-semibold whitespace-nowrap",
-        STATUS_STYLES[key] || "bg-[#0A1A36]/5 text-[#0A1A36]/60",
+        STATUS_STYLES[key] || "bg-[#141210]/5 text-[#141210]/60",
       ].join(" ")}
     >
       {STATUS_LABELS[key] || key}
@@ -64,23 +64,23 @@ export default async function TraineesPage() {
           {docs.map((d) => (
             <tr
               key={d.id}
-              className="border-b border-[#0A1A36]/[0.06] last:border-0 hover:bg-[#0A1A36]/[0.02]"
+              className="border-b border-[#141210]/[0.06] last:border-0 hover:bg-[#141210]/[0.02]"
             >
-              <td className="px-4 py-3 text-[13px] font-semibold text-[#0A1A36] whitespace-nowrap">
+              <td className="px-4 py-3 text-[13px] font-semibold text-[#141210] whitespace-nowrap">
                 {d.firstName} {d.lastName}
               </td>
-              <td className="px-4 py-3 text-[13px] text-[#0A1A36]/80">
-                <a href={`mailto:${d.email}`} className="hover:text-[#0A1A36] underline-offset-2 hover:underline">
+              <td className="px-4 py-3 text-[13px] text-[#141210]/80">
+                <a href={`mailto:${d.email}`} className="hover:text-[#141210] underline-offset-2 hover:underline">
                   {d.email}
                 </a>
               </td>
-              <td className="px-4 py-3 text-[13px] text-[#0A1A36]/70 whitespace-nowrap">{d.phone || "—"}</td>
-              <td className="px-4 py-3 text-[13px] text-[#0A1A36]/70 whitespace-nowrap">{d.country || "—"}</td>
-              <td className="px-4 py-3 text-[13px] text-[#0A1A36]/70 whitespace-nowrap">{d.programmeId || "—"}</td>
-              <td className="px-4 py-3 text-[13px] text-[#0A1A36]/70 whitespace-nowrap">{d.plan || "—"}</td>
-              <td className="px-4 py-3 text-[13px] text-[#0A1A36]/70 whitespace-nowrap">{money(d.amountTotal, d.currency)}</td>
+              <td className="px-4 py-3 text-[13px] text-[#141210]/70 whitespace-nowrap">{d.phone || "N/A"}</td>
+              <td className="px-4 py-3 text-[13px] text-[#141210]/70 whitespace-nowrap">{d.country || "N/A"}</td>
+              <td className="px-4 py-3 text-[13px] text-[#141210]/70 whitespace-nowrap">{d.programmeId || "N/A"}</td>
+              <td className="px-4 py-3 text-[13px] text-[#141210]/70 whitespace-nowrap">{d.plan || "N/A"}</td>
+              <td className="px-4 py-3 text-[13px] text-[#141210]/70 whitespace-nowrap">{money(d.amountTotal, d.currency)}</td>
               <td className="px-4 py-3"><StatusBadge status={d.paymentStatus} /></td>
-              <td className="px-4 py-3 text-[12px] text-[#0A1A36]/55 whitespace-nowrap">{fmtDate(d.createdAt)}</td>
+              <td className="px-4 py-3 text-[12px] text-[#141210]/55 whitespace-nowrap">{fmtDate(d.createdAt)}</td>
             </tr>
           ))}
         </TableCard>

@@ -48,7 +48,7 @@ const Property = () => {
     { Icon: LuBath, label: "Bathrooms", value: property.bathrooms },
     { Icon: LuMaximize, label: "Area", value: `${property.areaSqFt?.toLocaleString()} sqft` },
     { Icon: LuCar, label: "Garage", value: property.garage ?? 0 },
-    { Icon: LuCalendarClock, label: "Year Built", value: property.yearBuilt ?? "—" },
+    { Icon: LuCalendarClock, label: "Year Built", value: property.yearBuilt ?? "N/A" },
   ];
 
   return (
@@ -62,7 +62,7 @@ const Property = () => {
         <div className="px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto pt-28 md:pt-32 pb-16">
           <Link
             href="/all-products"
-            className="inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.14em] uppercase text-[#0A1A36]/60 hover:text-[#FFC72C] transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.14em] uppercase text-[#141210]/60 hover:text-[#E6A032] transition-colors mb-8"
           >
             <FiArrowLeft className="w-4 h-4" aria-hidden="true" />
             Back to listings
@@ -72,7 +72,7 @@ const Property = () => {
             {/* Left: gallery + details */}
             <div>
               {/* Gallery */}
-              <div className="relative aspect-[16/10] rounded-sm overflow-hidden bg-[#0A1A36]/5">
+              <div className="relative aspect-[16/10] rounded-sm overflow-hidden bg-[#141210]/5">
                 <Image
                   src={mainImage || property.image[0]}
                   alt={property.name}
@@ -84,7 +84,7 @@ const Property = () => {
                 <span
                   className={[
                     "absolute top-4 left-4 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[10px] font-extrabold tracking-[0.16em] uppercase shadow-sm",
-                    isRent ? "bg-[#0A1A36] text-white" : "bg-[#FFC72C] text-[#0A1A36]",
+                    isRent ? "bg-[#005A32] text-white" : "bg-[#E6A032] text-white",
                   ].join(" ")}
                 >
                   {property.status}
@@ -101,13 +101,13 @@ const Property = () => {
                         type="button"
                         onClick={() => setMainImage(image)}
                         className={[
-                          "relative aspect-[4/3] rounded-sm overflow-hidden bg-[#0A1A36]/5 transition-all",
-                          active ? "ring-2 ring-[#FFC72C]" : "opacity-80 hover:opacity-100",
+                          "relative aspect-[4/3] rounded-sm overflow-hidden bg-[#141210]/5 transition-all",
+                          active ? "ring-2 ring-[#E6A032]" : "opacity-80 hover:opacity-100",
                         ].join(" ")}
                       >
                         <Image
                           src={image}
-                          alt={`${property.name} — photo ${index + 1}`}
+                          alt={`${property.name}, photo ${index + 1}`}
                           fill
                           sizes="20vw"
                           className="object-cover"
@@ -120,27 +120,27 @@ const Property = () => {
 
               {/* Title + price (mobile) */}
               <div className="mt-8">
-                <span className="inline-block px-2.5 py-1 rounded-full bg-[#0A1A36]/[0.05] text-[10px] font-bold tracking-[0.14em] uppercase text-[#0A1A36]/65 mb-3">
+                <span className="inline-block px-2.5 py-1 rounded-full bg-[#141210]/[0.05] text-[10px] font-bold tracking-[0.14em] uppercase text-[#141210]/65 mb-3">
                   {property.category}
                 </span>
-                <h1 className="font-extrabold leading-[1.1] tracking-[-0.01em] text-[#0A1A36] text-[28px] md:text-[36px]">
+                <h1 className="font-display font-light leading-[1.1] tracking-[-0.01em] text-[#141210] text-[28px] md:text-[36px]">
                   {property.name}
                 </h1>
-                <p className="mt-3 flex items-center gap-2 text-[14px] text-[#0A1A36]/65">
-                  <FiMapPin className="w-4 h-4 text-[#FFC72C]" aria-hidden="true" />
+                <p className="mt-3 flex items-center gap-2 text-[14px] text-[#141210]/65">
+                  <FiMapPin className="w-4 h-4 text-[#E6A032]" aria-hidden="true" />
                   {property.location?.address}, {property.location?.city}, {property.location?.state}
                 </p>
               </div>
 
               {/* Specs */}
-              <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-[#0A1A36]/10 border border-[#0A1A36]/10 rounded-sm overflow-hidden">
+              <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-[#141210]/10 border border-[#141210]/10 rounded-sm overflow-hidden">
                 {SPECS.map((s) => (
                   <div key={s.label} className="bg-white p-4 md:p-5 text-center">
-                    <s.Icon className="w-5 h-5 text-[#FFC72C] mx-auto mb-2" aria-hidden="true" />
-                    <p className="text-[16px] font-extrabold text-[#0A1A36] leading-none">
+                    <s.Icon className="w-5 h-5 text-[#E6A032] mx-auto mb-2" aria-hidden="true" />
+                    <p className="text-[16px] font-display font-light text-[#141210] leading-none">
                       {s.value}
                     </p>
-                    <p className="text-[10.5px] font-semibold tracking-[0.1em] uppercase text-[#0A1A36]/50 mt-1.5">
+                    <p className="text-[10.5px] font-semibold tracking-[0.1em] uppercase text-[#141210]/50 mt-1.5">
                       {s.label}
                     </p>
                   </div>
@@ -149,8 +149,8 @@ const Property = () => {
 
               {/* Description */}
               <div className="mt-10">
-                <h2 className="text-[20px] font-bold text-[#0A1A36] mb-4">About this property</h2>
-                <p className="text-[15px] leading-[1.8] text-[#0A1A36]/75">
+                <h2 className="font-display text-[23px] font-normal text-[#141210] mb-4">About this property</h2>
+                <p className="text-[15px] leading-[1.8] text-[#141210]/75">
                   {property.description}
                 </p>
               </div>
@@ -158,14 +158,14 @@ const Property = () => {
               {/* Amenities */}
               {property.amenities?.length > 0 && (
                 <div className="mt-10">
-                  <h2 className="text-[20px] font-bold text-[#0A1A36] mb-5">Features & amenities</h2>
+                  <h2 className="font-display text-[23px] font-normal text-[#141210] mb-5">Features & amenities</h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     {property.amenities.map((a) => (
                       <span
                         key={a}
-                        className="inline-flex items-center gap-2 text-[14px] text-[#0A1A36]/80"
+                        className="inline-flex items-center gap-2 text-[14px] text-[#141210]/80"
                       >
-                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#FFC72C]/20 text-[#0A1A36]">
+                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#005A32] text-white">
                           <FiCheck className="w-3 h-3" strokeWidth={3} aria-hidden="true" />
                         </span>
                         {a}
@@ -178,16 +178,16 @@ const Property = () => {
 
             {/* Right: sticky price + agent */}
             <aside className="lg:sticky lg:top-28 lg:self-start space-y-5">
-              <div className="bg-white border border-[#0A1A36]/10 rounded-sm p-6 shadow-[0_20px_50px_-30px_rgba(10,26,54,0.4)]">
-                <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#0A1A36]/50 mb-1">
+              <div className="bg-white border border-[#141210]/10 rounded-sm p-6 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.4)]">
+                <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#141210]/50 mb-1">
                   {isRent ? "Monthly Rent" : "Asking Price"}
                 </p>
-                <p className="text-[34px] font-extrabold text-[#0A1A36] leading-none">
+                <p className="text-[34px] font-display font-normal text-[#141210] leading-none">
                   {formatPrice(property.offerPrice ?? property.price)}
-                  {isRent && <span className="text-[14px] font-semibold text-[#0A1A36]/50"> /mo</span>}
+                  {isRent && <span className="text-[14px] font-semibold text-[#141210]/50"> /mo</span>}
                 </p>
                 {property.price > (property.offerPrice ?? property.price) && (
-                  <p className="mt-1 text-[13px] text-[#0A1A36]/45 line-through">
+                  <p className="mt-1 text-[13px] text-[#141210]/45 line-through">
                     {formatPrice(property.price)}
                   </p>
                 )}
@@ -195,14 +195,14 @@ const Property = () => {
                 <div className="mt-6 space-y-3">
                   <Link
                     href={`/contact?property=${property._id}&action=schedule`}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.14em] uppercase transition-colors"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[12px] font-extrabold tracking-[0.14em] uppercase transition-colors"
                   >
                     <FiCalendar className="w-4 h-4" aria-hidden="true" />
                     Schedule a Viewing
                   </Link>
                   <Link
                     href={`/contact?property=${property._id}`}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#0A1A36] hover:bg-[#06122A] text-white text-[12px] font-extrabold tracking-[0.14em] uppercase transition-colors"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#141210] hover:bg-[#0A0806] text-white text-[12px] font-extrabold tracking-[0.14em] uppercase transition-colors"
                   >
                     Request Info
                   </Link>
@@ -211,12 +211,12 @@ const Property = () => {
 
               {/* Agent card */}
               {agent && (
-                <div className="bg-[#0A1A36] text-white rounded-sm p-6">
-                  <p className="text-[10.5px] font-bold tracking-[0.2em] uppercase text-[#FFC72C] mb-4">
+                <div className="bg-[#141210] text-white rounded-sm p-6">
+                  <p className="text-[10.5px] font-bold tracking-[0.2em] uppercase text-[#E6A032] mb-4">
                     Listed by
                   </p>
                   <div className="flex items-center gap-4">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 ring-2 ring-[#FFC72C]/40">
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 ring-2 ring-[#E6A032]/40">
                       <Image src={agent.photo} alt={agent.name} fill sizes="64px" className="object-cover" />
                     </div>
                     <div>
@@ -228,16 +228,16 @@ const Property = () => {
                   <div className="mt-5 space-y-2.5">
                     <a
                       href={`tel:${agent.phone}`}
-                      className="flex items-center gap-3 text-[13.5px] text-white/85 hover:text-[#FFC72C] transition-colors"
+                      className="flex items-center gap-3 text-[13.5px] text-white/85 hover:text-[#E6A032] transition-colors"
                     >
-                      <FiPhone className="w-4 h-4 text-[#FFC72C]" aria-hidden="true" />
+                      <FiPhone className="w-4 h-4 text-[#E6A032]" aria-hidden="true" />
                       {agent.phone}
                     </a>
                     <a
                       href={`mailto:${agent.email}`}
-                      className="flex items-center gap-3 text-[13.5px] text-white/85 hover:text-[#FFC72C] transition-colors"
+                      className="flex items-center gap-3 text-[13.5px] text-white/85 hover:text-[#E6A032] transition-colors"
                     >
-                      <FiMail className="w-4 h-4 text-[#FFC72C]" aria-hidden="true" />
+                      <FiMail className="w-4 h-4 text-[#E6A032]" aria-hidden="true" />
                       {agent.email}
                     </a>
                   </div>
@@ -250,15 +250,15 @@ const Property = () => {
           {related.length > 0 && (
             <section className="mt-20 md:mt-28">
               <div className="flex items-end justify-between mb-8">
-                <h2 className="font-extrabold text-[#0A1A36] text-[26px] md:text-[34px]">
+                <h2 className="font-display font-light text-[#141210] text-[26px] md:text-[34px]">
                   Similar{" "}
-                  <span className="font-light italic" style={{ color: "#FFC72C" }}>
+                  <span className="font-light italic" style={{ color: "#E6A032" }}>
                     properties
                   </span>
                 </h2>
                 <Link
                   href="/all-products"
-                  className="text-[12px] font-bold tracking-[0.14em] uppercase text-[#0A1A36] hover:text-[#FFC72C] transition-colors"
+                  className="text-[12px] font-bold tracking-[0.14em] uppercase text-[#141210] hover:text-[#E6A032] transition-colors"
                 >
                   View all
                 </Link>

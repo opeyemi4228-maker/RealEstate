@@ -30,8 +30,8 @@ export default async function AdminOverview() {
   return (
     <div>
       <header className="mb-8">
-        <h1 className="text-2xl font-extrabold text-[#0A1A36] tracking-tight">Overview</h1>
-        <p className="text-[#0A1A36]/55 text-sm mt-1">
+        <h1 className="text-2xl font-extrabold text-[#141210] tracking-tight">Overview</h1>
+        <p className="text-[#141210]/55 text-sm mt-1">
           Everything captured from the website in one place.
         </p>
       </header>
@@ -48,18 +48,18 @@ export default async function AdminOverview() {
           <Link
             key={key}
             href={href}
-            className="group bg-white rounded-2xl p-6 shadow-[0_2px_12px_-4px_rgba(10,26,54,0.12)] hover:shadow-[0_12px_32px_-8px_rgba(10,26,54,0.2)] transition border border-transparent hover:border-[#FFC72C]/40"
+            className="group bg-white rounded-2xl p-6 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.2)] transition border border-transparent hover:border-[#E6A032]/40"
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#0A1A36]/[0.05] text-[#0A1A36]">
+              <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#141210]/[0.05] text-[#141210]">
                 <Icon className="w-5 h-5" />
               </span>
-              <FiArrowRight className="w-4 h-4 text-[#0A1A36]/30 group-hover:text-[#FFC72C] group-hover:translate-x-1 transition" />
+              <FiArrowRight className="w-4 h-4 text-[#141210]/30 group-hover:text-[#E6A032] group-hover:translate-x-1 transition" />
             </div>
-            <p className="text-3xl font-extrabold text-[#0A1A36]">{counts[key]}</p>
-            <p className="text-[13px] text-[#0A1A36]/55 mt-1">{label}</p>
+            <p className="text-3xl font-extrabold text-[#141210]">{counts[key]}</p>
+            <p className="text-[13px] text-[#141210]/55 mt-1">{label}</p>
             {key === "messages" && counts.unread > 0 && (
-              <p className="text-[12px] font-semibold text-[#FFC72C] mt-2">
+              <p className="text-[12px] font-semibold text-[#E6A032] mt-2">
                 {counts.unread} unread
               </p>
             )}

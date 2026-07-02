@@ -58,24 +58,14 @@ const PropertiesInner = () => {
       <Navbar />
 
       {/* Page header */}
-      <header className="relative bg-[#0A1A36] text-white pt-32 md:pt-40 pb-14 md:pb-20 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
-          }}
-          aria-hidden="true"
-        />
+      <header className="relative bg-[#141210] text-white pt-32 md:pt-40 pb-14 md:pb-20 overflow-hidden">
         <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
-          <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-5">
-            <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+          <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-5">
             Property Listings
           </p>
-          <h1 className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[40px] md:text-[56px]">
+          <h1 className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[40px] md:text-[56px]">
             Find your next{" "}
-            <span className="font-light italic" style={{ color: "#FFC72C" }}>
+            <span className="font-light italic" style={{ color: "#E6A032" }}>
               address
             </span>
             .
@@ -84,18 +74,18 @@ const PropertiesInner = () => {
       </header>
 
       {/* Filter bar */}
-      <div className="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-[#0A1A36]/10">
+      <div className="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-[#141210]/10">
         <div className="px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto py-4">
           <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-3">
-            <label className="flex items-center gap-2.5 px-4 py-2.5 rounded-sm bg-[#0A1A36]/[0.04] border border-transparent focus-within:border-[#FFC72C]">
-              <FiSearch className="w-4 h-4 text-[#FFC72C] shrink-0" aria-hidden="true" />
+            <label className="flex items-center gap-2.5 px-4 py-2.5 rounded-sm bg-[#141210]/[0.04] border border-transparent focus-within:border-[#E6A032]">
+              <FiSearch className="w-4 h-4 text-[#E6A032] shrink-0" aria-hidden="true" />
               <span className="sr-only">Search</span>
               <input
                 type="text"
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Search by city, address, or name"
-                className="w-full bg-transparent text-[14px] text-[#0A1A36] placeholder:text-[#0A1A36]/45 focus:outline-none"
+                className="w-full bg-transparent text-[14px] text-[#141210] placeholder:text-[#141210]/45 focus:outline-none"
               />
             </label>
 
@@ -103,7 +93,7 @@ const PropertiesInner = () => {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               aria-label="Property type"
-              className="px-4 py-2.5 rounded-sm bg-[#0A1A36]/[0.04] text-[14px] font-medium text-[#0A1A36] focus:outline-none cursor-pointer"
+              className="px-4 py-2.5 rounded-sm bg-[#141210]/[0.04] text-[14px] font-medium text-[#141210] focus:outline-none cursor-pointer"
             >
               {propertyCategories.map((c) => (
                 <option key={c}>{c === "All" ? "All types" : c}</option>
@@ -114,7 +104,7 @@ const PropertiesInner = () => {
               value={status}
               onChange={(e) => setStatus(e.target.value)}
               aria-label="Status"
-              className="px-4 py-2.5 rounded-sm bg-[#0A1A36]/[0.04] text-[14px] font-medium text-[#0A1A36] focus:outline-none cursor-pointer"
+              className="px-4 py-2.5 rounded-sm bg-[#141210]/[0.04] text-[14px] font-medium text-[#141210] focus:outline-none cursor-pointer"
             >
               {propertyStatuses.map((s) => (
                 <option key={s}>{s === "All" ? "Buy or rent" : s}</option>
@@ -125,7 +115,7 @@ const PropertiesInner = () => {
               value={sort}
               onChange={(e) => setSort(e.target.value)}
               aria-label="Sort"
-              className="px-4 py-2.5 rounded-sm bg-[#0A1A36]/[0.04] text-[14px] font-medium text-[#0A1A36] focus:outline-none cursor-pointer"
+              className="px-4 py-2.5 rounded-sm bg-[#141210]/[0.04] text-[14px] font-medium text-[#141210] focus:outline-none cursor-pointer"
             >
               {SORTS.map((s) => (
                 <option key={s.value} value={s.value}>
@@ -139,8 +129,8 @@ const PropertiesInner = () => {
 
       {/* Results */}
       <main className="px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto py-12 md:py-16">
-        <p className="flex items-center gap-2 text-[13px] font-semibold text-[#0A1A36]/60 mb-8">
-          <FiSliders className="w-4 h-4 text-[#FFC72C]" aria-hidden="true" />
+        <p className="flex items-center gap-2 text-[13px] font-semibold text-[#141210]/60 mb-8">
+          <FiSliders className="w-4 h-4 text-[#E6A032]" aria-hidden="true" />
           {results.length} {results.length === 1 ? "property" : "properties"} found
         </p>
 
@@ -152,8 +142,8 @@ const PropertiesInner = () => {
           </div>
         ) : (
           <div className="text-center py-24">
-            <p className="text-[20px] font-bold text-[#0A1A36] mb-2">No matching properties</p>
-            <p className="text-[14px] text-[#0A1A36]/60">
+            <p className="text-[20px] font-bold text-[#141210] mb-2">No matching properties</p>
+            <p className="text-[14px] text-[#141210]/60">
               Try widening your search or clearing the filters.
             </p>
           </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import toast from "react-hot-toast";
 import {
   FaLinkedinIn,
@@ -11,12 +12,12 @@ import {
 import { FiArrowUpRight, FiMapPin, FiMail, FiPhone } from "react-icons/fi";
 
 /**
- * Footer — Real Estate
+ * Footer, Prime Homes
  *
  * Content (extracted):
- * - Brand: Real Estate · Property Marketplace
+ * - Brand: Prime Homes · Property Marketplace
  * - Address: 71-75 Shelton Street, Covent Garden, London WC2H 9JQ
- * - Email: info@realestate.com
+ * - Email: info@primehomes.ng
  * - Tel: 123-456-7890 (placeholder)
  * - Newsletter: "Stay Connected. Listings & Insights"
  * - Socials: Twitter, LinkedIn, Email
@@ -33,11 +34,11 @@ const PRIMARY_LINKS = [
 ];
 
 const SERVICES_LINKS = [
-  { label: "Buy a Home", href: "/services#buy" },
-  { label: "Sell a Property", href: "/services#sell" },
-  { label: "Rent & Lettings", href: "/services#rent" },
-  { label: "Property Management", href: "/services#manage" },
-  { label: "Valuations & Advice", href: "/services#valuation" },
+  { label: "Sourcing & Acquisition", href: "/services#sourcing" },
+  { label: "Investment Advisory", href: "/services#investment" },
+  { label: "Development & Supervision", href: "/services#development" },
+  { label: "Legal & Documentation", href: "/services#legal" },
+  { label: "Management & Consultancy", href: "/services#management" },
 ];
 
 const TRAINING_LINKS = [
@@ -55,7 +56,7 @@ const LEGAL_LINKS = [
 const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/", Icon: FaLinkedinIn },
   { label: "X (Twitter)", href: "https://x.com/", Icon: FaXTwitter },
-  { label: "Email", href: "mailto:info@realestate.com", Icon: FaEnvelope },
+  { label: "Email", href: "mailto:info@primehomes.ng", Icon: FaEnvelope },
 ];
 
 const Footer = () => {
@@ -96,41 +97,28 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative bg-[#06122A] text-white overflow-hidden"
+      className="relative bg-[#0A0806] text-white overflow-hidden"
       style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
-        Real Estate — site footer
+        Prime Homes, site footer
       </h2>
 
-      {/* Ambient glow */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-50"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 92% 8%, rgba(255,199,44,0.15), transparent 48%), radial-gradient(circle at 6% 95%, rgba(255,199,44,0.05), transparent 50%)",
-        }}
-        aria-hidden="true"
-      />
+      {/* Fine top rule */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-white/10" aria-hidden="true" />
 
-      {/* Grid texture */}
+      {/* Fine grid */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+            "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Top gold hairline */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, rgba(255,199,44,0.6) 30%, rgba(255,199,44,0.9) 50%, rgba(255,199,44,0.6) 70%, transparent 100%)",
+          maskImage:
+            "radial-gradient(120% 120% at 0% 0%, #000 30%, transparent 72%)",
+          WebkitMaskImage:
+            "radial-gradient(120% 120% at 0% 0%, #000 30%, transparent 72%)",
         }}
         aria-hidden="true"
       />
@@ -143,80 +131,45 @@ const Footer = () => {
             <div className="lg:col-span-7">
               <Link
                 href="/"
-                className="inline-flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40 rounded-sm mb-10 md:mb-14"
-                aria-label="Real Estate — home"
+                className="inline-flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/40 rounded-sm mb-10 md:mb-14"
+                aria-label="Prime Homes, home"
               >
-                <svg
-                  width="36"
-                  height="36"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  aria-hidden="true"
-                  className="shrink-0 transition-transform duration-500 group-hover:rotate-[8deg]"
-                >
-                  <path
-                    d="M16 2 L28 6 V16 C28 22 22.6 27.5 16 30 C9.4 27.5 4 22 4 16 V6 L16 2 Z"
-                    fill="#FFC72C"
-                    stroke="#FFFFFF"
-                    strokeWidth="1.5"
-                  />
-                  <text
-                    x="16"
-                    y="20"
-                    textAnchor="middle"
-                    fontSize="9"
-                    fontWeight="800"
-                    fill="#0A1A36"
-                    fontFamily="Montserrat, sans-serif"
-                    letterSpacing="0.5"
-                  >
-                    RE
-                  </text>
-                </svg>
-                <div className="flex flex-col leading-none">
-                  <span className="text-[16px] md:text-[17px] font-extrabold tracking-[0.04em] text-white">
-                    Real Estate
-                  </span>
-                  <span className="text-[9px] font-bold tracking-[0.28em] uppercase mt-1 text-[#FFC72C]">
-                    Property Marketplace
-                  </span>
-                </div>
+                <Image
+                  src="/prime-homes-logo.png"
+                  alt="Prime Homes"
+                  width={956}
+                  height={481}
+                  className="h-[62px] w-auto transition-transform duration-500 group-hover:scale-[1.03]"
+                />
               </Link>
 
-              <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-                <span
-                  className="inline-block w-10 h-px"
-                  style={{ backgroundColor: "#FFC72C" }}
-                />
+              <p className="text-[10.5px] font-semibold tracking-[0.28em] uppercase text-[#C88C28] mb-6">
                 Local expertise, every step
               </p>
 
-              <p className="font-light leading-[1.15] tracking-[-0.01em] text-white text-[28px] md:text-[36px] lg:text-[42px] max-w-2xl">
-                Helping people find, sell, and manage properties with
-                <span className="italic font-normal" style={{ color: "#FFC72C" }}>
-                  expert local service
+              <p className="font-display font-light leading-[1.12] text-white text-[30px] md:text-[40px] lg:text-[46px] max-w-2xl">
+                Do it right, deliver value, and
+                <span className="italic font-normal" style={{ color: "#EBB45A" }}>
+                  {" "}build trust
                 </span>.
               </p>
 
               <p className="mt-6 md:mt-8 text-[14px] md:text-[15px] leading-[1.75] text-white/65 max-w-lg">
-                Trusted property marketplace with listings, valuations, and
-                agent services to support buyers, sellers, and landlords.
+                A premium real estate company redefining property acquisition,
+                investment, and development in Nigeria, backed by transparency,
+                due diligence, and end-to-end value delivery.
               </p>
             </div>
 
             {/* Newsletter card */}
             <div className="lg:col-span-5 lg:pl-8 lg:border-l lg:border-white/10">
-              <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-                <span
-                  className="inline-block w-10 h-px"
-                  style={{ backgroundColor: "#FFC72C" }}
-                />
+              <p className="text-[10.5px] font-semibold tracking-[0.28em] uppercase text-[#C88C28] mb-6">
                 Stay Connected
               </p>
 
               <p className="text-[15px] md:text-[16px] leading-[1.7] text-white/75 mb-8 max-w-md">
                 Be first to see new listings. Subscribe for fresh properties,
-                price drops, and local market insights — straight to your inbox.
+                price drops, and local market insights, straight to your inbox.
               </p>
 
               <form onSubmit={onSubscribe} className="space-y-3">
@@ -227,7 +180,7 @@ const Footer = () => {
                     placeholder="First Name"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full px-4 py-3 bg-white/[0.06] border border-white/15 rounded-sm text-[13.5px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#FFC72C] focus:bg-white/[0.10] transition-colors"
+                    className="w-full px-4 py-3 bg-white/[0.06] border border-white/15 rounded-sm text-[13.5px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#E6A032] focus:bg-white/[0.10] transition-colors"
                   />
                   <input
                     type="text"
@@ -235,7 +188,7 @@ const Footer = () => {
                     placeholder="Last Name"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="w-full px-4 py-3 bg-white/[0.06] border border-white/15 rounded-sm text-[13.5px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#FFC72C] focus:bg-white/[0.10] transition-colors"
+                    className="w-full px-4 py-3 bg-white/[0.06] border border-white/15 rounded-sm text-[13.5px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#E6A032] focus:bg-white/[0.10] transition-colors"
                   />
                 </div>
                 <input
@@ -245,12 +198,12 @@ const Footer = () => {
                   placeholder="Email Address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 bg-white/[0.06] border border-white/15 rounded-sm text-[13.5px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#FFC72C] focus:bg-white/[0.10] transition-colors"
+                  className="w-full px-4 py-3 bg-white/[0.06] border border-white/15 rounded-sm text-[13.5px] text-white placeholder:text-white/40 focus:outline-none focus:border-[#E6A032] focus:bg-white/[0.10] transition-colors"
                 />
                 <button
                   type="submit"
                   disabled={subscribing}
-                  className="group w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-[0_8px_24px_-8px_rgba(255,199,44,0.5)] hover:shadow-[0_12px_32px_-8px_rgba(255,199,44,0.7)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06122A] focus-visible:ring-[#FFC72C] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="group w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[11.5px] font-extrabold tracking-[0.18em] uppercase shadow-[0_8px_24px_-8px_rgba(230,160,50,0.5)] hover:shadow-[0_12px_32px_-8px_rgba(230,160,50,0.7)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0806] focus-visible:ring-[#E6A032] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {subscribing ? "Subscribing…" : "Subscribe"}
                   <FiArrowUpRight
@@ -259,7 +212,7 @@ const Footer = () => {
                   />
                 </button>
                 {submitted && (
-                  <p className="text-[12px] text-[#FFC72C] mt-2" role="status">
+                  <p className="text-[12px] text-[#E6A032] mt-2" role="status">
                     Thanks for subscribing!
                   </p>
                 )}
@@ -275,7 +228,7 @@ const Footer = () => {
                 <FooterContactLink
                   Icon={FiMail}
                   label="Email"
-                  value="info@realestate.com"
+                  value="info@primehomes.ng"
                   href="/contact"
                 />
                 <FooterContactLink
@@ -294,11 +247,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
             {/* Explore */}
             <nav aria-label="Footer primary" className="md:col-span-3">
-              <h3 className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#FFC72C] mb-6">
-                <span
-                  className="inline-block w-7 h-px"
-                  style={{ backgroundColor: "#FFC72C" }}
-                />
+              <h3 className="text-[10.5px] font-semibold tracking-[0.26em] uppercase text-[#C88C28] mb-6 pb-3 border-b border-white/10">
                 Explore
               </h3>
               <ul className="space-y-3.5">
@@ -312,11 +261,7 @@ const Footer = () => {
 
             {/* Services */}
             <nav aria-label="Footer services" className="md:col-span-4">
-              <h3 className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#FFC72C] mb-6">
-                <span
-                  className="inline-block w-7 h-px"
-                  style={{ backgroundColor: "#FFC72C" }}
-                />
+              <h3 className="text-[10.5px] font-semibold tracking-[0.26em] uppercase text-[#C88C28] mb-6 pb-3 border-b border-white/10">
                 Services
               </h3>
               <ul className="space-y-3.5">
@@ -330,11 +275,7 @@ const Footer = () => {
 
             {/* Quick links */}
             <nav aria-label="Footer quick links" className="md:col-span-3">
-              <h3 className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#FFC72C] mb-6">
-                <span
-                  className="inline-block w-7 h-px"
-                  style={{ backgroundColor: "#FFC72C" }}
-                />
+              <h3 className="text-[10.5px] font-semibold tracking-[0.26em] uppercase text-[#C88C28] mb-6 pb-3 border-b border-white/10">
                 Browse
               </h3>
               <ul className="space-y-3.5">
@@ -346,7 +287,7 @@ const Footer = () => {
               </ul>
               <Link
                 href="/contact"
-                className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFC72C]/[0.12] border border-[#FFC72C]/30 text-[10.5px] font-bold tracking-[0.18em] uppercase text-[#FFC72C] hover:bg-[#FFC72C] hover:text-[#0A1A36] transition-colors"
+                className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E6A032]/[0.12] border border-[#E6A032]/30 text-[10.5px] font-bold tracking-[0.18em] uppercase text-[#E6A032] hover:bg-[#E6A032] hover:text-white transition-colors"
               >
                 List Your Property
                 <FiArrowUpRight className="w-3 h-3" aria-hidden="true" />
@@ -355,11 +296,7 @@ const Footer = () => {
 
             {/* Social */}
             <div className="md:col-span-2">
-              <h3 className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#FFC72C] mb-6">
-                <span
-                  className="inline-block w-7 h-px"
-                  style={{ backgroundColor: "#FFC72C" }}
-                />
+              <h3 className="text-[10.5px] font-semibold tracking-[0.26em] uppercase text-[#C88C28] mb-6 pb-3 border-b border-white/10">
                 Follow
               </h3>
               <ul className="flex items-center flex-wrap gap-2.5">
@@ -370,7 +307,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-white/20 text-white/80 hover:bg-[#FFC72C] hover:border-[#FFC72C] hover:text-[#0A1A36] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/60 transition-all duration-300"
+                      className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-white/20 text-white/80 hover:bg-[#E6A032] hover:border-[#E6A032] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/60 transition-all duration-300"
                     >
                       <Icon className="w-[13px] h-[13px]" aria-hidden="true" />
                     </a>
@@ -378,7 +315,7 @@ const Footer = () => {
                 ))}
               </ul>
               <p className="mt-6 text-[11.5px] leading-[1.6] text-white/50">
-                New listings & market updates — delivered weekly.
+                New listings & market updates, delivered weekly.
               </p>
             </div>
           </div>
@@ -395,7 +332,7 @@ const Footer = () => {
           </ul>
 
           <p className="text-[11.5px] text-white/45 md:text-right">
-            © {currentYear} Real Estate.{" "}
+            © {currentYear} Prime Homes.{" "}
             <span className="hidden md:inline" aria-hidden="true">
               ·{" "}
             </span>
@@ -416,13 +353,13 @@ const Footer = () => {
 const FooterNavLink = ({ label, href }) => (
   <Link
     href={href}
-    className="group relative inline-block text-[14px] text-white/75 hover:text-white focus:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40 rounded-sm transition-colors duration-200"
+    className="group relative inline-block text-[14px] text-white/75 hover:text-white focus:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/40 rounded-sm transition-colors duration-200"
   >
     <span className="relative">
       {label}
       <span
         className="absolute left-0 right-0 -bottom-0.5 h-px origin-left scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100 transition-transform duration-[400ms] ease-out"
-        style={{ backgroundColor: "#FFC72C" }}
+        style={{ backgroundColor: "#E6A032" }}
         aria-hidden="true"
       />
     </span>
@@ -432,17 +369,17 @@ const FooterNavLink = ({ label, href }) => (
 const FooterContactLink = ({ Icon, label, value, href }) => (
   <Link
     href={href}
-    className="group flex items-center gap-3 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40 rounded-sm"
+    className="group flex items-center gap-3 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/40 rounded-sm"
   >
     <Icon
-      className="shrink-0 w-4 h-4 text-[#FFC72C] transition-transform duration-300 group-hover:scale-110"
+      className="shrink-0 w-4 h-4 text-[#E6A032] transition-transform duration-300 group-hover:scale-110"
       aria-hidden="true"
     />
     <span className="flex items-baseline gap-2 flex-wrap">
       <span className="text-[10px] font-bold tracking-[0.24em] uppercase text-white/40 group-hover:text-white/70 transition-colors duration-300">
         {label}
       </span>
-      <span className="text-[13.5px] text-white/85 group-hover:text-[#FFC72C] transition-colors duration-300 flex items-center gap-1.5">
+      <span className="text-[13.5px] text-white/85 group-hover:text-[#E6A032] transition-colors duration-300 flex items-center gap-1.5">
         {value}
         <FiArrowUpRight
           className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
@@ -455,7 +392,7 @@ const FooterContactLink = ({ Icon, label, value, href }) => (
 
 const FooterMetaLine = ({ Icon, label, value }) => (
   <div className="flex items-start gap-3 py-2">
-    <Icon className="shrink-0 mt-0.5 w-4 h-4 text-[#FFC72C]" aria-hidden="true" />
+    <Icon className="shrink-0 mt-0.5 w-4 h-4 text-[#E6A032]" aria-hidden="true" />
     <span className="flex flex-col gap-0.5">
       <span className="text-[10px] font-bold tracking-[0.24em] uppercase text-white/40">
         {label}
@@ -468,13 +405,13 @@ const FooterMetaLine = ({ Icon, label, value }) => (
 const LegalLink = ({ label, href }) => (
   <Link
     href={href}
-    className="group relative text-[10.5px] font-bold tracking-[0.18em] uppercase text-white/60 hover:text-white focus:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/40 rounded-sm transition-colors duration-200"
+    className="group relative text-[10.5px] font-bold tracking-[0.18em] uppercase text-white/60 hover:text-white focus:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/40 rounded-sm transition-colors duration-200"
   >
     <span className="relative">
       {label}
       <span
         className="absolute left-0 right-0 -bottom-0.5 h-px origin-left scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100 transition-transform duration-[400ms] ease-out"
-        style={{ backgroundColor: "#FFC72C" }}
+        style={{ backgroundColor: "#E6A032" }}
         aria-hidden="true"
       />
     </span>

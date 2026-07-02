@@ -15,7 +15,7 @@ import {
  * Registers a trainee and starts payment.
  *
  * The registration is ALWAYS persisted to the database first (as a
- * "pending" lead) so it appears in the admin dashboard immediately —
+ * "pending" lead) so it appears in the admin dashboard immediately,
  * even if the visitor never finishes payment, and even if Stripe is not
  * yet configured. The Stripe webhook later upgrades the same record to
  * "paid" once payment completes.
@@ -40,15 +40,15 @@ import {
  *    and reads it back in the webhook handler when payment succeeds
  *
  * Required env vars:
- *  - STRIPE_SECRET_KEY        (sk_test_... or sk_live_...) — optional; lead is
+ *  - STRIPE_SECRET_KEY        (sk_test_... or sk_live_...), optional; lead is
  *                             still captured without it
- *  - NEXT_PUBLIC_SITE_URL     (https://www.realestate.com)
+ *  - NEXT_PUBLIC_SITE_URL     (https://www.primehomes.ng)
  */
 
 export const runtime = "nodejs";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.realestate.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.primehomes.ng";
 
 function getStripe() {
   const key = process.env.STRIPE_SECRET_KEY;
@@ -92,7 +92,7 @@ export async function POST(req) {
     }
 
     // Default to the registration fee if no plan is supplied. The amount is
-    // resolved server-side — the client only ever sends the plan name.
+    // resolved server-side, the client only ever sends the plan name.
     const selectedPlan = PAYMENT_PLANS.includes(plan) ? plan : "registration";
     const lineItem = getCheckoutLineItem(programme, selectedPlan);
     if (!lineItem) {
@@ -139,7 +139,7 @@ export async function POST(req) {
         payment_method_types: ["card"],
         customer_email: details.email,
 
-        // Line items — price is server-controlled (derived from the plan)
+        // Line items, price is server-controlled (derived from the plan)
         line_items: [
           {
             quantity: 1,
@@ -188,7 +188,7 @@ export async function POST(req) {
       return NextResponse.json({ url: session.url, id: session.id });
     }
 
-    // Stripe not configured — the lead is captured; notify the team so they
+    // Stripe not configured, the lead is captured; notify the team so they
     // can follow up to arrange payment.
     await Promise.allSettled([
       notifyRegistration({ ...details, paymentStatus: "awaiting_payment" }),

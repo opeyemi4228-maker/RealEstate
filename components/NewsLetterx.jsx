@@ -5,9 +5,9 @@ import Link from "next/link";
 import { FiArrowUpRight, FiArrowRight } from "react-icons/fi";
 
 /**
- * ClosingCTA — Real Estate | Final call-to-action before footer
+ * ClosingCTA, Prime Homes | Final call-to-action before footer
 
- * Content adapted from realestate.com:
+ * Content adapted from primehomes.ng:
  * - "Explore the possibilities with us. Let's redefine success, together."
  * - "Whether you're a startup aiming to disrupt the market or an
  *    established enterprise..."
@@ -46,7 +46,7 @@ function useReveal(options = { threshold: 0.15, rootMargin: "0px 0px -80px 0px" 
 const CONTACT_ANCHORS = [
   {
     label: "Write to us",
-    value: "info@realestate.com",
+    value: "info@primehomes.ng",
     href: "/contact",
   },
   {
@@ -56,7 +56,7 @@ const CONTACT_ANCHORS = [
   },
   {
     label: "Coverage",
-    value: "15 cities & growing",
+    value: "Abuja & key Nigerian cities",
     href: "/all-products",
   },
 ];
@@ -67,42 +67,41 @@ const ClosingCTA = () => {
   return (
     <section
       aria-labelledby="closing-cta-heading"
-      className="relative bg-[#0A1A36] text-white overflow-hidden"
+      className="relative bg-[#E6A032] text-[#141210] overflow-hidden"
       style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
     >
-      {/* Ambient backdrop */}
+      {/* Fine grid */}
       <div
-        className="absolute inset-0 opacity-80 pointer-events-none"
+        className="absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 88% 15%, rgba(255,199,44,0.18), transparent 50%), radial-gradient(circle at 8% 90%, rgba(255,199,44,0.08), transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Subtle grid */}
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+            "linear-gradient(rgba(20,18,16,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(20,18,16,0.08) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
+          maskImage:
+            "radial-gradient(120% 120% at 100% 0%, #000 30%, transparent 72%)",
+          WebkitMaskImage:
+            "radial-gradient(120% 120% at 100% 0%, #000 30%, transparent 72%)",
         }}
         aria-hidden="true"
       />
-
-      {/* Concentric gold arcs */}
-      <svg
-        className="pointer-events-none absolute -top-40 -right-40 md:-top-48 md:-right-48 w-[520px] h-[520px] md:w-[700px] md:h-[700px] opacity-30"
-        viewBox="0 0 700 700"
-        fill="none"
+      {/* Warm light bloom */}
+      <div
+        className="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full opacity-80"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 62%)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Concentric arcs */}
+      <div
+        className="pointer-events-none absolute -bottom-56 -left-40 w-[620px] h-[620px] rounded-full border border-[#141210]/12"
         aria-hidden="true"
       >
-        <circle cx="350" cy="350" r="320" stroke="#FFC72C" strokeWidth="1" strokeDasharray="2 6" />
-        <circle cx="350" cy="350" r="240" stroke="#FFC72C" strokeWidth="1" opacity="0.7" />
-        <circle cx="350" cy="350" r="160" stroke="#FFC72C" strokeWidth="1" opacity="0.5" />
-        <circle cx="350" cy="350" r="90" stroke="#FFC72C" strokeWidth="1" opacity="0.3" />
-      </svg>
+        <div className="absolute inset-12 rounded-full border border-[#141210]/12" />
+        <div className="absolute inset-24 rounded-full border border-white/40" />
+        <div className="absolute inset-40 rounded-full border border-[#141210]/12" />
+      </div>
 
       <div
         ref={ref}
@@ -111,11 +110,10 @@ const ClosingCTA = () => {
         {/* Eyebrow */}
         <p
           className={[
-            "flex items-center gap-3 text-[11px] font-bold tracking-[0.36em] uppercase text-[#FFC72C] mb-8 md:mb-10 transition-all duration-700",
+            "flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210] mb-8 md:mb-10 transition-all duration-700",
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3",
           ].join(" ")}
         >
-          <span className="inline-block w-12 h-px" style={{ backgroundColor: "#FFC72C" }} />
           Begin the conversation
         </p>
 
@@ -123,12 +121,12 @@ const ClosingCTA = () => {
         <h2
           id="closing-cta-heading"
           className={[
-            "font-extrabold leading-[0.95] tracking-[-0.025em] text-white max-w-5xl text-[48px] sm:text-[68px] md:text-[92px] lg:text-[112px] xl:text-[132px] transition-all duration-[1100ms] ease-out delay-200",
+            "font-display font-light leading-[1.0] tracking-[-0.01em] text-[#141210] max-w-5xl text-[46px] sm:text-[64px] md:text-[84px] lg:text-[100px] xl:text-[116px] transition-all duration-[1100ms] ease-out delay-200",
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           ].join(" ")}
         >
           Let&apos;s find your{" "}
-          <span className="font-light italic" style={{ color: "#FFC72C" }}>
+          <span className="font-light italic text-white">
             next home
           </span>
           ,<br />
@@ -138,14 +136,14 @@ const ClosingCTA = () => {
         {/* Body */}
         <p
           className={[
-            "mt-10 md:mt-12 max-w-2xl text-[16px] md:text-[18px] leading-[1.75] text-white/75 font-light transition-all duration-700 delay-[400ms]",
+            "mt-10 md:mt-12 max-w-2xl text-[16px] md:text-[18px] leading-[1.75] text-[#141210]/80 font-light transition-all duration-700 delay-[400ms]",
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5",
           ].join(" ")}
         >
           Whether you're searching for your next home, selling a property, or
-          looking for professional property management —{" "}
-          <span className="text-white font-medium">
-            Real Estate is here to help you every step of the way.
+          looking for professional property management,{" "}
+          <span className="text-[#141210] font-semibold">
+            Prime Homes is here to help you every step of the way.
           </span>
         </p>
 
@@ -158,7 +156,7 @@ const ClosingCTA = () => {
         >
           <Link
             href="/all-products"
-            className="group inline-flex items-center gap-2 px-8 md:px-10 py-4 md:py-5 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] md:text-[13px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-10px_rgba(255,199,44,0.6)] hover:shadow-[0_16px_40px_-10px_rgba(255,199,44,0.8)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A1A36] focus-visible:ring-[#FFC72C] transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-8 md:px-10 py-4 md:py-5 rounded-full bg-[#141210] hover:bg-[#0A0806] text-white text-[12px] md:text-[13px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-10px_rgba(20,18,16,0.55)] hover:shadow-[0_16px_40px_-10px_rgba(20,18,16,0.75)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#E6A032] focus-visible:ring-[#141210] transition-all duration-300"
           >
             Browse Listings
             <FiArrowRight
@@ -169,7 +167,7 @@ const ClosingCTA = () => {
 
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 px-8 md:px-10 py-4 md:py-5 rounded-full bg-white/5 hover:bg-white/10 border border-white/30 hover:border-white/55 text-white text-[12px] md:text-[13px] font-bold tracking-[0.18em] uppercase backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A1A36] focus-visible:ring-white/50 transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-8 md:px-10 py-4 md:py-5 rounded-full bg-transparent hover:bg-[#141210]/[0.06] border-2 border-[#141210]/35 hover:border-[#141210] text-[#141210] text-[12px] md:text-[13px] font-bold tracking-[0.18em] uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#E6A032] focus-visible:ring-[#141210]/50 transition-all duration-300"
           >
             List Your Property
             <FiArrowUpRight
@@ -182,7 +180,7 @@ const ClosingCTA = () => {
         {/* Contact anchors */}
         <div
           className={[
-            "mt-20 md:mt-28 pt-10 md:pt-12 border-t border-white/10 transition-all duration-700 delay-[800ms]",
+            "mt-20 md:mt-28 pt-10 md:pt-12 border-t border-[#141210]/15 transition-all duration-700 delay-[800ms]",
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5",
           ].join(" ")}
         >
@@ -193,10 +191,10 @@ const ClosingCTA = () => {
                 href={anchor.href}
                 className="group relative flex flex-col gap-2 md:gap-3 py-3 focus:outline-none"
               >
-                <span className="text-[10.5px] font-bold tracking-[0.28em] uppercase text-white/50 group-hover:text-[#FFC72C] transition-colors duration-300">
+                <span className="text-[10.5px] font-bold tracking-[0.28em] uppercase text-[#141210]/55 group-hover:text-[#141210] transition-colors duration-300">
                   {anchor.label}
                 </span>
-                <span className="text-[15px] md:text-[17px] font-bold text-white group-hover:text-[#FFC72C] transition-colors duration-300 flex items-center gap-2">
+                <span className="text-[15px] md:text-[17px] font-bold text-[#141210] group-hover:text-[#0A0806] transition-colors duration-300 flex items-center gap-2">
                   {anchor.value}
                   <FiArrowUpRight
                     className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
@@ -206,7 +204,7 @@ const ClosingCTA = () => {
 
                 <span
                   className="absolute left-0 right-0 bottom-0 h-px origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
-                  style={{ backgroundColor: "#FFC72C" }}
+                  style={{ backgroundColor: "#141210" }}
                   aria-hidden="true"
                 />
               </Link>

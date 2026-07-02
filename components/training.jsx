@@ -7,7 +7,7 @@ import { agentsData } from "@/assets/realEstateData";
 import AgentCard from "@/components/AgentCard";
 
 /**
- * AgentsTeaser — "Meet our agents" section on the homepage.
+ * AgentsTeaser, "Meet our agents" section on the homepage.
  * Shows the team in a responsive grid and links to the full directory.
  */
 
@@ -44,10 +44,24 @@ const AgentsTeaser = () => {
     <section
       id="agents"
       aria-labelledby="agents-heading"
-      className="relative bg-white py-20 md:py-28"
+      className="relative bg-white py-20 md:py-28 overflow-hidden"
       style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
     >
-      <div className="px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
+      {/* Fine grid */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.045) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
+          maskImage:
+            "radial-gradient(120% 120% at 100% 100%, #000 25%, transparent 70%)",
+          WebkitMaskImage:
+            "radial-gradient(120% 120% at 100% 100%, #000 25%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+      <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div
           ref={headerRef}
           className={[
@@ -56,16 +70,15 @@ const AgentsTeaser = () => {
           ].join(" ")}
         >
           <div className="max-w-2xl">
-            <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-5">
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-5">
               Meet Our Agents
             </p>
             <h2
               id="agents-heading"
-              className="font-extrabold leading-[1.04] tracking-[-0.02em] text-[#0A1A36] text-[36px] md:text-[48px] lg:text-[56px]"
+              className="font-display font-light leading-[1.05] tracking-[-0.005em] text-[#141210] text-[38px] md:text-[52px] lg:text-[60px]"
             >
               The people who get you{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              <span className="font-light italic" style={{ color: "#E6A032" }}>
                 home
               </span>
               .
@@ -74,7 +87,7 @@ const AgentsTeaser = () => {
 
           <Link
             href="/agents"
-            className="group inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.16em] uppercase text-[#0A1A36] hover:text-[#FFC72C] transition-colors shrink-0"
+            className="group inline-flex items-center gap-2 text-[12px] font-bold tracking-[0.16em] uppercase text-[#141210] hover:text-[#E6A032] transition-colors shrink-0"
           >
             View all agents
             <FiArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />

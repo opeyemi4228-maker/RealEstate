@@ -16,7 +16,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 /**
- * Terms of Use — GCSA Consulting UK LTD
+ * Terms of Use, GCSA Consulting UK LTD
  *
  * General website terms-of-use template, governed by English law.
  *
@@ -29,8 +29,8 @@ import Footer from "@/components/Footer";
  */
 
 const LAST_UPDATED = "1 May 2026";
-const COMPANY_NAME = "Real Estate";
-const CONTACT_EMAIL = "info@realestate.com";
+const COMPANY_NAME = "Prime Homes";
+const CONTACT_EMAIL = "info@primehomes.ng";
 const CONTACT_PHONE = "+234 803 000 0100";
 const CONTACT_ADDRESS = "Plot 123, Adetokunbo Ademola Crescent, Wuse 2, Abuja, Nigeria";
 
@@ -105,11 +105,11 @@ const TermsPage = () => {
             </p>
             <p>
               These Terms should be read alongside our{" "}
-              <Link href="/privacy-policy" className="font-bold text-[#0A1A36] underline underline-offset-4 hover:text-[#FFC72C] transition-colors">
+              <Link href="/privacy-policy" className="font-bold text-[#141210] underline underline-offset-4 hover:text-[#E6A032] transition-colors">
                 Privacy Policy
               </Link>{" "}
               and{" "}
-              <Link href="/cookie-preferences" className="font-bold text-[#0A1A36] underline underline-offset-4 hover:text-[#FFC72C] transition-colors">
+              <Link href="/cookie-preferences" className="font-bold text-[#141210] underline underline-offset-4 hover:text-[#E6A032] transition-colors">
                 Cookie Preferences
               </Link>{" "}
               page, which together form our agreement with you in relation to
@@ -135,7 +135,7 @@ const TermsPage = () => {
               {COMPANY_NAME} is a management consulting firm registered in
               England and Wales, with our registered office at{" "}
               {CONTACT_ADDRESS}. You can contact us at{" "}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold text-[#0A1A36] underline underline-offset-4 hover:text-[#FFC72C] transition-colors">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold text-[#141210] underline underline-offset-4 hover:text-[#E6A032] transition-colors">
                 {CONTACT_EMAIL}
               </a>{" "}
               or {CONTACT_PHONE}.
@@ -187,7 +187,7 @@ const TermsPage = () => {
               You are responsible for maintaining the confidentiality of any
               login credentials issued to you, and for all activity that occurs
               under your account. You must notify us immediately at{" "}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold text-[#0A1A36] underline underline-offset-4 hover:text-[#FFC72C] transition-colors">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold text-[#141210] underline underline-offset-4 hover:text-[#E6A032] transition-colors">
                 {CONTACT_EMAIL}
               </a>{" "}
               of any unauthorised access or security incident.
@@ -196,9 +196,9 @@ const TermsPage = () => {
 
           <Section id="ip" heading="7. Intellectual property">
             <p>
-              All content on the Site — including text, graphics, logos, icons,
+              All content on the Site, including text, graphics, logos, icons,
               photographs, frameworks, methodologies, training materials, and
-              software — is owned by or licensed to {COMPANY_NAME} and is
+              software, is owned by or licensed to {COMPANY_NAME} and is
               protected by UK and international intellectual property laws.
             </p>
             <p>
@@ -401,37 +401,28 @@ const PageHero = ({ eyebrow, title, titleAccent, intro, breadcrumbLabel }) => {
   return (
     <section
       aria-labelledby="legal-hero-heading"
-      className="relative bg-[#0A1A36] text-white overflow-hidden pt-32 md:pt-40 pb-20 md:pb-24"
+      className="relative bg-[#141210] text-white overflow-hidden pt-32 md:pt-40 pb-20 md:pb-24"
     >
-      <div
-        className="absolute inset-0 opacity-60 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 88% 15%, rgba(255,199,44,0.18), transparent 50%), radial-gradient(circle at 8% 90%, rgba(255,199,44,0.06), transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-2 text-[11px] font-bold tracking-[0.22em] uppercase text-white/50 mb-8"
         >
-          <Link href="/" className="hover:text-[#FFC72C] transition-colors">
+          <Link href="/" className="hover:text-[#E6A032] transition-colors">
             Home
           </Link>
           <span aria-hidden="true">·</span>
-          <span className="text-[#FFC72C]">{breadcrumbLabel}</span>
+          <span className="text-[#E6A032]">{breadcrumbLabel}</span>
         </nav>
-        <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-          <span className="inline-block w-12 h-px" style={{ backgroundColor: "#FFC72C" }} />
+        <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-6">
           {eyebrow}
         </p>
         <h1
           id="legal-hero-heading"
-          className="font-extrabold leading-[0.98] tracking-[-0.02em] text-white text-[44px] sm:text-[60px] md:text-[80px] lg:text-[88px]"
+          className="font-display font-light leading-[0.98] tracking-[-0.02em] text-white text-[44px] sm:text-[60px] md:text-[80px] lg:text-[88px]"
         >
           {title}{" "}
-          <span className="font-light italic" style={{ color: "#FFC72C" }}>
+          <span className="font-light italic" style={{ color: "#E6A032" }}>
             {titleAccent}
           </span>
           .
@@ -441,7 +432,7 @@ const PageHero = ({ eyebrow, title, titleAccent, intro, breadcrumbLabel }) => {
         </p>
         <div className="mt-10 flex items-center gap-6 text-[11px] font-bold tracking-[0.22em] uppercase text-white/55">
           <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FFC72C]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E6A032]" />
             Last updated: <span className="text-white">{LAST_UPDATED}</span>
           </span>
         </div>
@@ -477,10 +468,10 @@ const Body = ({ sections, children }) => {
 
   return (
     <section className="relative bg-white py-16 md:py-24">
-      <div className="fixed top-0 left-0 right-0 h-[3px] bg-[#0A1A36]/[0.06] z-[40]" aria-hidden="true">
+      <div className="fixed top-0 left-0 right-0 h-[3px] bg-[#141210]/[0.06] z-[40]" aria-hidden="true">
         <div
           className="h-full transition-[width] duration-100 ease-out"
-          style={{ width: `${progress * 100}%`, backgroundColor: "#FFC72C" }}
+          style={{ width: `${progress * 100}%`, backgroundColor: "#E6A032" }}
         />
       </div>
 
@@ -488,8 +479,7 @@ const Body = ({ sections, children }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <aside className="lg:col-span-4 xl:col-span-3">
             <div className="lg:sticky lg:top-28">
-              <p className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/55 mb-5">
-                <span className="inline-block w-8 h-px" style={{ backgroundColor: "#FFC72C" }} />
+              <p className="flex items-center gap-3 text-[10.5px] font-semibold tracking-[0.26em] uppercase text-[#141210]/55 mb-5">
                 On this page
               </p>
               <nav aria-label="Table of contents">
@@ -503,8 +493,8 @@ const Body = ({ sections, children }) => {
                           className={[
                             "group block py-2 pl-4 pr-2 text-[12.5px] leading-[1.4] border-l-2 transition-all duration-200",
                             isActive
-                              ? "border-[#FFC72C] text-[#0A1A36] font-bold bg-[#FFC72C]/[0.06]"
-                              : "border-[#0A1A36]/10 text-[#0A1A36]/65 hover:text-[#0A1A36] hover:border-[#0A1A36]/40",
+                              ? "border-[#E6A032] text-white font-bold bg-[#E6A032]/[0.06]"
+                              : "border-[#141210]/10 text-[#141210]/65 hover:text-[#141210] hover:border-[#141210]/40",
                           ].join(" ")}
                         >
                           {s.label}
@@ -523,16 +513,16 @@ const Body = ({ sections, children }) => {
       </div>
 
       <style jsx global>{`
-        .prose-legal { color: #0a1a36; }
+        .prose-legal { color: #141210; }
         .prose-legal h2 {
           font-weight: 800; font-size: 1.75rem; line-height: 1.15;
-          letter-spacing: -0.015em; color: #0a1a36;
+          letter-spacing: -0.015em; color: #141210;
           margin-top: 3rem; margin-bottom: 1rem; scroll-margin-top: 7rem;
         }
         @media (min-width: 768px) { .prose-legal h2 { font-size: 2.125rem; } }
         .prose-legal section:first-child h2 { margin-top: 0; }
         .prose-legal h3 {
-          font-weight: 700; font-size: 1.05rem; color: #0a1a36;
+          font-weight: 700; font-size: 1.05rem; color: #141210;
           margin-top: 1.75rem; margin-bottom: 0.6rem; letter-spacing: -0.005em;
         }
         .prose-legal p {
@@ -549,7 +539,7 @@ const Body = ({ sections, children }) => {
         }
         .prose-legal ul li::before {
           content: ""; position: absolute; left: 0; top: 0.7rem;
-          width: 0.5rem; height: 1px; background-color: #ffc72c;
+          width: 0.5rem; height: 1px; background-color: #E6A032;
         }
         .prose-legal a { transition: color 0.2s; }
       `}</style>
@@ -571,31 +561,31 @@ const BulletList = ({ items }) => (
 );
 
 const ContactBlock = () => (
-  <div className="not-prose mt-6 mb-4 p-6 md:p-7 bg-[#FBF8F1] border border-[#0A1A36]/10 rounded-sm">
+  <div className="not-prose mt-6 mb-4 p-6 md:p-7 bg-[#FBF8F1] border border-[#141210]/10 rounded-sm">
     <ul className="space-y-3">
       <li className="flex items-start gap-3">
-        <FiMail className="shrink-0 mt-1 w-4 h-4 text-[#FFC72C]" />
+        <FiMail className="shrink-0 mt-1 w-4 h-4 text-[#E6A032]" />
         <div>
-          <div className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#0A1A36]/55 mb-1">Email</div>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="text-[14px] font-bold text-[#0A1A36] hover:text-[#FFC72C] transition-colors">
+          <div className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#141210]/55 mb-1">Email</div>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="text-[14px] font-bold text-[#141210] hover:text-[#E6A032] transition-colors">
             {CONTACT_EMAIL}
           </a>
         </div>
       </li>
       <li className="flex items-start gap-3">
-        <FiPhone className="shrink-0 mt-1 w-4 h-4 text-[#FFC72C]" />
+        <FiPhone className="shrink-0 mt-1 w-4 h-4 text-[#E6A032]" />
         <div>
-          <div className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#0A1A36]/55 mb-1">Phone</div>
-          <a href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, "")}`} className="text-[14px] font-bold text-[#0A1A36] hover:text-[#FFC72C] transition-colors">
+          <div className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#141210]/55 mb-1">Phone</div>
+          <a href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, "")}`} className="text-[14px] font-bold text-[#141210] hover:text-[#E6A032] transition-colors">
             {CONTACT_PHONE}
           </a>
         </div>
       </li>
       <li className="flex items-start gap-3">
-        <FiMapPin className="shrink-0 mt-1 w-4 h-4 text-[#FFC72C]" />
+        <FiMapPin className="shrink-0 mt-1 w-4 h-4 text-[#E6A032]" />
         <div>
-          <div className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#0A1A36]/55 mb-1">Post</div>
-          <span className="text-[14px] font-bold text-[#0A1A36]">{CONTACT_ADDRESS}</span>
+          <div className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#141210]/55 mb-1">Post</div>
+          <span className="text-[14px] font-bold text-[#141210]">{CONTACT_ADDRESS}</span>
         </div>
       </li>
     </ul>
@@ -603,26 +593,20 @@ const ContactBlock = () => (
 );
 
 const BottomCta = () => (
-  <section className="relative bg-[#06122A] text-white overflow-hidden">
-    <div
-      className="absolute inset-0 opacity-50 pointer-events-none"
-      style={{ backgroundImage: "radial-gradient(circle at 90% 50%, rgba(255,199,44,0.18), transparent 55%)" }}
-      aria-hidden="true"
-    />
+  <section className="relative bg-[#0A0806] text-white overflow-hidden">
     <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto py-16 md:py-20">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-8">
-          <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-4">
-            <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+          <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-4">
             Have questions?
           </p>
-          <h2 className="font-extrabold leading-[1.02] tracking-[-0.02em] text-white text-[28px] md:text-[40px] lg:text-[44px]">
+          <h2 className="font-display font-light leading-[1.02] tracking-[-0.02em] text-white text-[28px] md:text-[40px] lg:text-[44px]">
             Our team is{" "}
-            <span className="font-light italic" style={{ color: "#FFC72C" }}>here to help</span>.
+            <span className="font-light italic" style={{ color: "#E6A032" }}>here to help</span>.
           </h2>
         </div>
         <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
-          <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] transition-all duration-300">
+          <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)] transition-all duration-300">
             Contact Us
             <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
@@ -650,7 +634,7 @@ const BackToTop = () => {
       aria-label="Back to top"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className={[
-        "fixed bottom-6 right-6 z-[50] inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#0A1A36] hover:bg-[#06122A] text-[#FFC72C] shadow-[0_10px_30px_-8px_rgba(10,26,54,0.55)] transition-all duration-300",
+        "fixed bottom-6 right-6 z-[50] inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#141210] hover:bg-[#0A0806] text-[#E6A032] shadow-[0_10px_30px_-8px_rgba(0,0,0,0.55)] transition-all duration-300",
         show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none",
       ].join(" ")}
     >

@@ -35,17 +35,17 @@ export default async function MessagesPage() {
           {docs.map((d) => (
             <article
               key={d.id}
-              className="bg-white rounded-2xl p-5 shadow-[0_2px_12px_-4px_rgba(10,26,54,0.12)]"
+              className="bg-white rounded-2xl p-5 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.12)]"
             >
               <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                 <div>
-                  <p className="text-[14px] font-bold text-[#0A1A36]">
+                  <p className="text-[14px] font-bold text-[#141210]">
                     {d.firstName} {d.lastName}
                     {d.company ? (
-                      <span className="font-normal text-[#0A1A36]/50"> · {d.company}</span>
+                      <span className="font-normal text-[#141210]/50"> · {d.company}</span>
                     ) : null}
                   </p>
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-[12.5px] text-[#0A1A36]/65">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-[12.5px] text-[#141210]/65">
                     <a href={`mailto:${d.email}`} className="hover:underline underline-offset-2">
                       {d.email}
                     </a>
@@ -53,13 +53,13 @@ export default async function MessagesPage() {
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="inline-flex px-2.5 py-1 rounded-full bg-[#FFC72C]/15 text-[#9a7400] text-[11px] font-semibold">
+                  <span className="inline-flex px-2.5 py-1 rounded-full bg-[#E6A032]/15 text-[#8A6410] text-[11px] font-semibold">
                     {d.subject || "General Enquiry"}
                   </span>
-                  <p className="text-[11.5px] text-[#0A1A36]/45 mt-1.5">{fmtDate(d.createdAt)}</p>
+                  <p className="text-[11.5px] text-[#141210]/45 mt-1.5">{fmtDate(d.createdAt)}</p>
                 </div>
               </div>
-              <p className="text-[13.5px] leading-[1.7] text-[#0A1A36]/85 whitespace-pre-wrap border-t border-[#0A1A36]/[0.07] pt-3">
+              <p className="text-[13.5px] leading-[1.7] text-[#141210]/85 whitespace-pre-wrap border-t border-[#141210]/[0.07] pt-3">
                 {d.message}
               </p>
             </article>

@@ -16,27 +16,27 @@ import ClosingCTA from "@/components/NewsLetterx";
 import Footer from "@/components/Footer";
 
 /**
- * Home — GCSA Consulting UK LTD
+ * Home, GCSA Consulting UK LTD
  *
  * Section order (top → bottom):
- *  1. Navbar          — fixed, transparent over hero, white on scroll
- *  2. Hero            — "Taking Your Business to the Next Level"
- *  3. Services        — 5 GCSA pillars
- *  4. About           — Story + 4 differentiators
- *  5. Process         — 4-phase GCSA Method
- *  6. Training        — 🆕 "Transition to Architecture in 6 Weeks"
- *  7. Team            — 🆕 4 team members
- *  8. GlobalReach     — 🆕 Africa · Europe · Asia + London HQ
- *  9. ClosingCTA      — "Let's redefine success, together."
+ *  1. Navbar, fixed, transparent over hero, white on scroll
+ *  2. Hero, "Taking Your Business to the Next Level"
+ *  3. Services, 5 GCSA pillars
+ *  4. About, Story + 4 differentiators
+ *  5. Process, 4-phase GCSA Method
+ *  6. Training, 🆕 "Transition to Architecture in 6 Weeks"
+ *  7. Team, 🆕 4 team members
+ *  8. GlobalReach, 🆕 Africa · Europe · Asia + London HQ
+ *  9. ClosingCTA, "Let's redefine success, together."
  * 10. Footer
  *
  * Overlays:
- *  - NewsLetter — floating bottom-right, every page load (session-dismissable)
- *  - CookieBanner — visits 1, 5, 9, … (every 4th)
+ *  - NewsLetter, floating bottom-right, every page load (session-dismissable)
+ *  - CookieBanner, visits 1, 5, 9, … (every 4th)
  *
  * Brand:
- *  - Navy: #0A1A36
- *  - Gold: #FFC72C
+ *  - Navy: #141210
+ *  - Gold: #E6A032
  *  - Font: Montserrat
  */
 
@@ -88,18 +88,18 @@ const safeGetSession = (key) => {
 const HOMEPAGE_LD = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.realestate.com/#webpage",
-  url: "https://www.realestate.com",
-  name: "Real Estate — Property Listings & Agents",
-  isPartOf: { "@id": "https://www.realestate.com/#website" },
-  about: { "@id": "https://www.realestate.com/#organization" },
+  "@id": "https://www.primehomes.ng/#webpage",
+  url: "https://www.primehomes.ng",
+  name: "Prime Homes, Property Listings & Agents",
+  isPartOf: { "@id": "https://www.primehomes.ng/#website" },
+  about: { "@id": "https://www.primehomes.ng/#organization" },
   description:
     "Find homes, apartments, and commercial properties near you. Browse listings, contact agents, and schedule viewings.",
   inLanguage: "en-GB",
 };
 
 // ═══════════════════════════════════════════════════════════════════════
-// NewsLetter — floating bottom-right (every page load, session-dismissable)
+// NewsLetter, floating bottom-right (every page load, session-dismissable)
 // ═══════════════════════════════════════════════════════════════════════
 const NewsLetterFloater = () => {
   const [mounted, setMounted] = useState(false);
@@ -195,28 +195,21 @@ const NewsLetterFloater = () => {
         }
       `}</style>
 
-      <div className="relative bg-[#06122A] text-white rounded-sm shadow-[0_24px_60px_-12px_rgba(10,26,54,0.7)] overflow-hidden border border-white/5">
+      <div className="relative bg-[#0A0806] text-white rounded-sm shadow-[0_24px_60px_-12px_rgba(0,0,0,0.7)] overflow-hidden border border-white/5">
         {/* Top gold hairline */}
         <div
           className="absolute top-0 left-0 right-0 h-[3px]"
           style={{
             background:
-              "linear-gradient(90deg, transparent 0%, #FFC72C 20%, #FFD43B 50%, #FFC72C 80%, transparent 100%)",
+              "linear-gradient(90deg, transparent 0%, #E6A032 20%, #F0AA3C 50%, #E6A032 80%, transparent 100%)",
           }}
           aria-hidden="true"
         />
-        {/* Corner flourish */}
-        <div
-          className="pointer-events-none absolute -top-20 -right-20 w-56 h-56 rounded-full opacity-[0.10]"
-          style={{ backgroundColor: "#FFC72C" }}
-          aria-hidden="true"
-        />
-
         <button
           type="button"
           onClick={handleDismiss}
           aria-label="Close newsletter signup"
-          className="absolute top-4 right-4 z-10 w-8 h-8 inline-flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/60 transition-colors"
+          className="absolute top-4 right-4 z-10 w-8 h-8 inline-flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/60 transition-colors"
         >
           <FiX className="w-4 h-4" aria-hidden="true" />
         </button>
@@ -231,45 +224,44 @@ const NewsLetterFloater = () => {
             >
               <div
                 className="w-12 h-12 rounded-full flex items-center justify-center mb-4"
-                style={{ backgroundColor: "#FFC72C" }}
+                style={{ backgroundColor: "#E6A032" }}
               >
                 <FiCheck
-                  className="w-6 h-6 text-[#0A1A36]"
+                  className="w-6 h-6 text-[#141210]"
                   strokeWidth={3}
                   aria-hidden="true"
                 />
               </div>
               <h2
                 id="newsletter-heading"
-                className="text-[18px] font-bold leading-tight text-white mb-2"
+                className="font-display text-[22px] font-normal leading-tight text-white mb-2"
               >
                 You&apos;re on the list.
               </h2>
               <p className="text-[13px] leading-relaxed text-white/70">
-                Thank you — fresh listings from{" "}
-                <span style={{ color: "#FFC72C" }}>Real Estate</span> will arrive
+                Thank you, fresh listings from{" "}
+                <span style={{ color: "#E6A032" }}>Prime Homes</span> will arrive
                 in your inbox.
               </p>
             </div>
           ) : (
             <>
-              <p className="text-[10.5px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-3">
-                <span className="inline-block w-6 h-px bg-[#FFC72C] align-middle mr-3" />
+              <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#EBB45A] mb-3">
                 New Listings Alert
               </p>
               <h2
                 id="newsletter-heading"
-                className="text-[22px] md:text-[24px] font-extrabold leading-[1.15] tracking-[-0.01em] text-white mb-3"
+                className="font-display text-[26px] md:text-[28px] font-light leading-[1.15] text-white mb-3"
               >
                 Be first to see{" "}
-                <span className="italic font-light" style={{ color: "#FFC72C" }}>
+                <span className="italic font-normal" style={{ color: "#EBB45A" }}>
                   new homes
                 </span>
                 .
               </h2>
               <p className="text-[13px] leading-relaxed text-white/70 mb-5">
-                Get new listings, price drops, and open-house dates in your area
-                — delivered the moment they go live.
+                Get new listings, price drops, and open-house dates in your area,
+                delivered the moment they go live.
               </p>
 
               <form onSubmit={handleSubmit} noValidate className="space-y-3">
@@ -277,7 +269,7 @@ const NewsLetterFloater = () => {
                   Email address
                 </label>
 
-                <div className="relative flex items-stretch rounded-full border border-white/20 focus-within:border-[#FFC72C] transition-colors duration-200 overflow-hidden bg-white/[0.04]">
+                <div className="relative flex items-stretch rounded-full border border-white/20 focus-within:border-[#E6A032] transition-colors duration-200 overflow-hidden bg-white/[0.04]">
                   <input
                     id="newsletter-email"
                     type="email"
@@ -301,12 +293,12 @@ const NewsLetterFloater = () => {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="group shrink-0 inline-flex items-center gap-1.5 px-5 py-3 bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[11px] font-extrabold tracking-[0.16em] uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06122A] focus-visible:ring-[#FFC72C] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="group shrink-0 inline-flex items-center gap-1.5 px-5 py-3 bg-[#E6A032] hover:bg-[#C88C28] text-white text-[11px] font-extrabold tracking-[0.16em] uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0806] focus-visible:ring-[#E6A032] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {status === "submitting" ? (
                       <>
                         <span
-                          className="w-3.5 h-3.5 rounded-full border-2 border-[#0A1A36]/40 border-t-[#0A1A36] animate-spin"
+                          className="w-3.5 h-3.5 rounded-full border-2 border-[#141210]/40 border-t-[#141210] animate-spin"
                           aria-hidden="true"
                         />
                         <span className="sr-only">Subscribing…</span>
@@ -347,7 +339,7 @@ const NewsLetterFloater = () => {
 };
 
 // ═══════════════════════════════════════════════════════════════════════
-// CookieBanner — visits 1, 5, 9, … (every 4th)
+// CookieBanner, visits 1, 5, 9, … (every 4th)
 // ═══════════════════════════════════════════════════════════════════════
 const CookieBanner = () => {
   const [mounted, setMounted] = useState(false);
@@ -405,20 +397,14 @@ const CookieBanner = () => {
         }
       `}</style>
 
-      <div className="bg-[#06122A] text-white border-t-2 border-[#FFC72C]/80 shadow-[0_-12px_40px_-8px_rgba(10,26,54,0.55)]">
+      <div className="bg-[#0A0806] text-white border-t-2 border-[#E6A032]/80 shadow-[0_-12px_40px_-8px_rgba(0,0,0,0.55)]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 py-6 md:py-7">
           <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
             <div className="flex items-start gap-4 flex-1">
-              <div
-                className="shrink-0 w-10 h-10 rounded-full bg-[#FFC72C]/15 border border-[#FFC72C]/40 flex items-center justify-center"
-                aria-hidden="true"
-              >
-                <span className="text-[#FFC72C] text-lg">🍪</span>
-              </div>
               <div className="flex-1 min-w-0">
                 <h2
                   id="cookie-banner-title"
-                  className="text-[13px] font-bold tracking-[0.16em] uppercase text-white mb-2"
+                  className="text-[11px] font-semibold tracking-[0.24em] uppercase text-[#EBB45A] mb-2"
                 >
                   Your Privacy Matters
                 </h2>
@@ -426,12 +412,12 @@ const CookieBanner = () => {
                   id="cookie-banner-desc"
                   className="text-[13.5px] leading-relaxed text-white/75"
                 >
-                  Real Estate uses cookies and related technologies to improve
+                  Prime Homes uses cookies and related technologies to improve
                   site functionality, analyse traffic, and personalise content.
-                  You can control your preferences at any time — details in our{" "}
+                  You can control your preferences at any time, details in our{" "}
                   <Link
                     href="/privacy-policy"
-                    className="text-[#FFC72C] underline underline-offset-2 hover:text-[#FFD43B] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/50 rounded-sm transition-colors"
+                    className="text-[#E6A032] underline underline-offset-2 hover:text-[#F0AA3C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/50 rounded-sm transition-colors"
                   >
                     privacy policy
                   </Link>
@@ -451,13 +437,13 @@ const CookieBanner = () => {
               <button
                 type="button"
                 onClick={() => persist("accepted")}
-                className="inline-flex items-center justify-center px-7 py-2.5 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[11px] font-extrabold tracking-[0.16em] uppercase shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06122A] focus-visible:ring-[#FFC72C] transition-all duration-200"
+                className="inline-flex items-center justify-center px-7 py-2.5 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[11px] font-extrabold tracking-[0.16em] uppercase shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0806] focus-visible:ring-[#E6A032] transition-all duration-200"
               >
                 I Agree
               </button>
               <Link
                 href="/cookie-preferences"
-                className="hidden md:inline-flex items-center text-[11px] font-bold tracking-[0.16em] uppercase text-white/55 hover:text-[#FFC72C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC72C]/50 rounded-sm transition-colors duration-200"
+                className="hidden md:inline-flex items-center text-[11px] font-bold tracking-[0.16em] uppercase text-white/55 hover:text-[#E6A032] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E6A032]/50 rounded-sm transition-colors duration-200"
               >
                 Manage Preferences
               </Link>

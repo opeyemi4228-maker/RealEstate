@@ -40,9 +40,9 @@ export default function AdminShell({ children }) {
       style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
     >
       {/* Sidebar */}
-      <aside className="w-[240px] shrink-0 bg-[#0A1A36] text-white flex flex-col fixed inset-y-0 left-0">
+      <aside className="w-[240px] shrink-0 bg-[#141210] text-white flex flex-col fixed inset-y-0 left-0">
         <div className="px-6 py-6 border-b border-white/10">
-          <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#FFC72C]">
+          <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#E6A032]">
             GCSA Consulting
           </p>
           <p className="text-sm font-bold mt-1">Admin Dashboard</p>
@@ -58,7 +58,7 @@ export default function AdminShell({ children }) {
                 className={[
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13.5px] font-medium transition",
                   active
-                    ? "bg-[#FFC72C] text-[#0A1A36] font-bold"
+                    ? "bg-[#E6A032] text-white font-bold"
                     : "text-white/70 hover:text-white hover:bg-white/[0.07]",
                 ].join(" ")}
               >

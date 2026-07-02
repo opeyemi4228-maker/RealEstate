@@ -15,7 +15,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { PROGRAMMES, formatGBP, totalInPence } from "@/lib/programmes";
 
-// ── Training pricing — derived from the single source of truth ──────────
+// ── Training pricing, derived from the single source of truth ──────────
 const TRAINING = PROGRAMMES["transition-to-architecture"];
 const TRAINING_PRICE = {
   registration: formatGBP(TRAINING.registrationFeeInPence),
@@ -26,7 +26,7 @@ const TRAINING_PRICE = {
 };
 
 /**
- * Plans & Pricing — GCSA Consulting UK LTD
+ * Plans & Pricing, GCSA Consulting UK LTD
  *
  * Sections:
  *  1. Page hero
@@ -159,7 +159,7 @@ const FAQS = [
   },
   {
     q: "What does the discovery call cover?",
-    a: "30–45 minutes. We learn about your goals, constraints, and timeline; you learn about our approach. There's no charge and no obligation. If we're a fit, we follow up with a written proposal within 5 business days.",
+    a: "30 to 45 minutes. We learn about your goals, constraints, and timeline; you learn about our approach. There's no charge and no obligation. If we're a fit, we follow up with a written proposal within 5 business days.",
   },
   {
     q: "Can engagements be paid in instalments?",
@@ -232,38 +232,29 @@ const PageHero = () => {
   return (
     <section
       aria-labelledby="pricing-hero-heading"
-      className="relative bg-[#0A1A36] text-white overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28"
+      className="relative bg-[#141210] text-white overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28"
     >
-      <div
-        className="absolute inset-0 opacity-60 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 88% 15%, rgba(255,199,44,0.18), transparent 50%), radial-gradient(circle at 8% 90%, rgba(255,199,44,0.06), transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
 
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-2 text-[11px] font-bold tracking-[0.22em] uppercase text-white/50 mb-8"
         >
-          <Link href="/" className="hover:text-[#FFC72C] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-[#E6A032] transition-colors">Home</Link>
           <span aria-hidden="true">·</span>
-          <span className="text-[#FFC72C]">Plans & Pricing</span>
+          <span className="text-[#E6A032]">Plans & Pricing</span>
         </nav>
 
-        <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-6">
-          <span className="inline-block w-12 h-px" style={{ backgroundColor: "#FFC72C" }} />
+        <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-6">
           Plans & Pricing
         </p>
 
         <h1
           id="pricing-hero-heading"
-          className="font-extrabold leading-[0.98] tracking-[-0.02em] text-white text-[44px] sm:text-[60px] md:text-[80px] lg:text-[96px] max-w-5xl"
+          className="font-display font-light leading-[0.98] tracking-[-0.02em] text-white text-[44px] sm:text-[60px] md:text-[80px] lg:text-[96px] max-w-5xl"
         >
           Pricing built for{" "}
-          <span className="font-light italic" style={{ color: "#FFC72C" }}>
+          <span className="font-light italic" style={{ color: "#E6A032" }}>
             real
           </span>{" "}
           engagements.
@@ -272,7 +263,7 @@ const PageHero = () => {
         <p className="mt-8 md:mt-10 max-w-2xl text-[16px] md:text-[18px] leading-[1.7] text-white/75 font-light">
           Three consulting tiers and one fixed-price training programme.
           Every consulting engagement is quoted bespoke after a discovery
-          call — what's published here is your starting point.
+          call, what's published here is your starting point.
         </p>
       </div>
     </section>
@@ -292,16 +283,15 @@ const Tiers = () => {
     >
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="max-w-3xl mb-12 md:mb-16">
-          <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-            <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+          <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
             Consulting Tiers
           </p>
           <h2
             id="tiers-heading"
-            className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[36px] md:text-[48px] lg:text-[56px]"
+            className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[36px] md:text-[48px] lg:text-[56px]"
           >
             Three engagement{" "}
-            <span className="font-light italic" style={{ color: "#FFC72C" }}>
+            <span className="font-light italic" style={{ color: "#E6A032" }}>
               shapes
             </span>
             .
@@ -315,8 +305,8 @@ const Tiers = () => {
               className={[
                 "relative flex flex-col rounded-2xl overflow-hidden transition-all duration-700",
                 t.featured
-                  ? "bg-[#0A1A36] text-white shadow-[0_30px_80px_-20px_rgba(10,26,54,0.45)] lg:scale-[1.02]"
-                  : "bg-[#FBF8F1] border border-[#0A1A36]/10 hover:-translate-y-1 hover:shadow-lg",
+                  ? "bg-[#141210] text-white shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] lg:scale-[1.02]"
+                  : "bg-[#FBF8F1] border border-[#141210]/10 hover:-translate-y-1 hover:shadow-lg",
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
               ].join(" ")}
               style={{ transitionDelay: visible ? `${130 * i}ms` : "0ms" }}
@@ -324,13 +314,13 @@ const Tiers = () => {
               {/* Top accent */}
               <span
                 className="absolute top-0 left-0 right-0 h-1.5"
-                style={{ backgroundColor: "#FFC72C" }}
+                style={{ backgroundColor: "#E6A032" }}
                 aria-hidden="true"
               />
 
               {/* Featured badge */}
               {t.featured && (
-                <span className="absolute top-5 right-5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFC72C] text-[10px] font-extrabold tracking-[0.18em] uppercase text-[#0A1A36]">
+                <span className="absolute top-5 right-5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E6A032] text-[10px] font-extrabold tracking-[0.18em] uppercase text-white">
                   Most Popular
                 </span>
               )}
@@ -338,8 +328,8 @@ const Tiers = () => {
               <div className="p-7 md:p-9 flex-1 flex flex-col">
                 <p
                   className={[
-                    "text-[10.5px] font-bold tracking-[0.32em] uppercase mb-3",
-                    t.featured ? "text-[#FFC72C]" : "text-[#0A1A36]/55",
+                    "text-[10.5px] font-semibold tracking-[0.26em] uppercase mb-3",
+                    t.featured ? "text-[#E6A032]" : "text-[#141210]/55",
                   ].join(" ")}
                 >
                   {t.eyebrow}
@@ -347,8 +337,8 @@ const Tiers = () => {
 
                 <h3
                   className={[
-                    "font-extrabold leading-[1.05] tracking-[-0.015em] text-[28px] md:text-[34px] mb-3",
-                    t.featured ? "text-white" : "text-[#0A1A36]",
+                    "font-display font-light leading-[1.05] tracking-[-0.015em] text-[28px] md:text-[34px] mb-3",
+                    t.featured ? "text-white" : "text-[#141210]",
                   ].join(" ")}
                 >
                   {t.name}
@@ -357,7 +347,7 @@ const Tiers = () => {
                 <p
                   className={[
                     "text-[14.5px] leading-[1.55] mb-7",
-                    t.featured ? "text-white/85" : "text-[#0A1A36]/75",
+                    t.featured ? "text-white/85" : "text-[#141210]/75",
                   ].join(" ")}
                 >
                   {t.headline}
@@ -375,8 +365,8 @@ const Tiers = () => {
                   <div className="flex items-baseline gap-2">
                     <span
                       className={[
-                        "text-[40px] md:text-[48px] font-extrabold leading-none tracking-[-0.02em]",
-                        t.featured ? "text-white" : "text-[#0A1A36]",
+                        "text-[40px] md:text-[48px] font-display font-light leading-none tracking-[-0.02em]",
+                        t.featured ? "text-white" : "text-[#141210]",
                       ].join(" ")}
                     >
                       {t.priceFrom}
@@ -385,7 +375,7 @@ const Tiers = () => {
                   <p
                     className={[
                       "mt-1 text-[12px]",
-                      t.featured ? "text-white/55" : "text-[#0A1A36]/55",
+                      t.featured ? "text-white/55" : "text-[#141210]/55",
                     ].join(" ")}
                   >
                     {t.priceUnit} · ex VAT
@@ -396,7 +386,7 @@ const Tiers = () => {
                 <p
                   className={[
                     "text-[13.5px] leading-[1.7] mb-6",
-                    t.featured ? "text-white/75" : "text-[#0A1A36]/70",
+                    t.featured ? "text-white/75" : "text-[#141210]/70",
                   ].join(" ")}
                 >
                   {t.description}
@@ -409,10 +399,10 @@ const Tiers = () => {
                       key={f}
                       className={[
                         "flex items-start gap-2.5 text-[13.5px]",
-                        t.featured ? "text-white/85" : "text-[#0A1A36]/80",
+                        t.featured ? "text-white/85" : "text-[#141210]/80",
                       ].join(" ")}
                     >
-                      <FiCheck className="shrink-0 mt-0.5 w-4 h-4" style={{ color: "#FFC72C" }} strokeWidth={3} />
+                      <FiCheck className="shrink-0 mt-0.5 w-4 h-4" style={{ color: "#E6A032" }} strokeWidth={3} />
                       {f}
                     </li>
                   ))}
@@ -428,7 +418,7 @@ const Tiers = () => {
                   <p
                     className={[
                       "text-[10px] font-bold tracking-[0.22em] uppercase mb-1",
-                      t.featured ? "text-[#FFC72C]" : "text-[#FFC72C]",
+                      t.featured ? "text-[#E6A032]" : "text-[#E6A032]",
                     ].join(" ")}
                   >
                     Best for
@@ -436,7 +426,7 @@ const Tiers = () => {
                   <p
                     className={[
                       "text-[13px] font-bold",
-                      t.featured ? "text-white" : "text-[#0A1A36]",
+                      t.featured ? "text-white" : "text-[#141210]",
                     ].join(" ")}
                   >
                     {t.bestFor}
@@ -449,8 +439,8 @@ const Tiers = () => {
                   className={[
                     "group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-[11.5px] font-extrabold tracking-[0.18em] uppercase transition-all duration-300",
                     t.featured
-                      ? "bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)]"
-                      : "bg-[#0A1A36] hover:bg-[#06122A] text-white shadow-md hover:shadow-lg",
+                      ? "bg-[#E6A032] hover:bg-[#C88C28] text-white shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)]"
+                      : "bg-[#141210] hover:bg-[#0A0806] text-white shadow-md hover:shadow-lg",
                   ].join(" ")}
                 >
                   {t.ctaLabel}
@@ -461,7 +451,7 @@ const Tiers = () => {
           ))}
         </div>
 
-        <p className="mt-10 text-center text-[13px] text-[#0A1A36]/60 max-w-2xl mx-auto">
+        <p className="mt-10 text-center text-[13px] text-[#141210]/60 max-w-2xl mx-auto">
           All engagement pricing is indicative. Final scope and price are
           confirmed in a written proposal within 5 business days of your
           discovery call.
@@ -481,33 +471,24 @@ const TrainingCallout = () => {
       className="relative bg-[#FBF8F1] py-20 md:py-28"
     >
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
-        <div className="bg-[#0A1A36] text-white rounded-2xl overflow-hidden relative">
-          <div
-            className="absolute inset-0 opacity-50 pointer-events-none"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 90% 50%, rgba(255,199,44,0.18), transparent 60%)",
-            }}
-            aria-hidden="true"
-          />
+        <div className="bg-[#141210] text-white rounded-2xl overflow-hidden relative">
           <div
             className="absolute top-0 left-0 right-0 h-1.5"
-            style={{ backgroundColor: "#FFC72C" }}
+            style={{ backgroundColor: "#E6A032" }}
             aria-hidden="true"
           />
 
           <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-center p-8 md:p-12 lg:p-16">
             <div className="lg:col-span-7">
-              <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-5">
-                <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+              <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-5">
                 Fixed-Price Training
               </p>
               <h2
                 id="training-pricing-heading"
-                className="font-extrabold leading-[1.05] tracking-[-0.02em] text-white text-[28px] md:text-[40px] lg:text-[46px] mb-5"
+                className="font-display font-light leading-[1.05] tracking-[-0.02em] text-white text-[28px] md:text-[40px] lg:text-[46px] mb-5"
               >
                 Transition to Architecture in{" "}
-                <span className="font-light italic" style={{ color: "#FFC72C" }}>
+                <span className="font-light italic" style={{ color: "#E6A032" }}>
                   6 Weeks
                 </span>
                 .
@@ -524,7 +505,7 @@ const TrainingCallout = () => {
                     key={p}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/15 text-[10.5px] font-bold tracking-[0.16em] uppercase text-white/85"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFC72C]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#E6A032]" />
                     {p}
                   </span>
                 ))}
@@ -532,39 +513,39 @@ const TrainingCallout = () => {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="bg-gradient-to-br from-white to-[#FBF8F1] text-[#0A1A36] rounded-xl p-7 md:p-8 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.4)]">
+              <div className="bg-gradient-to-br from-white to-[#FBF8F1] text-[#141210] rounded-xl p-7 md:p-8 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.4)]">
 
-                <p className="text-[10px] font-bold tracking-[0.26em] uppercase text-[#0A1A36]/50 mb-1.5">
+                <p className="text-[10px] font-bold tracking-[0.26em] uppercase text-[#141210]/50 mb-1.5">
                   Reserve your seat from
                 </p>
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-[44px] md:text-[48px] font-extrabold leading-none tracking-[-0.02em] text-[#0A1A36]">
+                  <span className="text-[44px] md:text-[48px] font-display font-light leading-none tracking-[-0.02em] text-[#141210]">
                     {TRAINING_PRICE.registration}
                   </span>
-                  <span className="text-[12px] font-bold text-[#0A1A36]/55">
+                  <span className="text-[12px] font-bold text-[#141210]/55">
                     registration fee
                   </span>
                 </div>
 
-                <dl className="space-y-2.5 mb-5 pb-5 border-b border-[#0A1A36]/10">
+                <dl className="space-y-2.5 mb-5 pb-5 border-b border-[#141210]/10">
                   <div className="flex items-baseline justify-between gap-4">
-                    <dt className="text-[12.5px] text-[#0A1A36]/70">Registration fee</dt>
-                    <dd className="text-[13px] font-extrabold text-[#0A1A36]">{TRAINING_PRICE.registration}</dd>
+                    <dt className="text-[12.5px] text-[#141210]/70">Registration fee</dt>
+                    <dd className="text-[13px] font-display font-light text-[#141210]">{TRAINING_PRICE.registration}</dd>
                   </div>
                   <div className="flex items-baseline justify-between gap-4">
-                    <dt className="text-[12.5px] text-[#0A1A36]/70">Course fee</dt>
-                    <dd className="text-[13px] font-extrabold text-[#0A1A36]">{TRAINING_PRICE.course}</dd>
+                    <dt className="text-[12.5px] text-[#141210]/70">Course fee</dt>
+                    <dd className="text-[13px] font-display font-light text-[#141210]">{TRAINING_PRICE.course}</dd>
                   </div>
                   <div className="flex items-baseline justify-between gap-4">
-                    <dt className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#FFC72C]">Total</dt>
-                    <dd className="text-[16px] font-extrabold text-[#0A1A36]">{TRAINING_PRICE.total}</dd>
+                    <dt className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#E6A032]">Total</dt>
+                    <dd className="text-[16px] font-display font-light text-[#141210]">{TRAINING_PRICE.total}</dd>
                   </div>
                 </dl>
 
-                <p className="text-[12px] leading-[1.6] text-[#0A1A36]/65 mb-6">
+                <p className="text-[12px] leading-[1.6] text-[#141210]/65 mb-6">
                   Pay the {TRAINING_PRICE.registration} registration fee to secure your
-                  place — the {TRAINING_PRICE.course} course fee can be spread over{" "}
-                  <span className="font-bold text-[#0A1A36]">
+                  place, the {TRAINING_PRICE.course} course fee can be spread over{" "}
+                  <span className="font-bold text-[#141210]">
                     {TRAINING_PRICE.instalments} weekly instalments of {TRAINING_PRICE.instalmentAmount}
                   </span>
                   .
@@ -572,13 +553,13 @@ const TrainingCallout = () => {
 
                 <Link
                   href="/training"
-                  className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] transition-all duration-300"
+                  className="group w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)] transition-all duration-300"
                 >
                   Register Today
                   <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
 
-                <p className="mt-4 text-[11px] text-[#0A1A36]/55 text-center">
+                <p className="mt-4 text-[11px] text-[#141210]/55 text-center">
                   Secure checkout via Stripe
                 </p>
               </div>
@@ -601,16 +582,15 @@ const Comparison = () => {
     >
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="max-w-3xl mb-10 md:mb-14">
-          <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-            <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+          <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
             Side by Side
           </p>
           <h2
             id="comparison-heading"
-            className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[32px] md:text-[42px] lg:text-[48px]"
+            className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[32px] md:text-[42px] lg:text-[48px]"
           >
             Compare the{" "}
-            <span className="font-light italic" style={{ color: "#FFC72C" }}>
+            <span className="font-light italic" style={{ color: "#E6A032" }}>
               tiers
             </span>
             .
@@ -621,7 +601,7 @@ const Comparison = () => {
           <table className="w-full min-w-[760px] border-collapse">
             <thead>
               <tr>
-                <th className="text-left text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#0A1A36]/55 pb-6 pr-6 align-bottom">
+                <th className="text-left text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#141210]/55 pb-6 pr-6 align-bottom">
                   Feature
                 </th>
                 {TIERS.map((t) => (
@@ -632,13 +612,13 @@ const Comparison = () => {
                       t.featured ? "" : "",
                     ].join(" ")}
                   >
-                    <div className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#FFC72C] mb-1">
+                    <div className="text-[10.5px] font-bold tracking-[0.24em] uppercase text-[#E6A032] mb-1">
                       {t.eyebrow}
                     </div>
-                    <div className="text-[18px] md:text-[20px] font-extrabold tracking-[-0.01em] text-[#0A1A36]">
+                    <div className="text-[18px] md:text-[20px] font-display font-light tracking-[-0.01em] text-[#141210]">
                       {t.name}
                     </div>
-                    <div className="mt-1 text-[12px] text-[#0A1A36]/65">
+                    <div className="mt-1 text-[12px] text-[#141210]/65">
                       from {t.priceFrom}
                     </div>
                   </th>
@@ -650,21 +630,21 @@ const Comparison = () => {
                 <tr
                   key={row.feature}
                   className={[
-                    "border-t border-[#0A1A36]/10",
+                    "border-t border-[#141210]/10",
                     i % 2 === 1 ? "bg-[#FBF8F1]" : "",
                   ].join(" ")}
                 >
-                  <td className="py-5 pr-6 text-[13.5px] font-bold text-[#0A1A36]">
+                  <td className="py-5 pr-6 text-[13.5px] font-bold text-[#141210]">
                     {row.feature}
                   </td>
-                  <td className="py-5 px-4 text-[13.5px] text-[#0A1A36]/75">
-                    {row.infrastructure === "—" ? <span className="text-[#0A1A36]/30">—</span> : row.infrastructure}
+                  <td className="py-5 px-4 text-[13.5px] text-[#141210]/75">
+                    {row.infrastructure === "N/A" ? <span className="text-[#141210]/30">N/A</span> : row.infrastructure}
                   </td>
-                  <td className="py-5 px-4 text-[13.5px] text-[#0A1A36]/75 bg-[#FFC72C]/[0.06]">
-                    {row.governance === "—" ? <span className="text-[#0A1A36]/30">—</span> : row.governance}
+                  <td className="py-5 px-4 text-[13.5px] text-white/75 bg-[#E6A032]/[0.06]">
+                    {row.governance === "N/A" ? <span className="text-[#141210]/30">N/A</span> : row.governance}
                   </td>
-                  <td className="py-5 px-4 text-[13.5px] text-[#0A1A36]/75">
-                    {row.enterprise === "—" ? <span className="text-[#0A1A36]/30">—</span> : row.enterprise}
+                  <td className="py-5 px-4 text-[13.5px] text-[#141210]/75">
+                    {row.enterprise === "N/A" ? <span className="text-[#141210]/30">N/A</span> : row.enterprise}
                   </td>
                 </tr>
               ))}
@@ -690,16 +670,15 @@ const FAQ = () => {
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-4 lg:sticky lg:top-32">
-            <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#0A1A36]/60 mb-6">
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#141210]/60 mb-6">
               Pricing FAQs
             </p>
             <h2
               id="pricing-faq-heading"
-              className="font-extrabold leading-[1.02] tracking-[-0.02em] text-[#0A1A36] text-[32px] md:text-[42px]"
+              className="font-display font-light leading-[1.02] tracking-[-0.02em] text-[#141210] text-[32px] md:text-[42px]"
             >
               Common{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              <span className="font-light italic" style={{ color: "#E6A032" }}>
                 questions
               </span>
               .
@@ -707,7 +686,7 @@ const FAQ = () => {
           </div>
 
           <div className="lg:col-span-8">
-            <ul className="divide-y divide-[#0A1A36]/15 border-t border-[#0A1A36]/15">
+            <ul className="divide-y divide-[#141210]/15 border-t border-[#141210]/15">
               {FAQS.map((f, i) => (
                 <li key={f.q}>
                   <button
@@ -716,15 +695,15 @@ const FAQ = () => {
                     aria-expanded={openIdx === i}
                     className="group w-full flex items-center justify-between gap-6 py-6 md:py-7 text-left focus:outline-none"
                   >
-                    <span className="text-[15px] md:text-[17px] font-extrabold tracking-[-0.01em] text-[#0A1A36] group-hover:text-[#FFC72C] transition-colors">
+                    <span className="text-[15px] md:text-[17px] font-display font-light tracking-[-0.01em] text-[#141210] group-hover:text-[#E6A032] transition-colors">
                       {f.q}
                     </span>
                     <span
                       className={[
                         "shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full border-2 transition-all duration-300",
                         openIdx === i
-                          ? "bg-[#FFC72C] border-[#FFC72C] text-[#0A1A36]"
-                          : "border-[#0A1A36]/20 text-[#0A1A36] group-hover:border-[#FFC72C]",
+                          ? "bg-[#E6A032] border-[#E6A032] text-white"
+                          : "border-[#141210]/20 text-[#141210] group-hover:border-[#E6A032]",
                       ].join(" ")}
                     >
                       {openIdx === i ? (
@@ -741,7 +720,7 @@ const FAQ = () => {
                     ].join(" ")}
                   >
                     <div className="overflow-hidden">
-                      <p className="pb-7 pr-12 text-[14px] md:text-[15px] leading-[1.75] text-[#0A1A36]/75 max-w-2xl">
+                      <p className="pb-7 pr-12 text-[14px] md:text-[15px] leading-[1.75] text-[#141210]/75 max-w-2xl">
                         {f.a}
                       </p>
                     </div>
@@ -761,25 +740,16 @@ const FAQ = () => {
 // ═══════════════════════════════════════════════════════════════════════
 const CtaStrip = () => {
   return (
-    <section className="relative bg-[#06122A] text-white overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 90% 50%, rgba(255,199,44,0.18), transparent 55%)",
-        }}
-        aria-hidden="true"
-      />
+    <section className="relative bg-[#0A0806] text-white overflow-hidden">
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-20 max-w-[1440px] mx-auto py-16 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-8">
-            <p className="flex items-center gap-3 text-[11px] font-bold tracking-[0.32em] uppercase text-[#FFC72C] mb-4">
-              <span className="inline-block w-10 h-px" style={{ backgroundColor: "#FFC72C" }} />
+            <p className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.26em] uppercase text-[#E6A032] mb-4">
               Get a tailored proposal
             </p>
-            <h2 className="font-extrabold leading-[1.02] tracking-[-0.02em] text-white text-[32px] md:text-[44px] lg:text-[52px]">
+            <h2 className="font-display font-light leading-[1.02] tracking-[-0.02em] text-white text-[32px] md:text-[44px] lg:text-[52px]">
               Within{" "}
-              <span className="font-light italic" style={{ color: "#FFC72C" }}>
+              <span className="font-light italic" style={{ color: "#E6A032" }}>
                 5 business days
               </span>{" "}
               of your call.
@@ -788,7 +758,7 @@ const CtaStrip = () => {
           <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#FFC72C] hover:bg-[#E6B324] text-[#0A1A36] text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(255,199,44,0.55)] transition-all duration-300"
+              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#E6A032] hover:bg-[#C88C28] text-white text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-[0_10px_30px_-8px_rgba(230,160,50,0.55)] transition-all duration-300"
             >
               Schedule a Call
               <FiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
