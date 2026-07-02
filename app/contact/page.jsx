@@ -257,7 +257,7 @@ const FormAndDetails = () => {
               <ContactMethod
                 Icon={FiMapPin}
                 label="Visit"
-                value="Plot 123, Adetokunbo Ademola Cres, Wuse 2, Abuja"
+                value="Sparkle Plaza, Suite SA6, Road 511, off 1st Avenue, Gwarimpa Estate. Abuja"
                 href="#hq"
               />
               <ContactMethod
@@ -507,7 +507,7 @@ const HQAddress = () => {
             {/* Replace this with a Google Maps / Mapbox embed when available */}
             <iframe
               title="Prime Homes Head Office"
-              src="https://www.google.com/maps?q=Adetokunbo+Ademola+Crescent,+Wuse+2,+Abuja&output=embed"
+              src="https://www.google.com/maps?q=Sparkle+Plaza+Suite+SA6+Road+511+Gwarimpa+Estate+Abuja&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "420px" }}
@@ -542,7 +542,7 @@ const HQAddress = () => {
             >
               Visit us in{" "}
               <span className="font-light italic" style={{ color: "#E6A032" }}>
-                Wuse 2
+                Gwarimpa Estate
               </span>
               .
             </h2>
@@ -555,9 +555,9 @@ const HQAddress = () => {
                     Address
                   </div>
                   <div className="text-[14.5px] text-white">
-                    Plot 123, Adetokunbo Ademola Crescent,<br />
-                    Wuse 2, Abuja<br />
-                    Federal Capital Territory, Nigeria
+                    Sparkle Plaza, Suite SA6,<br />
+                    Road 511, off 1st Avenue,<br />
+                    Gwarimpa Estate. Abuja
                   </div>
                 </div>
               </div>

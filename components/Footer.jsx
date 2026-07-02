@@ -223,7 +223,7 @@ const Footer = () => {
                 <FooterMetaLine
                   Icon={FiMapPin}
                   label="Address"
-                  value="Plot 123, Adetokunbo Ademola Crescent, Wuse 2, Abuja, Nigeria"
+                  value="Sparkle Plaza, Suite SA6, Road 511, off 1st Avenue, Gwarimpa Estate. Abuja"
                 />
                 <FooterContactLink
                   Icon={FiMail}
